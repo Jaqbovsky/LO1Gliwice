@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_mainPage"
+        android:title="@string/menu_mainPage"
+        android:icon="@drawable/ic_home"
+
+        />
+    <item
+        android:id="@+id/menu_clasroomChange"
+        android:title="@string/menu_clasroomChange"
+        android:icon="@drawable/ic_redo"/>
+    <item
+        android:id="@+id/menu_setting"
+        android:title="@string/menu_settings"
+        android:icon="@drawable/ic_settings"/>
+    <item
+        android:id="@+id/menu_information"
+        android:title="@string/menu_information"
+        android:icon="@drawable/ic_information"/>
+
+</menu>

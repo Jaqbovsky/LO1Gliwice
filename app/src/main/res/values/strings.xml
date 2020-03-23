@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">LO1 Gliwice</string>
+    <string name="header_name">I Liceum Ogólnokształcące Dwujęzyczne im. E. Dembowskiego</string>
+
+    <string name="menu_settings">Ustaweinia</string>
+    <string name="menu_mainPage">Strona główna</string>
+    <string name="menu_clasroomChange">Zamiena klas</string>
+    <string name="menu_information">Informacje</string>
+
+    <string name="drawerOpen">drawerOpen</string>
+    <string name="drawerClose">drawerClose</string>
+
 </resources>
