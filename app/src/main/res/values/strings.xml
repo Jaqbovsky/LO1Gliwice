@@ -10,4 +10,11 @@
     <string name="drawerOpen">drawerOpen</string>
     <string name="drawerClose">drawerClose</string>
 
+    <string name="settings_notifications">Powiadomienia</string>
+    <string name="settings_schoolClass">Wybierz klasę</string>
+    <string name="settings_timeOFnotifiations">Ustaw czas powiadomień</string>
+    <string name="yourClass_empty"></string>
+    <string name="title_activity_settings">Settings</string>
+
+
 </resources>

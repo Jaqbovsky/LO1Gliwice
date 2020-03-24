@@ -1,0 +1,19 @@
+<PreferenceScreen
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ListPreference
+        app:defaultValue="@string/yourClass_empty"
+        app:entries="@array/schoolClass_entries"
+        app:entryValues="@array/schoolClass_values"
+        app:key="yourClass"
+        app:title="@string/settings_schoolClass"
+        app:useSimpleSummaryProvider="true"  />
+
+    <CheckBoxPreference
+        app:title="@string/settings_notifications"
+        app:key="notification"
+        app:defaultValue="true"
+        />
+
+
+</PreferenceScreen>

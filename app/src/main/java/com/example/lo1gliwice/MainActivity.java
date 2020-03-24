@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.menu_setting:
                 Toast.makeText(MainActivity.this, "Ustawienia", Toast.LENGTH_SHORT).show();
+                moveToSettingsActivity();
             break;
 
             case R.id.menu_information:
@@ -66,5 +68,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         return false;
+    }
+
+    //CHANGE ACTIVITY
+    private void moveToSettingsActivity(){
+      Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+      startActivity(intent);
     }
 }
