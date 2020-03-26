@@ -15,6 +15,15 @@
     <string name="settings_timeOFnotifiations">Ustaw czas powiadomień</string>
     <string name="yourClass_empty"></string>
     <string name="title_activity_settings">Settings</string>
+    <string name="button_refresh">Ośwież zastępstwa</string>
+    \<string name="button_yourClass">Moja klasa</string>
+    <string name="textview_result" />
+    <string name="textview_date" />
+    <string name="textview_chosenClass" />
+
+
+    <string name="banner_ad_unit_id">ca-app-pub-5148560756834012/6828457331</string>
+
 
 
 </resources>

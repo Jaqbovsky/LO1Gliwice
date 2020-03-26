@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "640473794494",
+    "firebase_url": "https://lo1-gliwice-remake.firebaseio.com",
+    "project_id": "lo1-gliwice-remake",
+    "storage_bucket": "lo1-gliwice-remake.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:640473794494:android:ec5ab5f5152290a3389bef",
+        "android_client_info": {
+          "package_name": "com.example.lo1gliwice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "640473794494-f5tnee3o8l6r4nl0qg9qgf7c76fpn56p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQkeD9D_dPWQ7Kogl44nKpnY2_oA7aVxY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "640473794494-f5tnee3o8l6r4nl0qg9qgf7c76fpn56p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
