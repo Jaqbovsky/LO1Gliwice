@@ -26,7 +26,7 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
     Toolbar toolbar;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
-    
+
     @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +62,7 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
-        switch (menuItem.getItemId()){
+        switch (menuItem.getItemId()) {
             case R.id.menu_mainPage:
                 Toast.makeText(SettingsActivity.this, "Strona główna", Toast.LENGTH_SHORT).show();
                 moveToMainActivity();
@@ -86,19 +86,38 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
     }
 
     //CHANGE ACTIVITY
-    private void moveToSettingsActivity(){
+    private void moveToSettingsActivity() {
         Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
         startActivity(intent);
     }
-    private void moveToMainActivity(){
+
+    private void moveToMainActivity() {
         Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
         startActivity(intent);
     }
 
     public static class SettingsFragment extends PreferenceFragmentCompat {
+
+        public static final String yourClass = "yourClass";
+
+        private SharedPreferences.OnSharedPreferenceChangeListener preferenceChangeListener;
+
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey);
+
+            preferenceChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+                @Override
+                public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+                    if (key.equals(yourClass)) {
+                        Preference yourClass = findPreference(key);
+                        yourClass.setSummary(sharedPreferences.getString(key, ""));
+
+                    }
+                }
+            };
+
         }
+
     }
 }

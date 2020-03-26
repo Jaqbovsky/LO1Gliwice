@@ -5,9 +5,11 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.preference.PreferenceManager;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -54,13 +56,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     //STRINGS
     String chosenClass;
-    //INT'S
+    public static final String PREF_YOUR_CLASS = "yourClass";
 
+    //INT'S
+    int resultLength;
     //BOOLEANS
 
     //TEXTVIEW'S
     TextView chosenClass_TV;
     TextView date_TV;
+    TextView result_TV;
 
     //BUTTONS
     Button btn_refresh;
@@ -93,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //TEXTVIEW'S
         chosenClass_TV = findViewById(R.id.textView_chosenClass);
         date_TV = findViewById(R.id.textView_date);
+        result_TV = findViewById(R.id.textView_result);
 
         //SIDEBAR MENU
         drawerLayout = findViewById(R.id.drawer);
@@ -119,7 +125,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         btn_refresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                chosenClass = "IAp";
+                chosenClass_TV.setText("Wybrałeś klasę: " + chosenClass);
+                new doit().execute();
             }
         });
 
@@ -127,7 +134,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         btn_yourClass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                readSettings();
+                chosenClass_TV.setText("Wybrałeś klasę: " + chosenClass);
+                new doit().execute();
             }
         });
 
@@ -135,7 +144,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         chosenClass = parent.getItemAtPosition(position).toString();
-        chosenClass_TV.setText(chosenClass);
+        chosenClass_TV.setText("Wybrałeś klasę: " + chosenClass);
         new doit().execute();
     }
 
@@ -180,6 +189,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public class doit extends AsyncTask<Void, Void, Void> {
 
         String result;
+        String date;
 
         @Override
         protected Void doInBackground(Void... params) {
@@ -195,9 +205,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     case "IBp": result = doc.select("p:contains(IBp)").text(); break;
                     case "ICp": result = doc.select("p:contains(ICp)").text(); break;
                     case "IDp": result = doc.select("p:contains(IDp)").text(); break;
-                    case "IEp": result = doc.select("p:contains()").text(); break;
+                    case "IEp": result = doc.select("p:contains(IEp)").text(); break;
+                    case "IAg": result = doc.select("p:contains(IAg)").text(); break;
+                    case "IBg": result = doc.select("p:contains(IBg)").text(); break;
+                    case "ICg": result = doc.select("p:contains(ICg)").text(); break;
+                    case "IDg": result = doc.select("p:contains(IDg)").text(); break;
+                    case "IEg": result = doc.select("p:contains(IEg)").text(); break;
+                    case "IIa": result = doc.select("p:contains(IIa)").text(); break;
+                    case "IIb": result = doc.select("p:contains(IIb)").text(); break;
+                    case "IIc": result = doc.select("p:contains(IIc)").text(); break;
+                    case "IIIa": result = doc.select("p:contains(IIIa)").text(); break;
+                    case "IIIb": result = doc.select("p:contains(IIIb)").text(); break;
+                    case "IIIc": result = doc.select("p:contains(IIIc)").text(); break;
+                    case "TEST": result = doc.select("h1").text(); break;
                 }
 
+                String date = doc.select("u").text();
 
 
             } catch (IOException e) {
@@ -210,8 +233,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-                chosenClass_TV.setText(result);
-                date_TV.setText(result);
+                date_TV.setText(date);
+                result_TV.setText(result);
         }
+    }
+
+    //READ SETTINGS
+    public void readSettings(){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        chosenClass = sharedPreferences.getString(PREF_YOUR_CLASS, "Wybierz klasę");
     }
 }
