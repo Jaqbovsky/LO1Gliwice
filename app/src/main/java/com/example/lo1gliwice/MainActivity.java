@@ -154,10 +154,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (menuItem.getItemId()){
             case R.id.menu_mainPage:
                 Toast.makeText(MainActivity.this, "Strona główna", Toast.LENGTH_SHORT).show();
+                moveToMainActivity();
             break;
 
-            case R.id.menu_clasroomChange:
+            case R.id.menu_classSwap:
                 Toast.makeText(MainActivity.this, "Zamiana klas", Toast.LENGTH_SHORT).show();
+                moveToclassSwapActivity();
             break;
 
             case R.id.menu_setting:
@@ -167,16 +169,42 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.menu_information:
                 Toast.makeText(MainActivity.this, "Informacje", Toast.LENGTH_SHORT).show();
+                moveToInfoActivity();
             break;
+
+            case R.id.menu_news:
+                Toast.makeText(MainActivity.this, "Aktualnosci", Toast.LENGTH_SHORT).show();
+                moveToNewsActivity();
+                break;
         }
 
         return false;
     }
 
     //CHANGE ACTIVITY
+    private void moveToMainActivity() {
+        Intent intent = new Intent(MainActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
+
     private void moveToSettingsActivity(){
       Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
       startActivity(intent);
+    }
+
+    private void moveToclassSwapActivity(){
+        Intent intent = new Intent(MainActivity.this, classSwapActivity.class);
+        startActivity(intent);
+    }
+
+    private void moveToInfoActivity(){
+        Intent intent = new Intent(MainActivity.this, infoActivity.class);
+        startActivity(intent);
+    }
+
+    private void moveToNewsActivity(){
+        Intent intent = new Intent(MainActivity.this, newsActivity.class);
+        startActivity(intent);
     }
 
 

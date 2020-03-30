@@ -68,8 +68,9 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
                 moveToMainActivity();
                 break;
 
-            case R.id.menu_clasroomChange:
+            case R.id.menu_classSwap:
                 Toast.makeText(SettingsActivity.this, "Zamiana klas", Toast.LENGTH_SHORT).show();
+                moveToclassSwapActivity();
                 break;
 
             case R.id.menu_setting:
@@ -79,6 +80,12 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
 
             case R.id.menu_information:
                 Toast.makeText(SettingsActivity.this, "Informacje", Toast.LENGTH_SHORT).show();
+                moveToInfoActivity();
+                break;
+
+            case R.id.menu_news:
+                Toast.makeText(SettingsActivity.this, "Aktualnosci", Toast.LENGTH_SHORT).show();
+                moveToNewsActivity();
                 break;
         }
 
@@ -93,6 +100,20 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
 
     private void moveToMainActivity() {
         Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    private void moveToclassSwapActivity(){
+        Intent intent = new Intent(SettingsActivity.this, classSwapActivity.class);
+        startActivity(intent);
+    }
+
+    private void moveToInfoActivity(){
+        Intent intent = new Intent(SettingsActivity.this, infoActivity.class);
+        startActivity(intent);
+    }
+    private void moveToNewsActivity(){
+        Intent intent = new Intent(SettingsActivity.this, newsActivity.class);
         startActivity(intent);
     }
 
