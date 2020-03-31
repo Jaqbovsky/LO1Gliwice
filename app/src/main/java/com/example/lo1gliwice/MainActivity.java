@@ -23,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
@@ -46,8 +47,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     //ADS
     private static final String TAG = "MainActivity";
-
     private AdView mAdView;
+
     //SIDEBAR MENU
     DrawerLayout drawerLayout;
     Toolbar toolbar;
@@ -81,12 +82,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
+                //ADS - banner
+                mAdView = findViewById(R.id.adView);
+                AdRequest adRequest = new AdRequest.Builder().build();
+                mAdView.loadAd(adRequest);
+
             }
         });
-            //ADS - banner
-            mAdView = findViewById(R.id.adView);
-            AdRequest adRequest = new AdRequest.Builder().build();
-            mAdView.loadAd(adRequest);
+
+
 
         // Obtain the FirebaseAnalytics instance.
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
@@ -271,4 +275,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         chosenClass = sharedPreferences.getString(PREF_YOUR_CLASS, "Wybierz klasę");
     }
+
+    //ADS
+
 }
