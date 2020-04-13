@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     tools:context=".infoActivity"
-    android:id="@+id/drawer">
+    android:id="@+id/drawer"
+    android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

@@ -1,6 +1,5 @@
 <resources>
-    <string name="textview_version">"Aktualna wersja:  beta 0.2.2"</string>
-    <string name="version">0.2</string>
+    <string name="textview_version">"Aktualna wersja:  beta 0.3"</string>
     <string name="app_name">LO1 Gliwice</string>
     <string name="header_name">I Liceum Ogólnokształcące Dwujęzyczne im. E. Dembowskiego</string>
 
