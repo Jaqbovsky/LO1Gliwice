@@ -1,5 +1,5 @@
 <resources>
-    <string name="textview_version">"Aktualna wersja: 0.2"</string>
+    <string name="textview_version">"Aktualna wersja:  beta 0.2.2"</string>
     <string name="version">0.2</string>
     <string name="app_name">LO1 Gliwice</string>
     <string name="header_name">I Liceum Ogólnokształcące Dwujęzyczne im. E. Dembowskiego</string>
@@ -26,9 +26,13 @@
 
 
     <string name="banner_ad_unit_id">ca-app-pub-6373386798183476/8160917974</string>
+    <string name="banner_ad_unit_id_test">ca-app-pub-3940256099942544/6300978111</string>
     <string name="classSwap">Zamiana klas</string>
     <string name="button_classSwap">Pokaż zamianę klas</string>
-    <string name="textview_creator">Storzone przez Jakuba Olszewskiego</string>
+
+    <string name="textview_creator">Stworzone przez Jakuba Olszewskiego</string>
+    <string name="textview_github"></string>
+    <string name="textview_watchAd"></string>
 
 
 </resources>

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.lo1gliwice">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,13 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".newsActivity"></activity>
+        <activity android:name=".newsActivity_article"></activity>
+        <activity android:name=".newsActivity" />
         <activity android:name=".infoActivity" />
         <activity android:name=".classSwapActivity" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-6373386798183476~7251446395" />
+            android:value="ca-app-pub-3940256099942544~3347511713" />
 
         <activity
             android:name=".SettingsActivity"

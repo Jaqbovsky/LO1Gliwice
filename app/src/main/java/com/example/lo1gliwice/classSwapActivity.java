@@ -12,10 +12,15 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.navigation.NavigationView;
 
 public class classSwapActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    //ADS
+    private AdView mAdView;
 
     //SIDEBAR MENU
     DrawerLayout drawerLayout;
@@ -40,6 +45,12 @@ public class classSwapActivity extends AppCompatActivity implements NavigationVi
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        //MobileAds.initialize(this,"ca-app-pub-6373386798183476~7251446395");
+        MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     //

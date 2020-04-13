@@ -8,20 +8,50 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.rewarded.RewardItem;
+import com.google.android.gms.ads.rewarded.RewardedAd;
+import com.google.android.gms.ads.rewarded.RewardedAdCallback;
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 import com.google.android.material.navigation.NavigationView;
 
 public class infoActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    public static final String TAG = "infoActivity";
+
+    //ADS
+    private AdView mAdView;
 
     //SIDEBAR MENU
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
+
+    //Textview
+    TextView github_TV;
+    String gitHub = "Repozytorium GitHub dostępne TUTAJ";
+    TextView watchAd_TV;
+    String watchAd = "Wesprzyj mnie i obejrzyj reklamę klikając TUTAJ";
+
+    //Ad
+    private RewardedAd rewardedAd;
 
     @SuppressLint("RestrictedApi")
     @Override
@@ -40,6 +70,47 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        //ADS
+        MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
+        loadAd();
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+       //TEXTVIEW
+        github_TV = findViewById(R.id.textView_github);
+
+            //ANNOTATION GIT REPOSITORY
+            SpannableString spannableString_git =  new SpannableString(gitHub);
+            ClickableSpan clickableSpan_git = new ClickableSpan() {
+                @Override
+                public void onClick(@NonNull View widget) {
+                    openGIT("https://github.com/Jaqbovsky/LO1Gliwice");
+                }
+            };
+
+            spannableString_git.setSpan(clickableSpan_git,29,34, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            github_TV.setText(spannableString_git);
+            github_TV.setMovementMethod(LinkMovementMethod.getInstance());
+
+        watchAd_TV = findViewById(R.id.textView_watchAd);
+
+            //ANNOTATION WATCH AD
+            SpannableString spannableString_watchAd = new SpannableString(watchAd);
+            ClickableSpan clickableSpan_watchAd = new ClickableSpan() {
+                @Override
+                public void onClick(@NonNull View widget) {
+
+                    showAd();
+                }
+            };
+
+            spannableString_watchAd.setSpan(clickableSpan_watchAd, 42,47, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            watchAd_TV.setText(spannableString_watchAd);
+            watchAd_TV.setMovementMethod(LinkMovementMethod.getInstance());
+
+
     }
 
     //
@@ -105,5 +176,54 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
         startActivity(intent);
     }
 
+    //OPENNING WEBBROSER
+    public void openGIT(String url){
+        Uri uri = Uri.parse(url);
+        Intent launchWeb = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(launchWeb);
+    }
 
+    public void loadAd(){
+        //this.rewardedAd = new RewardedAd(this, "ca-app-pub-6373386798183476/7988579463");
+        this.rewardedAd = new RewardedAd(this, "ca-app-pub-3940256099942544/5224354917");
+        RewardedAdLoadCallback loadCallback = new RewardedAdLoadCallback(){
+            @Override
+            public void onRewardedAdFailedToLoad(int i) {
+                super.onRewardedAdFailedToLoad(i);
+                Log.i(TAG, "onRewardedAdFailedToLoad");
+            }
+
+            @Override
+            public void onRewardedAdLoaded() {
+                super.onRewardedAdLoaded();
+                Log.i(TAG, "onRewardedAdLoaded");
+            }
+        };
+        this.rewardedAd.loadAd(new AdRequest.Builder().build(), loadCallback);
+    }
+    public void showAd(){
+        if (this.rewardedAd.isLoaded()){
+            RewardedAdCallback rewardedAdCallback = new RewardedAdCallback() {
+                @Override
+                public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
+                    Log.i(TAG, "OnUserEarnedReward");
+                }
+
+                @Override
+                public void onRewardedAdOpened() {
+                    super.onRewardedAdOpened();
+                    Log.i(TAG, "onRewardedAdOpened");
+                }
+
+                @Override
+                public void onRewardedAdClosed() {
+                    super.onRewardedAdClosed();
+                    Log.i(TAG,"onRewardedAdClosed");
+                }
+            };
+            this.rewardedAd.show(this, rewardedAdCallback);
+        }else{
+            Log.i(TAG,"Ad not loaded");
+        }
+    }
 }

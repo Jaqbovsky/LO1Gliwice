@@ -17,9 +17,15 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.navigation.NavigationView;
 
 public class SettingsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    //ADS
+    private AdView mAdView;
 
     //SIDEBAR MENU
     DrawerLayout drawerLayout;
@@ -57,6 +63,12 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        //ADS
+        MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override

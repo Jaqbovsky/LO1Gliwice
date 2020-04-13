@@ -12,7 +12,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -23,15 +22,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 
 //JSOUP
-import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
@@ -46,9 +41,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     //ADS
-    private static final String TAG = "MainActivity";
-    private AdView mAdView;
-
+        private AdView mAdView;
     //SIDEBAR MENU
     DrawerLayout drawerLayout;
     Toolbar toolbar;
@@ -79,24 +72,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
         //ADS
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-                //ADS - banner
-                mAdView = findViewById(R.id.adView);
-                AdRequest adRequest = new AdRequest.Builder().build();
-                mAdView.loadAd(adRequest);
-
-            }
-        });
-
-
-
-        // Obtain the FirebaseAnalytics instance.
+       //MobileAds.initialize(this,"ca-app-pub-6373386798183476~7251446395");
+        MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+        // Obtain the FirebaseAnalytics instanc e.
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         //BUTTONS
-        btn_refresh = findViewById(R.id.button_refresh);
+        btn_refresh = findViewById(R.id.button_goBack);
         btn_yourClass = findViewById(R.id.button_yourClass);
 
         //TEXTVIEW'S
@@ -228,7 +213,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             Document doc = null;
             try {
-                doc = Jsoup.connect("http://www.lo1.gliwice.pl/").get();
+                doc = Jsoup.connect("http://www.lo1.gliwice.pl/").userAgent("Mozilla/5.0").get();
                 Elements temp = doc.select("div#post-3833");//Selecting div}
                     // result = doc.select("p:contains(IIID)").text();
 
