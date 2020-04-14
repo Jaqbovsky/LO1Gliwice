@@ -184,8 +184,8 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void loadAd(){
-        //this.rewardedAd = new RewardedAd(this, "ca-app-pub-6373386798183476/7988579463");
-        this.rewardedAd = new RewardedAd(this, "ca-app-pub-3940256099942544/5224354917");
+        this.rewardedAd = new RewardedAd(this, "ca-app-pub-6373386798183476/7988579463");
+        //test//this.rewardedAd = new RewardedAd(this, "ca-app-pub-3940256099942544/5224354917");
         RewardedAdLoadCallback loadCallback = new RewardedAdLoadCallback(){
             @Override
             public void onRewardedAdFailedToLoad(int i) {
