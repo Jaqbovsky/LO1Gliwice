@@ -1,3 +1,10 @@
+
+//----------------------------------------//
+// created by: Jakub Olszewski            //
+// idea for applications: Jakub Olszewski //
+//          All rights reserved           //
+//----------------------------------------//
+
 package com.example.lo1gliwice;
 
 import androidx.annotation.NonNull;
