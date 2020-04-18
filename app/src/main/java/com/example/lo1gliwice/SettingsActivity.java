@@ -1,7 +1,7 @@
 
 //----------------------------------------//
 // created by: Jakub Olszewski            //
-// idea for applications: Jakub Olszewski //
+// idea for application: Jakub Olszewski //
 //          All rights reserved           //
 //----------------------------------------//
 
@@ -62,7 +62,7 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
         //SAVING SETTINGS
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         sp.getBoolean("notification", true);
-        sp.getString("yourClass", "-1");
+        sp.getString("yourClass", "Wybierz");
 
         //SIDEBAR MENU
         drawerLayout = findViewById(R.id.drawer);
@@ -160,7 +160,7 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
                 public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
                     if (key.equals(yourClass)) {
                         Preference yourClass = findPreference(key);
-                        yourClass.setSummary(sharedPreferences.getString(key, ""));
+                        yourClass.setSummary(sharedPreferences.getString(key, "Wybierz"));
 
                     }
                 }

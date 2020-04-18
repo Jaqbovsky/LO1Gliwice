@@ -1,7 +1,7 @@
 
 //----------------------------------------//
 // created by: Jakub Olszewski            //
-// idea for applications: Jakub Olszewski //
+// idea for application: Jakub Olszewski //
 //          All rights reserved           //
 //----------------------------------------//
 
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+         mAdView.loadAd(adRequest);
         // Obtain the FirebaseAnalytics instanc e.
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
@@ -132,6 +132,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View v) {
                 readSettings();
+
+
                 chosenClass_TV.setText("Wybrałeś klasę: " + chosenClass);
                 new doit().execute();
             }
@@ -221,9 +223,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             Document doc = null;
             try {
-                doc = Jsoup.connect("http://www.lo1.gliwice.pl/").userAgent("Mozilla/5.0").get();
-                Elements temp = doc.select("div#post-3833");//Selecting div}
-                    // result = doc.select("p:contains(IIID)").text();
+                doc = Jsoup.connect("http://www.lo1.gliwice.pl/zastepstwa-2/").userAgent("Mozilla/5.0").get();
 
                 switch (chosenClass){
                     case "IAp": result = doc.select("p:contains(IAp)").text(); break;
@@ -243,10 +243,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     case "IIIb": result = doc.select("p:contains(IIIb)").text(); break;
                     case "IIIc": result = doc.select("p:contains(IIIc)").text(); break;
                     case "TEST": result = doc.select("h1").text(); break;
+                    case "Wybierz": result = "Klasa nie wybrana";
+                    Toast.makeText(MainActivity.this, "Przejź do ustawień aby wybrać swoją klasę.", Toast.LENGTH_SHORT).show(); break;
                 }
 
-                String date = doc.select("u").text();
+                date = doc.select("u").text();
 
+                int length = 0;
+                length = result.length();
+
+
+                if(length == 0){
+                    result = "Brak zastępstw";
+                }
+
+                result = result.replace("1l","\n1l").replace("2l","\n2l").replace("3l","\n3l")
+                        .replace("4l","\n4l").replace("5l","\n5l").replace("6l","\n6l")
+                        .replace("7l","\n7l").replace("8l","\n8l").replace("9l","\n9l");
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -266,7 +279,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //READ SETTINGS
     public void readSettings(){
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        chosenClass = sharedPreferences.getString(PREF_YOUR_CLASS, "Wybierz klasę");
+        chosenClass = sharedPreferences.getString(PREF_YOUR_CLASS, "Wybierz");
     }
 
     //ADS

@@ -1,7 +1,7 @@
 
 //----------------------------------------//
 // created by: Jakub Olszewski            //
-// idea for applications: Jakub Olszewski //
+// idea for application: Jakub Olszewski //
 //          All rights reserved           //
 //----------------------------------------//
 
@@ -53,9 +53,11 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
 
     //Textview
     TextView github_TV;
-    String gitHub = "Repozytorium GitHub dostępne TUTAJ";
+    String gitHub = "Repozytorium GitHub dostępne \nTUTAJ";
     TextView watchAd_TV;
-    String watchAd = "Wesprzyj mnie i obejrzyj reklamę klikając TUTAJ";
+    String watchAd = "Wesprzyj mnie i obejrzyj reklamę \nklikając TUTAJ";
+    TextView feedback_TV;
+    String feedback= "Znalazłeś błąd lub chcesz zasugerować zmainę, \nkliknij TUTAJ.";
 
     //Ad
     private RewardedAd rewardedAd;
@@ -97,7 +99,7 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
                 }
             };
 
-            spannableString_git.setSpan(clickableSpan_git,29,34, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            spannableString_git.setSpan(clickableSpan_git,29,35, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             github_TV.setText(spannableString_git);
             github_TV.setMovementMethod(LinkMovementMethod.getInstance());
 
@@ -113,9 +115,24 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
                 }
             };
 
-            spannableString_watchAd.setSpan(clickableSpan_watchAd, 42,47, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            spannableString_watchAd.setSpan(clickableSpan_watchAd, 43,48, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             watchAd_TV.setText(spannableString_watchAd);
             watchAd_TV.setMovementMethod(LinkMovementMethod.getInstance());
+
+        feedback_TV = findViewById(R.id.textView_feedback);
+
+        //ANNOTATION feedback
+        SpannableString spannableString_feedback = new SpannableString(feedback);
+        ClickableSpan clickableSpan_feedback = new ClickableSpan() {
+            @Override
+            public void onClick(@NonNull View widget) {
+                moveToFeedbackActivity();
+            }
+        };
+
+        spannableString_feedback.setSpan(clickableSpan_feedback,55,60, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        feedback_TV.setText(spannableString_feedback);
+        feedback_TV.setMovementMethod(LinkMovementMethod.getInstance());
 
 
     }
@@ -181,6 +198,11 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
     private void moveToNewsActivity(){
         Intent intent = new Intent(infoActivity.this, newsActivity.class);
         startActivity(intent);
+    }
+
+    private void moveToFeedbackActivity(){
+    Intent intent = new Intent(infoActivity.this, feedbackActivity.class);
+    startActivity(intent);
     }
 
     //OPENNING WEBBROSER

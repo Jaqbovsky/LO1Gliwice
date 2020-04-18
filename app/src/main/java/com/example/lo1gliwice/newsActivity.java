@@ -1,7 +1,7 @@
 
 //----------------------------------------//
 // created by: Jakub Olszewski            //
-// idea for applications: Jakub Olszewski //
+// idea for application: Jakub Olszewski //
 //          All rights reserved           //
 //----------------------------------------//
 
@@ -236,7 +236,7 @@ public class newsActivity extends AppCompatActivity implements NavigationView.On
 
                 for (Element title : titles) {
                     if (a <= 10) {
-                        stringBuilder.append("\n").append("(").append(a).append(") ").append(title.text()).append("\n");
+                        stringBuilder.append("\n").append(a).append(". ").append(title.text()).append("\n");
                         a = a + 1;
 
                     }
@@ -254,16 +254,16 @@ public class newsActivity extends AppCompatActivity implements NavigationView.On
                 S_link = stringBuilder_link.toString();
 
 
-                title1 = str.substring(0,str.indexOf("(2)"));
-                title2 = str.substring(0,str.indexOf("(3)")).substring(str.indexOf("(2)"));
-                title3 = str.substring(0,str.indexOf("(4)")).substring(str.indexOf("(3)"));
-                title4 = str.substring(0,str.indexOf("(5)")).substring(str.indexOf("(4)"));
-                title5 = str.substring(0,str.indexOf("(6)")).substring(str.indexOf("(5)"));
-                title6 = str.substring(0,str.indexOf("(7)")).substring(str.indexOf("(6)"));
-                title7 = str.substring(0,str.indexOf("(8)")).substring(str.indexOf("(7)"));
-                title8 = str.substring(0,str.indexOf("(9)")).substring(str.indexOf("(8)"));
-                title9 = str.substring(0,str.indexOf("(10)")).substring(str.indexOf("(9)"));
-                title10 = str.substring(str.indexOf("(10)"));
+                title1 = str.substring(0,str.indexOf("2."));
+                title2 = str.substring(0,str.indexOf("3.")).substring(str.indexOf("2."));
+                title3 = str.substring(0,str.indexOf("4.")).substring(str.indexOf("3."));
+                title4 = str.substring(0,str.indexOf("5.")).substring(str.indexOf("4."));
+                title5 = str.substring(0,str.indexOf("6.")).substring(str.indexOf("5."));
+                title6 = str.substring(0,str.indexOf("7.")).substring(str.indexOf("6."));
+                title7 = str.substring(0,str.indexOf("8.")).substring(str.indexOf("7."));
+                title8 = str.substring(0,str.indexOf("9.")).substring(str.indexOf("8."));
+                title9 = str.substring(0,str.indexOf("10.")).substring(str.indexOf("9."));
+                title10 = str.substring(str.indexOf("10."));
 
                 link1 = S_link.substring(0,S_link.indexOf("(2)"));
                 link2 = S_link.substring(0,S_link.indexOf("(3)")).substring(S_link.indexOf("(2)"));
@@ -306,7 +306,7 @@ public class newsActivity extends AppCompatActivity implements NavigationView.On
     }
     public void showTitle1(View view) {
         Intent intent = new Intent(newsActivity.this, newsActivity_article.class);
-        title1 = title1.replace("(1)","");
+        title1 = title1.replace("1.","");
         link1 = link1.replace("(1)","");
         intent.putExtra("LINK", link1);
         intent.putExtra("TITLE",title1);
@@ -314,7 +314,7 @@ public class newsActivity extends AppCompatActivity implements NavigationView.On
     }
     public void showTitle2(View view) {
         Intent intent = new Intent(newsActivity.this, newsActivity_article.class);
-        title2 = title2.replace("(2)","");
+        title2 = title2.replace("2.","");
         link2 = link2.replace("(2)","");
         intent.putExtra("LINK", link2);
         intent.putExtra("TITLE",title2);
@@ -322,7 +322,7 @@ public class newsActivity extends AppCompatActivity implements NavigationView.On
     }
     public void showTitle3(View view) {
         Intent intent = new Intent(newsActivity.this, newsActivity_article.class);
-        title3 = title3.replace("(3)","");
+        title3 = title3.replace("3.","");
         link3 = link3.replace("(3)","");
         intent.putExtra("LINK", link3);
         intent.putExtra("TITLE",title3);
@@ -330,7 +330,7 @@ public class newsActivity extends AppCompatActivity implements NavigationView.On
     }
     public void showTitle4(View view) {
         Intent intent = new Intent(newsActivity.this, newsActivity_article.class);
-        title4 = title4.replace("(4)","");
+        title4 = title4.replace("4.","");
         link4 = link4.replace("(4)","");
         intent.putExtra("LINK", link4);
         intent.putExtra("TITLE",title4);
@@ -338,7 +338,7 @@ public class newsActivity extends AppCompatActivity implements NavigationView.On
     }
     public void showTitle5(View view) {
         Intent intent = new Intent(newsActivity.this, newsActivity_article.class);
-        title5 = title5.replace("(5)","");
+        title5 = title5.replace("5.","");
         link5 = link5.replace("(5)","");
         intent.putExtra("LINK", link5);
         intent.putExtra("TITLE",title5);
@@ -346,7 +346,7 @@ public class newsActivity extends AppCompatActivity implements NavigationView.On
     }
     public void showTitle6(View view) {
         Intent intent = new Intent(newsActivity.this, newsActivity_article.class);
-        title6 = title6.replace("(6)","");
+        title6 = title6.replace("6.","");
         link6 = link6.replace("(6)","");
         intent.putExtra("LINK", link6);
         intent.putExtra("TITLE",title6);
@@ -354,7 +354,7 @@ public class newsActivity extends AppCompatActivity implements NavigationView.On
     }
     public void showTitle7(View view) {
         Intent intent = new Intent(newsActivity.this, newsActivity_article.class);
-        title7 = title7.replace("(7)","");
+        title7 = title7.replace("7.","");
         link7 = link7.replace("(7)","");
         intent.putExtra("LINK", link7);
         intent.putExtra("TITLE",title7);
@@ -362,7 +362,7 @@ public class newsActivity extends AppCompatActivity implements NavigationView.On
     }
     public void showTitle8(View view) {
         Intent intent = new Intent(newsActivity.this, newsActivity_article.class);
-        title8 = title8.replace("(8)","");
+        title8 = title8.replace("8.","");
         link8 = link8.replace("(8)","");
         intent.putExtra("LINK", link8);
         intent.putExtra("TITLE",title8);
@@ -370,7 +370,7 @@ public class newsActivity extends AppCompatActivity implements NavigationView.On
     }
     public void showTitle9(View view) {
         Intent intent = new Intent(newsActivity.this, newsActivity_article.class);
-        title9 = title9.replace("(9)","");
+        title9 = title9.replace("9.","");
         link9 = link9.replace("(9)","");
         intent.putExtra("LINK", link9);
         intent.putExtra("TITLE",title9);
@@ -378,7 +378,7 @@ public class newsActivity extends AppCompatActivity implements NavigationView.On
     }
     public void showTitle10(View view) {
         Intent intent = new Intent(newsActivity.this, newsActivity_article.class);
-        title10 = title10.replace("(10)","");
+        title10 = title10.replace("10.","");
         link10 = link10.replace("(10)","");
         intent.putExtra("LINK", link10);
         intent.putExtra("TITLE",title10);

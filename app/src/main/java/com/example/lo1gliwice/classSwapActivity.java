@@ -1,7 +1,7 @@
 
 //----------------------------------------//
 // created by: Jakub Olszewski            //
-// idea for applications: Jakub Olszewski //
+// idea for application: Jakub Olszewski //
 //          All rights reserved           //
 //----------------------------------------//
 

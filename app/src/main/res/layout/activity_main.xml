@@ -127,7 +127,7 @@
                 android:background="@color/colorPrimary"
                 android:text="@string/button_refresh"
                 android:textAllCaps="false"
-                android:textColor="@color/textColor"
+                android:textColor="@color/textColorTest"
                 android:textSize="13sp"
                 android:typeface="normal"
                 app:layout_constraintEnd_toEndOf="parent"

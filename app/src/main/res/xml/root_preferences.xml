@@ -9,11 +9,7 @@
         app:title="@string/settings_schoolClass"
         app:useSimpleSummaryProvider="true"  />
 
-    <CheckBoxPreference
-        app:title="@string/settings_notifications"
-        app:key="notification"
-        app:defaultValue="true"
-        />
+
 
 
 </PreferenceScreen>
