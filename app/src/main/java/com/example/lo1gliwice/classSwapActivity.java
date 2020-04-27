@@ -1,9 +1,7 @@
 
-//----------------------------------------//
-// created by: Jakub Olszewski            //
-// idea for application: Jakub Olszewski //
-//          All rights reserved           //
-//----------------------------------------//
+//-----------------------------//
+// created by: Jakub Olszewski //
+//-----------------------------//
 
 package com.example.lo1gliwice;
 
@@ -90,9 +88,14 @@ public class classSwapActivity extends AppCompatActivity implements NavigationVi
                 break;
 
             case R.id.menu_news:
-            Toast.makeText(classSwapActivity.this, "Aktualnosci", Toast.LENGTH_SHORT).show();
-           moveToNewsActivity();
+                Toast.makeText(classSwapActivity.this, "Aktualnosci", Toast.LENGTH_SHORT).show();
+                moveToNewsActivity();
             break;
+
+            case R.id.menu_about_school:
+                Toast.makeText(classSwapActivity.this,"O szkole", Toast.LENGTH_SHORT).show();
+                moveToAboutSchoolActivity();
+                break;
         }
 
         return false;
@@ -120,6 +123,11 @@ public class classSwapActivity extends AppCompatActivity implements NavigationVi
     }
     private void moveToNewsActivity(){
         Intent intent = new Intent(classSwapActivity.this, newsActivity.class);
+        startActivity(intent);
+    }
+
+    private void moveToAboutSchoolActivity(){
+        Intent intent = new Intent(classSwapActivity.this, aboutSchoolActivity.class);
         startActivity(intent);
     }
 

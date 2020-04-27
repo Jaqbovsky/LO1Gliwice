@@ -1,9 +1,7 @@
 
-//----------------------------------------//
-// created by: Jakub Olszewski            //
-// idea for application: Jakub Olszewski //
-//          All rights reserved           //
-//----------------------------------------//
+//-----------------------------//
+// created by: Jakub Olszewski //
+//-----------------------------//
 
 package com.example.lo1gliwice;
 
@@ -81,7 +79,7 @@ public class feedbackActivity extends AppCompatActivity implements NavigationVie
 
         String UniqueID = Settings.Secure.getString(getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
 
-        firebase = new Firebase("https://lo1-gliwice-remake.firebaseio.com/Users" + UniqueID);
+        firebase = new Firebase("https://lo1-gliwice-remake.firebaseio.com/  " + UniqueID);
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -166,6 +164,11 @@ public class feedbackActivity extends AppCompatActivity implements NavigationVie
                 Toast.makeText(feedbackActivity.this, "Aktualnosci", Toast.LENGTH_SHORT).show();
                 moveToNewsActivity();
                 break;
+
+            case R.id.menu_about_school:
+                Toast.makeText(feedbackActivity.this,"O szkole", Toast.LENGTH_SHORT).show();
+                moveToAboutSchoolActivity();
+                break;
         }
 
         return false;
@@ -200,6 +203,11 @@ public class feedbackActivity extends AppCompatActivity implements NavigationVie
         Intent intent = new Intent(feedbackActivity.this, feedbackActivity.class);
         startActivity(intent);
     }
+    private void moveToAboutSchoolActivity(){
+        Intent intent = new Intent(feedbackActivity.this, aboutSchoolActivity.class);
+        startActivity(intent);
+    }
+
 
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {

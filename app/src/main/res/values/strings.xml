@@ -14,7 +14,7 @@
     <string name="settings_notifications">Powiadomienia</string>
     <string name="settings_schoolClass">Wybierz klasę</string>
     <string name="settings_timeOFnotifiations">Ustaw czas powiadomień</string>
-    <string name="yourClass_empty"></string>
+    <string name="yourClass_empty" />
     <string name="title_activity_settings">Settings</string>
     <string name="button_refresh">Ośwież zastępstwa</string>
 
@@ -30,10 +30,21 @@
     <string name="button_classSwap">Pokaż zamianę klas</string>
 
     <string name="textview_creator">Stworzone przez Jakuba Olszewskiego</string>
-    <string name="textview_github"></string>
-    <string name="textview_watchAd"></string>
+    <string name="textview_github" />
+    <string name="textview_watchAd" />
     <string name="button_send">Wyślij</string>
     <string name="button_details">Zobacz wysłaną wiadomość</string>
+    <string name="todo">TODO</string>
+    <string name="imie">Imię</string>
+    <string name="wiadomosc">Wiadomość</string>
+    <string name="email">Email</string>
+
+    <string name="powr_t">Powrót</string>
+    <string name="menu_about_school">O szkole</string>
+    <string name="menu_news">Aktualności</string>
+    <string name="button_achievements">Osiągnięcia</string>
+    <string name="button_for_candidates">Dla kandydatów</string>
+    <string name="button_organization_of_the_school_year">Organizacja roku szkolnego</string>
 
 
 </resources>

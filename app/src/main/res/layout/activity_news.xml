@@ -5,10 +5,8 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context=".newsActivity"
-    android:id="@+id/drawer"
-    tools:openDrawer="end">
+    android:id="@+id/drawer">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -22,34 +20,45 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="@android:dimen/app_icon_size"
-                android:layout_marginLeft="0dp">
+                android:layout_marginLeft="0dp"
+                android:layout_marginStart="0dp">
 
                 <ImageView
                     android:id="@+id/imageView"
-                    android:layout_width="97dp"
-                    android:layout_height="27dp"
-
-                    android:contentDescription="TODO"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="250dp"
+                    android:layout_marginLeft="250dp"
+                    android:layout_marginTop="-1dp"
+                    android:contentDescription="@string/todo"
                     android:scaleType="fitCenter"
                     android:src="@drawable/logo_zso10_toolbar"
+                    app:layout_constraintBottom_toTopOf="@+id/textView"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
                     android:id="@+id/textView"
-                    android:layout_width="163dp"
-                    android:layout_height="20dp"
-                    android:gravity="right"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="128dp"
+                    android:layout_marginLeft="128dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:gravity="end"
                     android:text="@string/header_name"
                     android:textColor="@color/textColor"
                     android:textIsSelectable="false"
-                    android:textSize="9dp"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.931"
+                    app:layout_constraintHorizontal_bias="0.49"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageView"
+                    app:layout_constraintVertical_bias="1.0" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -64,6 +73,10 @@
                 android:id="@+id/adView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
                 android:layout_marginBottom="32dp"
                 ads:adSize="BANNER"
                 ads:adUnitId="@string/banner_ad_unit_id"
@@ -83,7 +96,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical" >
 
                     <TextView
@@ -112,30 +125,6 @@
                         android:textColor="@color/colorPrimary"/>
 
                     <TextView
-                        android:id="@+id/textView_title4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:onClick="showTitle4"
-                        android:textColor="@color/colorPrimary"/>
-
-                    <TextView
-                        android:id="@+id/textView_title6"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:onClick="showTitle6"
-                        android:textColor="@color/colorPrimary"/>
-
-                    <TextView
                         android:id="@+id/textView_title3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -145,6 +134,18 @@
                         android:layout_marginRight="16dp"
                         android:layout_marginBottom="16dp"
                         android:onClick="showTitle3"
+                        android:textColor="@color/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/textView_title4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:onClick="showTitle4"
                         android:textColor="@color/colorPrimary"/>
 
                     <TextView
@@ -158,6 +159,18 @@
                         android:layout_marginBottom="16dp"
                         android:onClick="showTitle5"
                         android:textColor="@color/colorPrimary"/>
+
+                    <TextView
+                        android:id="@+id/textView_title6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:onClick="showTitle6"
+                        android:textColor="@color/colorPrimary" />
 
                     <TextView
                         android:id="@+id/textView_title7"
@@ -224,11 +237,7 @@
         android:layout_gravity = "start"
         app:itemIconTint="@color/textColor"
         android:layout_marginLeft="19dp"
-        >
+        android:layout_marginStart="19dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
     </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>

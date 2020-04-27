@@ -1,8 +1,6 @@
 
 //----------------------------------------//
 // created by: Jakub Olszewski            //
-// idea for application: Jakub Olszewski //
-//          All rights reserved           //
 //----------------------------------------//
 
 package com.example.lo1gliwice;
@@ -15,7 +13,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -87,7 +84,6 @@ public class newsActivity_article extends AppCompatActivity implements Navigatio
         webView.setVisibility(View.INVISIBLE);
         new doit().execute();
 
-
     }
 
     @Override
@@ -122,6 +118,11 @@ public class newsActivity_article extends AppCompatActivity implements Navigatio
                 Toast.makeText(newsActivity_article.this, "Aktualnosci", Toast.LENGTH_SHORT).show();
                 moveToNewsActivity();
                 break;
+
+            case R.id.menu_about_school:
+                Toast.makeText(newsActivity_article.this,"O szkole", Toast.LENGTH_SHORT).show();
+                moveToAboutSchoolActivity();
+                break;
         }
 
         return false;
@@ -152,6 +153,12 @@ public class newsActivity_article extends AppCompatActivity implements Navigatio
         startActivity(intent);
     }
 
+    private void moveToAboutSchoolActivity(){
+        Intent intent = new Intent(newsActivity_article.this, aboutSchoolActivity.class);
+        startActivity(intent);
+    }
+
+
 
 
     public class doit extends AsyncTask<Void, Void, Void> {
@@ -166,11 +173,9 @@ public class newsActivity_article extends AppCompatActivity implements Navigatio
 
                 article = doc.select("article").text();
 
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
 
             return null;
         }
@@ -203,9 +208,5 @@ public class newsActivity_article extends AppCompatActivity implements Navigatio
             }
 
         }
-    }
-    //OPENNING WEBBROSER
-    public void openArticle(String url){
-
     }
 }

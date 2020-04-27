@@ -1,9 +1,7 @@
 
-//----------------------------------------//
-// created by: Jakub Olszewski            //
-// idea for application: Jakub Olszewski //
-//          All rights reserved           //
-//----------------------------------------//
+//-----------------------------//
+// created by: Jakub Olszewski //
+//-----------------------------//
 
 package com.example.lo1gliwice;
 
@@ -21,7 +19,6 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -30,12 +27,7 @@ import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-import com.google.android.gms.ads.rewarded.RewardItem;
 import com.google.android.gms.ads.rewarded.RewardedAd;
-import com.google.android.gms.ads.rewarded.RewardedAdCallback;
-import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 import com.google.android.material.navigation.NavigationView;
 
 public class infoActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -55,7 +47,7 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
     TextView github_TV;
     String gitHub = "Repozytorium GitHub dostępne \nTUTAJ";
     TextView watchAd_TV;
-    String watchAd = "Wesprzyj mnie i obejrzyj reklamę \nklikając TUTAJ";
+    String watchAd = "Wesprzyj mnie\nklikając TUTAJ";
     TextView feedback_TV;
     String feedback= "Znalazłeś błąd lub chcesz zasugerować zmainę, \nkliknij TUTAJ.";
 
@@ -82,7 +74,7 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
 
         //ADS
         MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
-        loadAd();
+        //loadAd();
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -110,12 +102,11 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
             ClickableSpan clickableSpan_watchAd = new ClickableSpan() {
                 @Override
                 public void onClick(@NonNull View widget) {
-
-                    showAd();
+                    Toast.makeText(infoActivity.this, "Aktualnie nie ma opcji wsparcia", Toast.LENGTH_SHORT).show();
                 }
             };
 
-            spannableString_watchAd.setSpan(clickableSpan_watchAd, 43,48, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            spannableString_watchAd.setSpan(clickableSpan_watchAd, 23,28, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             watchAd_TV.setText(spannableString_watchAd);
             watchAd_TV.setMovementMethod(LinkMovementMethod.getInstance());
 
@@ -170,6 +161,11 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
             Toast.makeText(infoActivity.this, "Aktualnosci", Toast.LENGTH_SHORT).show();
             moveToNewsActivity();
             break;
+
+            case R.id.menu_about_school:
+                Toast.makeText(infoActivity.this,"O szkole", Toast.LENGTH_SHORT).show();
+                moveToAboutSchoolActivity();
+                break;
         }
 
         return false;
@@ -205,13 +201,19 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
     startActivity(intent);
     }
 
+    private void moveToAboutSchoolActivity(){
+        Intent intent = new Intent(infoActivity.this, aboutSchoolActivity.class);
+        startActivity(intent);
+    }
+
+
     //OPENNING WEBBROSER
     public void openGIT(String url){
         Uri uri = Uri.parse(url);
         Intent launchWeb = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(launchWeb);
     }
-
+/*
     public void loadAd(){
         this.rewardedAd = new RewardedAd(this, "ca-app-pub-6373386798183476/7988579463");
         //test//this.rewardedAd = new RewardedAd(this, "ca-app-pub-3940256099942544/5224354917");
@@ -255,4 +257,6 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
             Log.i(TAG,"Ad not loaded");
         }
     }
+    */
+
 }

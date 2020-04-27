@@ -13,7 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".feedbackActivity"></activity>
+        <activity android:name=".achievementsActivity"></activity>
+        <activity android:name=".aboutSchoolActivity" />
+        <activity android:name=".feedbackActivity" />
         <activity android:name=".newsActivity_article" />
         <activity android:name=".newsActivity" />
         <activity android:name=".infoActivity" />

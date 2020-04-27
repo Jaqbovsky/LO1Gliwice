@@ -21,34 +21,45 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="@android:dimen/app_icon_size"
-                android:layout_marginLeft="0dp">
+                android:layout_marginLeft="0dp"
+                android:layout_marginStart="0dp">
 
                 <ImageView
                     android:id="@+id/imageView"
-                    android:layout_width="97dp"
-                    android:layout_height="27dp"
-
-                    android:contentDescription="TODO"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="250dp"
+                    android:layout_marginLeft="250dp"
+                    android:layout_marginTop="-1dp"
+                    android:contentDescription="@string/todo"
                     android:scaleType="fitCenter"
                     android:src="@drawable/logo_zso10_toolbar"
+                    app:layout_constraintBottom_toTopOf="@+id/textView"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
                     android:id="@+id/textView"
-                    android:layout_width="163dp"
-                    android:layout_height="20dp"
-                    android:gravity="right"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="128dp"
+                    android:layout_marginLeft="128dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:gravity="end"
                     android:text="@string/header_name"
                     android:textColor="@color/textColor"
                     android:textIsSelectable="false"
-                    android:textSize="9dp"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.931"
+                    app:layout_constraintHorizontal_bias="0.49"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageView"
+                    app:layout_constraintVertical_bias="1.0" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -64,17 +75,17 @@
                 android:id="@+id/adView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginEnd="32dp"
+
+                android:layout_marginRight="32dp"
+                android:layout_marginBottom="32dp"
                 ads:adSize="BANNER"
                 ads:adUnitId="@string/banner_ad_unit_id"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.549"
-
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_details"
-                app:layout_constraintVertical_bias="0.51"
                 tools:ignore="MissingConstraints" />
 
             <EditText
@@ -83,12 +94,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="64dp"
                 android:layout_marginLeft="64dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="64dp"
                 android:layout_marginRight="64dp"
+                android:layout_marginBottom="16dp"
+                android:autofillHints=""
                 android:ems="10"
-                android:hint="Imię"
+                android:hint="@string/imie"
                 android:inputType="textPersonName"
+                app:layout_constraintBottom_toTopOf="@+id/editText_emailData"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -99,15 +113,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="64dp"
                 android:layout_marginLeft="64dp"
-                android:layout_marginTop="32dp"
                 android:layout_marginEnd="64dp"
                 android:layout_marginRight="64dp"
+                android:layout_marginBottom="16dp"
+                android:autofillHints=""
                 android:ems="10"
-                android:hint="Email"
+                android:hint="@string/email"
                 android:inputType="textPersonName"
+                app:layout_constraintBottom_toTopOf="@+id/editText_messageData"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText_nameData" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <EditText
                 android:id="@+id/editText_messageData"
@@ -115,14 +130,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="64dp"
                 android:layout_marginLeft="64dp"
-                android:layout_marginTop="32dp"
                 android:layout_marginEnd="64dp"
                 android:layout_marginRight="64dp"
-                android:hint="Wiadomość"
+                android:layout_marginBottom="16dp"
+                android:hint="@string/wiadomosc"
+                android:importantForAutofill="no"
                 android:inputType="textPersonName"
+                app:layout_constraintBottom_toTopOf="@+id/button_send"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText_emailData" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <Button
                 android:id="@+id/button_send"
@@ -130,17 +146,17 @@
                 android:layout_height="41dp"
                 android:layout_marginStart="105dp"
                 android:layout_marginLeft="105dp"
-                android:layout_marginTop="92dp"
                 android:layout_marginEnd="105dp"
                 android:layout_marginRight="105dp"
+                android:layout_marginBottom="24dp"
                 android:background="@color/colorPrimary"
                 android:text="@string/button_send"
                 android:textAllCaps="false"
                 android:textColor="@color/textColor"
                 android:textSize="13sp"
+                app:layout_constraintBottom_toTopOf="@+id/button_details"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText_messageData" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <Button
                 android:id="@+id/button_details"
@@ -148,18 +164,19 @@
                 android:layout_height="41dp"
                 android:layout_marginStart="105dp"
                 android:layout_marginLeft="105dp"
-                android:layout_marginTop="24dp"
                 android:layout_marginEnd="105dp"
                 android:layout_marginRight="105dp"
+                android:layout_marginBottom="32dp"
                 android:background="@color/colorPrimary"
+                android:enabled="false"
                 android:text="@string/button_details"
                 android:textAllCaps="false"
                 android:textColor="@color/textColor"
                 android:textSize="13sp"
+                app:layout_constraintBottom_toTopOf="@+id/adView"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_send"
-                android:enabled="false"/>
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -176,7 +193,7 @@
         android:layout_gravity = "start"
         app:itemIconTint="@color/textColor"
         android:layout_marginLeft="19dp"
-        >
+        android:layout_marginStart="19dp">
 
     </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>

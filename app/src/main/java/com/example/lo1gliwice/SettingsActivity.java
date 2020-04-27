@@ -1,9 +1,7 @@
 
-//----------------------------------------//
-// created by: Jakub Olszewski            //
-// idea for application: Jakub Olszewski //
-//          All rights reserved           //
-//----------------------------------------//
+//-----------------------------//
+// created by: Jakub Olszewski //
+//-----------------------------//
 
 package com.example.lo1gliwice;
 
@@ -22,7 +20,6 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.NotificationCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
@@ -115,6 +112,11 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
                 Toast.makeText(SettingsActivity.this, "Aktualnosci", Toast.LENGTH_SHORT).show();
                 moveToNewsActivity();
                 break;
+
+            case R.id.menu_about_school:
+                Toast.makeText(SettingsActivity.this,"O szkole", Toast.LENGTH_SHORT).show();
+                moveToAboutSchoolActivity();
+                break;
         }
 
         return false;
@@ -144,6 +146,12 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
         Intent intent = new Intent(SettingsActivity.this, newsActivity.class);
         startActivity(intent);
     }
+
+    private void moveToAboutSchoolActivity(){
+        Intent intent = new Intent(SettingsActivity.this, aboutSchoolActivity.class);
+        startActivity(intent);
+    }
+
 
     public static class SettingsFragment extends PreferenceFragmentCompat {
 

@@ -1,9 +1,7 @@
 
-//----------------------------------------//
-// created by: Jakub Olszewski            //
-// idea for application: Jakub Olszewski //
-//          All rights reserved           //
-//----------------------------------------//
+//-----------------------------//
+// created by: Jakub Olszewski //
+//-----------------------------//
 
 
 package com.example.lo1gliwice;
@@ -80,12 +78,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
         //ADS
-       //MobileAds.initialize(this,"ca-app-pub-6373386798183476~7251446395");
         MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
          mAdView.loadAd(adRequest);
-        // Obtain the FirebaseAnalytics instanc e.
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         //BUTTONS
@@ -161,6 +157,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 moveToclassSwapActivity();
             break;
 
+            case R.id.menu_news:
+                Toast.makeText(MainActivity.this, "Aktualnosci", Toast.LENGTH_SHORT).show();
+                moveToNewsActivity();
+                break;
+
+            case R.id.menu_about_school:
+                Toast.makeText(MainActivity.this,"O szkole", Toast.LENGTH_SHORT).show();
+                moveToAboutSchoolActivity();
+                break;
+
             case R.id.menu_setting:
                 Toast.makeText(MainActivity.this, "Ustawienia", Toast.LENGTH_SHORT).show();
                 moveToSettingsActivity();
@@ -171,10 +177,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 moveToInfoActivity();
             break;
 
-            case R.id.menu_news:
-                Toast.makeText(MainActivity.this, "Aktualnosci", Toast.LENGTH_SHORT).show();
-                moveToNewsActivity();
-                break;
+
         }
 
         return false;
@@ -203,6 +206,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void moveToNewsActivity(){
         Intent intent = new Intent(MainActivity.this, newsActivity.class);
+        startActivity(intent);
+    }
+
+    private void moveToAboutSchoolActivity(){
+        Intent intent = new Intent(MainActivity.this, aboutSchoolActivity.class);
         startActivity(intent);
     }
 

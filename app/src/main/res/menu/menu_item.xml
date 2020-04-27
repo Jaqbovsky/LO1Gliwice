@@ -13,8 +13,14 @@
         android:icon="@drawable/ic_redo"/>
     <item
         android:id="@+id/menu_news"
-        android:title="Aktualności"
+        android:title="@string/menu_news"
         android:icon="@drawable/ic_news"
+        />
+
+    <item
+        android:id="@+id/menu_about_school"
+        android:title="@string/menu_about_school"
+        android:icon="@drawable/ic_school"
         />
 
     <item
