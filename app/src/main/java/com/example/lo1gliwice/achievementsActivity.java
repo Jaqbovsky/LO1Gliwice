@@ -7,10 +7,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.net.wifi.p2p.WifiP2pGroup;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +27,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+
 
 public class achievementsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     //ADS
@@ -48,39 +51,58 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
     TextView achievements8_TV;
     TextView achievements9_TV;
     TextView achievements10_TV;
+    TextView achievements11_TV;
+    TextView achievements12_TV;
+    TextView achievements13_TV;
+    TextView achievements14_TV;
+    TextView achievements15_TV;
+    TextView achievements16_TV;
+    TextView achievements17_TV;
+    TextView achievements18_TV;
+    TextView achievements19_TV;
+    TextView achievements20_TV;
+    TextView achievements21_TV;
+    TextView achievements22_TV;
+    TextView achievements23_TV;
+    TextView achievements24_TV;
+    TextView achievements25_TV;
+    TextView achievements26_TV;
+    TextView achievements27_TV;
+    TextView achievements28_TV;
+    TextView achievements29_TV;
+    TextView achievements30_TV;
+    TextView achievements31_TV;
+    TextView achievements32_TV;
+    TextView achievements33_TV;
+    TextView achievements34_TV;
+    TextView achievements35_TV;
+    TextView achievements36_TV;
+    TextView achievements37_TV;
+    TextView achievements38_TV;
+    TextView achievements39_TV;
+    TextView achievements40_TV;
 
     String doc1_wyniki, doc1_w_finale, doc1_w_etapie, doc1_sukces, doc1_olimpiad, doc1_mistrz, doc1_laurat, doc1_finalist;
     String doc1_wyniki_link, doc1_w_finale_link, doc1_w_etapie_link, doc1_sukces_link, doc1_olimpiad_link, doc1_mistrz_link, doc1_laurat_link, doc1_finalist_link;
-    String result;
-    String str;
-    String doc2_str;
-    String S_link;
+
+    String doc2_wyniki, doc2_w_finale, doc2_w_etapie, doc2_sukces, doc2_olimpiad, doc2_mistrz, doc2_laurat, doc2_finalist;
+    String doc2_wyniki_link, doc2_w_finale_link, doc2_w_etapie_link, doc2_sukces_link, doc2_olimpiad_link, doc2_mistrz_link, doc2_laurat_link, doc2_finalist_link;
+
+    String doc3_wyniki, doc3_w_finale, doc3_w_etapie, doc3_sukces, doc3_olimpiad, doc3_mistrz, doc3_laurat, doc3_finalist;
+    String doc3_wyniki_link, doc3_w_finale_link, doc3_w_etapie_link, doc3_sukces_link, doc3_olimpiad_link, doc3_mistrz_link, doc3_laurat_link, doc3_finalist_link;
+
+    String doc4_wyniki, doc4_w_finale, doc4_w_etapie, doc4_sukces, doc4_olimpiad, doc4_mistrz, doc4_laurat, doc4_finalist;
+    String doc4_wyniki_link, doc4_w_finale_link, doc4_w_etapie_link, doc4_sukces_link, doc4_olimpiad_link, doc4_mistrz_link, doc4_laurat_link, doc4_finalist_link;
+
+    String doc5_wyniki, doc5_w_finale, doc5_w_etapie, doc5_sukces, doc5_olimpiad, doc5_mistrz, doc5_laurat, doc5_finalist;
+    String doc5_wyniki_link, doc5_w_finale_link, doc5_w_etapie_link, doc5_sukces_link, doc5_olimpiad_link, doc5_mistrz_link, doc5_laurat_link, doc5_finalist_link;
 
     String url1 = "http://www.lo1.gliwice.pl/category/dla-uczniow/aktualnosci-dla-uczniow/";
     String url2 = "http://www.lo1.gliwice.pl/category/dla-uczniow/aktualnosci-dla-uczniow/page/2/";
     String url3 = "http://www.lo1.gliwice.pl/category/dla-uczniow/aktualnosci-dla-uczniow/page/3/";
+    String url4 = "http://www.lo1.gliwice.pl/category/dla-uczniow/aktualnosci-dla-uczniow/page/4/";
+    String url5 = "http://www.lo1.gliwice.pl/category/dla-uczniow/aktualnosci-dla-uczniow/page/5/";
 
-    String doc1_title1;
-    String doc1_title2;
-    String doc1_title3;
-    String doc1_title4;
-    String doc1_title5;
-    String doc1_title6;
-    String doc1_title7;
-    String doc1_title8;
-    String doc1_title9;
-    String doc1_title10;
-
-    String doc1_link1;
-    String doc1_link2;
-    String doc1_link3;
-    String doc1_link4;
-    String doc1_link5;
-    String doc1_link6;
-    String doc1_link7;
-    String doc1_link8;
-    String doc1_link9;
-    String doc1_link10;
 
     final StringBuilder stringBuilder = new StringBuilder();
     final StringBuilder stringBuilder_link = new StringBuilder();
@@ -119,9 +141,42 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
         achievements8_TV = findViewById(R.id.textView_achievements8);
         achievements9_TV = findViewById(R.id.textView_achievements9);
         achievements10_TV = findViewById(R.id.textView_achievements10);
+        achievements11_TV = findViewById(R.id.textView_achievements11);
+        achievements12_TV = findViewById(R.id.textView_achievements12);
+        achievements13_TV = findViewById(R.id.textView_achievements13);
+        achievements14_TV = findViewById(R.id.textView_achievements14);
+        achievements15_TV = findViewById(R.id.textView_achievements15);
+        achievements16_TV = findViewById(R.id.textView_achievements16);
+        achievements17_TV = findViewById(R.id.textView_achievements17);
+        achievements18_TV = findViewById(R.id.textView_achievements18);
+        achievements19_TV = findViewById(R.id.textView_achievements19);
+        achievements20_TV = findViewById(R.id.textView_achievements20);
+        achievements21_TV = findViewById(R.id.textView_achievements21);
+        achievements22_TV = findViewById(R.id.textView_achievements22);
+        achievements23_TV = findViewById(R.id.textView_achievements23);
+        achievements24_TV = findViewById(R.id.textView_achievements24);
+        achievements25_TV = findViewById(R.id.textView_achievements25);
+        achievements26_TV = findViewById(R.id.textView_achievements26);
+        achievements27_TV = findViewById(R.id.textView_achievements27);
+        achievements28_TV = findViewById(R.id.textView_achievements28);
+        achievements29_TV = findViewById(R.id.textView_achievements29);
+        achievements30_TV = findViewById(R.id.textView_achievements30);
+        achievements31_TV = findViewById(R.id.textView_achievements31);
+        achievements32_TV = findViewById(R.id.textView_achievements32);
+        achievements33_TV = findViewById(R.id.textView_achievements33);
+        achievements34_TV = findViewById(R.id.textView_achievements34);
+        achievements35_TV = findViewById(R.id.textView_achievements35);
+        achievements36_TV = findViewById(R.id.textView_achievements36);
+        achievements37_TV = findViewById(R.id.textView_achievements37);
+        achievements38_TV = findViewById(R.id.textView_achievements38);
+        achievements39_TV = findViewById(R.id.textView_achievements39);
+        achievements40_TV = findViewById(R.id.textView_achievements40);
 
-
-        new doit().execute();
+        new do1().execute();
+        new do2().execute();
+        new do3().execute();
+        new do4().execute();
+        new do5().execute();
 
     }
 
@@ -165,6 +220,552 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
         return false;
     }
 
+
+
+    public class do1 extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            Document doc1 = null;
+
+            try {
+                //PIERWSZA STRONA
+                doc1 = Jsoup.connect(url1).userAgent("Mozilla/5.0").get();
+
+                doc1_wyniki = doc1.select("a[title]:contains(wynik)").text();
+                doc1_w_finale = doc1.select("a[title]:contains(w finale)").text();
+                doc1_w_etapie = doc1.select("a[title]:contains(w etapie)").text();
+                doc1_sukces = doc1.select("a[title]:contains(sukces)").text();
+                doc1_olimpiad = doc1.select("a[title]:contains(olimpiad)").text();
+                doc1_mistrz = doc1.select("a[title]:contains(mistrz)").text();
+                doc1_laurat = doc1.select("a[title]:contains(laureat)").text();
+                doc1_finalist = doc1.select("a[title]:contains(finalist)").text();
+
+                doc1_wyniki_link = doc1.select("a[title]:contains(wynik)").attr("href");
+                doc1_w_finale_link = doc1.select("a[title]:contains(w finale)").attr("href");
+                doc1_w_etapie_link = doc1.select("a[title]:contains(w etapie)").attr("href");
+                doc1_sukces_link = doc1.select("a[title]:contains(sukces)").attr("href");
+                doc1_olimpiad_link = doc1.select("a[title]:contains(olimpiad)").attr("href");
+                doc1_mistrz_link = doc1.select("a[title]:contains(mistrz)").attr("href");
+                doc1_laurat_link = doc1.select("a[title]:contains(laureat)").attr("href");
+                doc1_finalist_link = doc1.select("a[title]:contains(finalist)").attr("href");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            write1();
+        }
+    }
+
+    public class do2 extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            Document doc2 = null;
+            try {
+                doc2 = Jsoup.connect(url2).userAgent("Mozilla/5.0").get();
+
+                doc2_wyniki = doc2.select("a[title]:contains(wynik)").text();
+                doc2_w_finale = doc2.select("a[title]:contains(w finale)").text();
+                doc2_w_etapie = doc2.select("a[title]:contains(w etapie)").text();
+                doc2_sukces = doc2.select("a[title]:contains(sukces)").text();
+                doc2_olimpiad = doc2.select("a[title]:contains(olimpiad)").text();
+                doc2_mistrz = doc2.select("a[title]:contains(mistrz)").text();
+                doc2_laurat = doc2.select("a[title]:contains(laureat)").text();
+                doc2_finalist = doc2.select("a[title]:contains(finalist)").text();
+
+                doc2_wyniki_link = doc2.select("a[title]:contains(wynik)").attr("href");
+                doc2_w_finale_link = doc2.select("a[title]:contains(w finale)").attr("href");
+                doc2_w_etapie_link = doc2.select("a[title]:contains(w etapie)").attr("href");
+                doc2_sukces_link = doc2.select("a[title]:contains(sukces)").attr("href");
+                doc2_olimpiad_link = doc2.select("a[title]:contains(olimpiad)").attr("href");
+                doc2_mistrz_link = doc2.select("a[title]:contains(mistrz)").attr("href");
+                doc2_laurat_link = doc2.select("a[title]:contains(laureat)").attr("href");
+                doc2_finalist_link = doc2.select("a[title]:contains(finalist)").attr("href");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            write2();
+        }
+    }
+
+    public class do3 extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            Document doc3 = null;
+            try {
+                doc3 = Jsoup.connect(url3).userAgent("Mozilla/5.0").get();
+
+                doc3_wyniki = doc3.select("a[title]:contains(wynik)").text();
+                doc3_w_finale = doc3.select("a[title]:contains(w finale)").text();
+                doc3_w_etapie = doc3.select("a[title]:contains(w etapie)").text();
+                doc3_sukces = doc3.select("a[title]:contains(sukces)").text();
+                doc3_olimpiad = doc3.select("a[title]:contains(olimpiad)").text();
+                doc3_mistrz = doc3.select("a[title]:contains(mistrz)").text();
+                doc3_laurat = doc3.select("a[title]:contains(laureat)").text();
+                doc3_finalist = doc3.select("a[title]:contains(finalist)").text();
+
+                doc3_wyniki_link = doc3.select("a[title]:contains(wynik)").attr("href");
+                doc3_w_finale_link = doc3.select("a[title]:contains(w finale)").attr("href");
+                doc3_w_etapie_link = doc3.select("a[title]:contains(w etapie)").attr("href");
+                doc3_sukces_link = doc3.select("a[title]:contains(sukces)").attr("href");
+                doc3_olimpiad_link = doc3.select("a[title]:contains(olimpiad)").attr("href");
+                doc3_mistrz_link = doc3.select("a[title]:contains(mistrz)").attr("href");
+                doc3_laurat_link = doc3.select("a[title]:contains(laureat)").attr("href");
+                doc3_finalist_link = doc3.select("a[title]:contains(finalist)").attr("href");
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            write3();
+        }
+    }
+
+    public class do4 extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            Document doc4 = null;
+            try {
+                //CZAWRTA STRONA
+                doc4 = Jsoup.connect(url4).userAgent("Mozilla/5.0").get();
+
+                doc4_wyniki = doc4.select("a[title]:contains(wynik)").text();
+                doc4_w_finale = doc4.select("a[title]:contains(w finale)").text();
+                doc4_w_etapie = doc4.select("a[title]:contains(w etapie)").text();
+                doc4_sukces = doc4.select("a[title]:contains(sukces)").text();
+                doc4_olimpiad = doc4.select("a[title]:contains(olimpiad)").text();
+                doc4_mistrz = doc4.select("a[title]:contains(mistrz)").text();
+                doc4_laurat = doc4.select("a[title]:contains(laureat)").text();
+                doc4_finalist = doc4.select("a[title]:contains(finalist)").text();
+
+                doc4_wyniki_link = doc4.select("a[title]:contains(wynik)").attr("href");
+                doc4_w_finale_link = doc4.select("a[title]:contains(w finale)").attr("href");
+                doc4_w_etapie_link = doc4.select("a[title]:contains(w etapie)").attr("href");
+                doc4_sukces_link = doc4.select("a[title]:contains(sukces)").attr("href");
+                doc4_olimpiad_link = doc4.select("a[title]:contains(olimpiad)").attr("href");
+                doc4_mistrz_link = doc4.select("a[title]:contains(mistrz)").attr("href");
+                doc4_laurat_link = doc4.select("a[title]:contains(laureat)").attr("href");
+                doc4_finalist_link = doc4.select("a[title]:contains(finalist)").attr("href");
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            write4();
+        }
+    }
+
+    public class do5 extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            Document doc5 = null;
+            try {
+                doc5 = Jsoup.connect(url5).userAgent("Mozilla/5.0").get();
+
+                doc5_wyniki = doc5.select("a[title]:contains(wynik)").text();
+                doc5_w_finale = doc5.select("a[title]:contains(w finale)").text();
+                doc5_w_etapie = doc5.select("a[title]:contains(w etapie)").text();
+                doc5_sukces = doc5.select("a[title]:contains(sukces)").text();
+                doc5_olimpiad = doc5.select("a[title]:contains(olimpiad)").text();
+                doc5_mistrz = doc5.select("a[title]:contains(mistrz)").text();
+                doc5_laurat = doc5.select("a[title]:contains(laureat)").text();
+                doc5_finalist = doc5.select("a[title]:contains(finalist)").text();
+
+                doc5_wyniki_link = doc5.select("a[title]:contains(wynik)").attr("href");
+                doc5_w_finale_link = doc5.select("a[title]:contains(w finale)").attr("href");
+                doc5_w_etapie_link = doc5.select("a[title]:contains(w etapie)").attr("href");
+                doc5_sukces_link = doc5.select("a[title]:contains(sukces)").attr("href");
+                doc5_olimpiad_link = doc5.select("a[title]:contains(olimpiad)").attr("href");
+                doc5_mistrz_link = doc5.select("a[title]:contains(mistrz)").attr("href");
+                doc5_laurat_link = doc5.select("a[title]:contains(laureat)").attr("href");
+                doc5_finalist_link = doc5.select("a[title]:contains(finalist)").attr("href");
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            write5();
+        }
+    }
+
+
+    public void write1() {
+        achievements1_TV.setText(doc1_wyniki);
+        achievements2_TV.setText(doc1_w_finale);
+        achievements3_TV.setText(doc1_w_etapie);
+        achievements4_TV.setText(doc1_sukces);
+        achievements5_TV.setText(doc1_olimpiad);
+        achievements6_TV.setText(doc1_mistrz);
+        achievements7_TV.setText(doc1_laurat);
+        achievements8_TV.setText(doc1_finalist);
+
+        if (doc1_wyniki.isEmpty()) {
+            achievements1_TV.setVisibility(View.GONE);
+        }
+        if (doc1_w_finale.isEmpty()) {
+            achievements2_TV.setVisibility(View.GONE);
+        }
+        if (doc1_w_etapie.isEmpty()) {
+            achievements3_TV.setVisibility(View.GONE);
+        }
+        if (doc1_sukces.isEmpty()) {
+            achievements4_TV.setVisibility(View.GONE);
+        }
+        if (doc1_olimpiad.isEmpty()) {
+            achievements5_TV.setVisibility(View.GONE);
+        }
+        if (doc1_mistrz.isEmpty()) {
+            achievements6_TV.setVisibility(View.GONE);
+        }
+        if (doc1_laurat.isEmpty()) {
+            achievements7_TV.setVisibility(View.GONE);
+        }
+        if (doc1_finalist.isEmpty()) {
+            achievements8_TV.setVisibility(View.GONE);
+        }
+    }
+
+    public void write2() {
+        achievements9_TV.setText(doc2_wyniki);
+        achievements10_TV.setText(doc2_w_finale);
+        achievements11_TV.setText(doc2_w_etapie);
+        achievements12_TV.setText(doc2_sukces);
+        achievements13_TV.setText(doc2_olimpiad);
+        achievements14_TV.setText(doc2_mistrz);
+        achievements15_TV.setText(doc2_laurat);
+        achievements16_TV.setText(doc2_finalist);
+
+        //DRUGA STRONA
+        if (doc2_wyniki.isEmpty()) {
+            achievements9_TV.setVisibility(View.GONE);
+        }
+        if (doc2_w_finale.isEmpty()) {
+            achievements10_TV.setVisibility(View.GONE);
+        }
+        if (doc2_w_etapie.isEmpty()) {
+            achievements11_TV.setVisibility(View.GONE);
+        }
+        if (doc2_sukces.isEmpty()) {
+            achievements12_TV.setVisibility(View.GONE);
+        }
+        if (doc2_olimpiad.isEmpty()) {
+            achievements13_TV.setVisibility(View.GONE);
+        }
+        if (doc2_mistrz.isEmpty()) {
+            achievements14_TV.setVisibility(View.GONE);
+        }
+        if (doc2_laurat.isEmpty()) {
+            achievements15_TV.setVisibility(View.GONE);
+        }
+        if (doc2_finalist.isEmpty()) {
+            achievements16_TV.setVisibility(View.GONE);
+        }
+    }
+
+    public void write3() {
+        achievements17_TV.setText(doc3_wyniki);
+        achievements18_TV.setText(doc3_w_finale);
+        achievements19_TV.setText(doc3_w_etapie);
+        achievements20_TV.setText(doc3_sukces);
+        achievements21_TV.setText(doc3_olimpiad);
+        achievements22_TV.setText(doc3_mistrz);
+        achievements23_TV.setText(doc3_laurat);
+        achievements24_TV.setText(doc3_finalist);
+
+        //TRZECIA STRONA
+        if (doc3_wyniki.isEmpty()) {
+            achievements17_TV.setVisibility(View.GONE);
+        }
+        if (doc3_w_finale.isEmpty()) {
+            achievements18_TV.setVisibility(View.GONE);
+        }
+        if (doc3_w_etapie.isEmpty()) {
+            achievements19_TV.setVisibility(View.GONE);
+        }
+        if (doc3_sukces.isEmpty()) {
+            achievements20_TV.setVisibility(View.GONE);
+        }
+        if (doc3_olimpiad.isEmpty()) {
+            achievements21_TV.setVisibility(View.GONE);
+        }
+        if (doc3_mistrz.isEmpty()) {
+            achievements22_TV.setVisibility(View.GONE);
+        }
+        if (doc3_laurat.isEmpty()) {
+            achievements23_TV.setVisibility(View.GONE);
+        }
+        if (doc3_finalist.isEmpty()) {
+            achievements24_TV.setVisibility(View.GONE);
+        }
+    }
+
+    public void write4() {
+        achievements25_TV.setText(doc4_wyniki);
+        achievements26_TV.setText(doc4_w_finale);
+        achievements27_TV.setText(doc4_w_etapie);
+        achievements28_TV.setText(doc4_sukces);
+        achievements29_TV.setText(doc4_olimpiad);
+        achievements30_TV.setText(doc4_mistrz);
+        achievements31_TV.setText(doc4_laurat);
+        achievements32_TV.setText(doc4_finalist);
+
+        //CZWARTA STRONA
+        if (doc4_wyniki.isEmpty()) {
+            achievements25_TV.setVisibility(View.GONE);
+        }
+        if (doc4_w_finale.isEmpty()) {
+            achievements26_TV.setVisibility(View.GONE);
+        }
+        if (doc4_w_etapie.isEmpty()) {
+            achievements27_TV.setVisibility(View.GONE);
+        }
+        if (doc4_sukces.isEmpty()) {
+            achievements28_TV.setVisibility(View.GONE);
+        }
+        if (doc4_olimpiad.isEmpty()) {
+            achievements29_TV.setVisibility(View.GONE);
+        }
+        if (doc4_mistrz.isEmpty()) {
+            achievements30_TV.setVisibility(View.GONE);
+        }
+        if (doc4_laurat.isEmpty()) {
+            achievements31_TV.setVisibility(View.GONE);
+        }
+        if (doc4_finalist.isEmpty()) {
+            achievements32_TV.setVisibility(View.GONE);
+        }
+    }
+
+    public void write5() {
+        achievements33_TV.setText(doc5_wyniki);
+        achievements34_TV.setText(doc5_w_finale);
+        achievements35_TV.setText(doc5_w_etapie);
+        achievements36_TV.setText(doc5_sukces);
+        achievements37_TV.setText(doc5_olimpiad);
+        achievements38_TV.setText(doc5_mistrz);
+        achievements39_TV.setText(doc5_laurat);
+        achievements40_TV.setText(doc5_finalist);
+
+        //PIĄTA STRONA
+        if (doc5_wyniki.isEmpty()) {
+            achievements33_TV.setVisibility(View.GONE);
+        }
+        if (doc5_w_finale.isEmpty()) {
+            achievements34_TV.setVisibility(View.GONE);
+        }
+        if (doc5_w_etapie.isEmpty()) {
+            achievements35_TV.setVisibility(View.GONE);
+        }
+        if (doc5_sukces.isEmpty()) {
+            achievements36_TV.setVisibility(View.GONE);
+        }
+        if (doc5_olimpiad.isEmpty()) {
+            achievements37_TV.setVisibility(View.GONE);
+        }
+        if (doc5_mistrz.isEmpty()) {
+            achievements38_TV.setVisibility(View.GONE);
+        }
+        if (doc5_laurat.isEmpty()) {
+            achievements39_TV.setVisibility(View.GONE);
+        }
+        if (doc5_finalist.isEmpty()) {
+            achievements40_TV.setVisibility(View.GONE);
+        }
+    }
+
+
+    public void goToAchievement1(View view) {
+        Toast.makeText(achievementsActivity.this, doc1_wyniki_link, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement2(View view) {
+        Toast.makeText(achievementsActivity.this, doc1_w_finale_link, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement3(View view) {
+        Toast.makeText(achievementsActivity.this, doc1_w_etapie_link, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement4(View view) {
+        Toast.makeText(achievementsActivity.this, doc1_sukces_link, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement5(View view) {
+        Toast.makeText(achievementsActivity.this, doc1_olimpiad_link, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement6(View view) {
+        Toast.makeText(achievementsActivity.this, doc1_mistrz_link, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement7(View view) {
+        Toast.makeText(achievementsActivity.this, doc1_laurat_link, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement8(View view) {
+        Toast.makeText(achievementsActivity.this, doc1_finalist_link, Toast.LENGTH_SHORT).show();
+    }
+
+    //DRUGA STRONA
+    public void goToAchievement9(View view) {
+        Toast.makeText(achievementsActivity.this, doc2_wyniki_link, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement10(View view) {
+        Toast.makeText(achievementsActivity.this, doc2_w_finale_link, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement11(View view) {
+        Toast.makeText(achievementsActivity.this, doc2_w_etapie, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement12(View view) {
+        Toast.makeText(achievementsActivity.this, doc2_sukces, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement13(View view) {
+        Toast.makeText(achievementsActivity.this, doc2_olimpiad, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement14(View view) {
+        Toast.makeText(achievementsActivity.this, doc2_mistrz, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement15(View view) {
+        Toast.makeText(achievementsActivity.this, doc2_laurat, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement16(View view) {
+        Toast.makeText(achievementsActivity.this, doc2_finalist, Toast.LENGTH_SHORT).show();
+    }
+
+    //TRZECIA STRONA
+    public void goToAchievement17(View view) {
+        Toast.makeText(achievementsActivity.this, doc3_wyniki_link, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement18(View view) {
+        Toast.makeText(achievementsActivity.this, doc3_w_finale_link, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement19(View view) {
+        Toast.makeText(achievementsActivity.this, doc3_w_etapie, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement20(View view) {
+        Toast.makeText(achievementsActivity.this, doc3_sukces, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement21(View view) {
+        Toast.makeText(achievementsActivity.this, doc3_olimpiad, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement22(View view) {
+        Toast.makeText(achievementsActivity.this, doc3_mistrz, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement23(View view) {
+        Toast.makeText(achievementsActivity.this, doc3_laurat, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement24(View view) {
+        Toast.makeText(achievementsActivity.this, doc3_finalist, Toast.LENGTH_SHORT).show();
+    }
+
+    //CZWARTA STRONA
+    public void goToAchievement25(View view) {
+        Toast.makeText(achievementsActivity.this, doc4_wyniki_link, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement26(View view) {
+        Toast.makeText(achievementsActivity.this, doc4_w_finale_link, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement27(View view) {
+        Toast.makeText(achievementsActivity.this, doc4_w_etapie, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement28(View view) {
+        Toast.makeText(achievementsActivity.this, doc4_sukces, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement29(View view) {
+        Toast.makeText(achievementsActivity.this, doc4_olimpiad, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement30(View view) {
+        Toast.makeText(achievementsActivity.this, doc4_mistrz, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement31(View view) {
+        Toast.makeText(achievementsActivity.this, doc4_laurat, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement32(View view) {
+        Toast.makeText(achievementsActivity.this, doc4_finalist, Toast.LENGTH_SHORT).show();
+    }
+
+    //PIĄTA STRONA
+    public void goToAchievement33(View view) {
+        Toast.makeText(achievementsActivity.this, doc5_wyniki_link, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement34(View view) {
+        Toast.makeText(achievementsActivity.this, doc5_w_finale_link, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement35(View view) {
+        Toast.makeText(achievementsActivity.this, doc5_w_etapie, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement36(View view) {
+        Toast.makeText(achievementsActivity.this, doc5_sukces, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement37(View view) {
+        Toast.makeText(achievementsActivity.this, doc5_olimpiad, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement38(View view) {
+        Toast.makeText(achievementsActivity.this, doc5_mistrz, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement39(View view) {
+        Toast.makeText(achievementsActivity.this, doc5_laurat, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAchievement40(View view) {
+        Toast.makeText(achievementsActivity.this, doc5_finalist, Toast.LENGTH_SHORT).show();
+    }
+
+
     //CHANGE ACTIVITY
     private void moveToMainActivity() {
         Intent intent = new Intent(achievementsActivity.this, MainActivity.class);
@@ -201,497 +802,4 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
 
     }
 
-    //GETING DATA FROM WEBSITE
-    public class doit extends AsyncTask<Void, Void, Void> {
-        @Override
-        protected Void doInBackground(Void... params) {
-
-            Document doc1 = null;
-            Document doc2 = null;
-
-            try {
-                doc1 = Jsoup.connect(url1).userAgent("Mozilla/5.0").get();
-
-                Elements doc1_titles = doc1.select("a[title]");
-                Elements doc1_links = doc1.select("a[title]");
-
-
-                int doc1_a = 1;
-                int doc1_b = 1;
-
-                for (Element title : doc1_titles) {
-                    if (doc1_a <= 10) {
-                        stringBuilder.append("\n").append(doc1_a).append(".. ").append(title.text()).append("\n");
-                        doc1_a = doc1_a + 1;
-                    }
-                }
-
-                for (Element link : doc1_links) {
-                    if (doc1_b <= 10) {
-                        stringBuilder_link.append("\n").append("(").append(doc1_b).append(") ").append(link.attr("href")).append("\n");
-                        doc1_b = doc1_b + 1;
-                    }
-                }
-
-
-                str = stringBuilder.toString();
-                S_link = stringBuilder_link.toString();
-
-
-                doc1_title1 = str.substring(0, str.indexOf("2.."));
-                doc1_title2 = str.substring(0, str.indexOf("3..")).substring(str.indexOf("2.."));
-                doc1_title3 = str.substring(0, str.indexOf("4..")).substring(str.indexOf("3.."));
-                doc1_title4 = str.substring(0, str.indexOf("5..")).substring(str.indexOf("4.."));
-                doc1_title5 = str.substring(0, str.indexOf("6..")).substring(str.indexOf("5.."));
-                doc1_title6 = str.substring(0, str.indexOf("7..")).substring(str.indexOf("6.."));
-                doc1_title7 = str.substring(0, str.indexOf("8..")).substring(str.indexOf("7.."));
-                doc1_title8 = str.substring(0, str.indexOf("9..")).substring(str.indexOf("8.."));
-                doc1_title9 = str.substring(0, str.indexOf("10..")).substring(str.indexOf("9.."));
-                doc1_title10 = str.substring(str.indexOf("10.."));
-
-                doc1_link1 = S_link.substring(0, S_link.indexOf("(2)"));
-                doc1_link2 = S_link.substring(0, S_link.indexOf("(3)")).substring(S_link.indexOf("(2)"));
-                doc1_link3 = S_link.substring(0, S_link.indexOf("(4)")).substring(S_link.indexOf("(3)"));
-                doc1_link4 = S_link.substring(0, S_link.indexOf("(5)")).substring(S_link.indexOf("(4)"));
-                doc1_link5 = S_link.substring(0, S_link.indexOf("(6)")).substring(S_link.indexOf("(5)"));
-                doc1_link6 = S_link.substring(0, S_link.indexOf("(7)")).substring(S_link.indexOf("(6)"));
-                doc1_link7 = S_link.substring(0, S_link.indexOf("(8)")).substring(S_link.indexOf("(7)"));
-                doc1_link8 = S_link.substring(0, S_link.indexOf("(9)")).substring(S_link.indexOf("(8)"));
-                doc1_link9 = S_link.substring(0, S_link.indexOf("(10)")).substring(S_link.indexOf("(9)"));
-                doc1_link10 = S_link.substring(S_link.indexOf("(10)"));
-
-                if (doc1_title1.toLowerCase().contains("wyniki")) {
-                    doc1_wyniki = doc1_title1;
-                    doc1_wyniki_link = doc1_link1;
-                } else {
-                    if (doc1_title2.toLowerCase().contains("wyniki")) {
-                        doc1_wyniki = doc1_title2;
-                        doc1_wyniki_link = doc1_link2;
-                    } else {
-                        if (doc1_title3.toLowerCase().contains("wyniki")) {
-                            doc1_wyniki = doc1_title3;
-                            doc1_wyniki_link = doc1_link3;
-                        } else {
-                            if (doc1_title4.toLowerCase().contains("wyniki")) {
-                                doc1_wyniki = doc1_title4;
-                                doc1_wyniki_link = doc1_link4;
-                            } else {
-                                if (doc1_title5.toLowerCase().contains("wyniki")) {
-                                    doc1_wyniki = doc1_title5;
-                                    doc1_wyniki_link = doc1_link5;
-                                } else {
-                                    if (doc1_title6.toLowerCase().contains("wyniki")) {
-                                        doc1_wyniki = doc1_title6;
-                                        doc1_wyniki_link = doc1_link6;
-                                    } else {
-                                        if (doc1_title7.toLowerCase().contains("wyniki")) {
-                                            doc1_wyniki = doc1_title7;
-                                            doc1_wyniki_link = doc1_link7;
-                                        } else {
-                                            if (doc1_title8.toLowerCase().contains("wyniki")) {
-                                                doc1_wyniki = doc1_title8;
-                                                doc1_wyniki_link = doc1_link8;
-                                            } else {
-                                                if (doc1_title9.toLowerCase().contains("wyniki")) {
-                                                    doc1_wyniki = doc1_title9;
-                                                    doc1_wyniki_link = doc1_link9;
-                                                } else {
-                                                    if (doc1_title10.toLowerCase().contains("wyniki")) {
-                                                        doc1_wyniki = doc1_title10;
-                                                        doc1_wyniki_link = doc1_link10;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                if (doc1_title1.toLowerCase().contains("sukces")) {
-                    doc1_sukces = doc1_title1;
-                    doc1_sukces_link = doc1_link1;
-                } else {
-                    if (doc1_title2.toLowerCase().contains("sukces")) {
-                        doc1_sukces = doc1_title2;
-                        doc1_sukces_link = doc1_link2;
-                    } else {
-                        if (doc1_title3.toLowerCase().contains("sukces")) {
-                            doc1_sukces = doc1_title3;
-                            doc1_sukces_link = doc1_link3;
-                        } else {
-                            if (doc1_title4.toLowerCase().contains("sukces")) {
-                                doc1_sukces = doc1_title4;
-                                doc1_sukces_link = doc1_link4;
-                            } else {
-                                if (doc1_title5.toLowerCase().contains("sukces")) {
-                                    doc1_sukces = doc1_title5;
-                                    doc1_sukces_link = doc1_link5;
-                                } else {
-                                    if (doc1_title6.toLowerCase().contains("sukces")) {
-                                        doc1_sukces = doc1_title6;
-                                        doc1_sukces_link = doc1_link6;
-                                    } else {
-                                        if (doc1_title7.toLowerCase().contains("sukces")) {
-                                            doc1_sukces = doc1_title7;
-                                            doc1_sukces_link = doc1_link7;
-                                        } else {
-                                            if (doc1_title8.toLowerCase().contains("sukces")) {
-                                                doc1_sukces = doc1_title8;
-                                                doc1_sukces_link = doc1_link8;
-                                            } else {
-                                                if (doc1_title9.toLowerCase().contains("sukces")) {
-                                                    doc1_sukces = doc1_title9;
-                                                    doc1_sukces_link = doc1_link9;
-                                                } else {
-                                                    if (doc1_title10.toLowerCase().contains("sukces")) {
-                                                        doc1_sukces = doc1_title10;
-                                                        doc1_sukces_link = doc1_link10;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                if (doc1_title1.toLowerCase().contains("w finale")) {
-                    doc1_w_finale = doc1_title1;
-                    doc1_w_finale_link = doc1_title1;
-                } else {
-                    if (doc1_title2.toLowerCase().contains("w finale")) {
-                        doc1_w_finale = doc1_title2;
-                        doc1_w_finale_link = doc1_link2;
-                    } else {
-                        if (doc1_title3.toLowerCase().contains("w finale")) {
-                            doc1_w_finale = doc1_title3;
-                            doc1_w_finale_link = doc1_link3;
-                        } else {
-                            if (doc1_title4.toLowerCase().contains("w finale")) {
-                                doc1_w_finale = doc1_title4;
-                                doc1_w_finale_link = doc1_link4;
-                            } else {
-                                if (doc1_title5.toLowerCase().contains("w finale")) {
-                                    doc1_w_finale = doc1_title5;
-                                    doc1_w_finale_link = doc1_link5;
-                                } else {
-                                    if (doc1_title6.toLowerCase().contains("w finale")) {
-                                        doc1_w_finale = doc1_title6;
-                                        doc1_w_finale_link = doc1_link6;
-                                    } else {
-                                        if (doc1_title7.toLowerCase().contains("w finale")) {
-                                            doc1_w_finale = doc1_title7;
-                                        } else {
-                                            if (doc1_title8.toLowerCase().contains("w fianle")) {
-                                                doc1_w_finale = doc1_title8;
-                                            } else {
-                                                if (doc1_title9.toLowerCase().contains("w finale")) {
-                                                    doc1_w_finale = doc1_title9;
-                                                } else {
-                                                    if (doc1_title10.toLowerCase().contains("w finale")) {
-                                                        doc1_w_finale = doc1_title10;
-                                                        doc1_w_finale_link = doc1_link10;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-
-                if (doc1_title1.toLowerCase().contains("laureat")) {
-                    if (doc1_title1.toLowerCase().contains("w etapie")) {
-                        doc1_w_etapie = doc1_title1;
-                        doc1_w_etapie_link = doc1_link1;
-                    } else {
-                        if (doc1_title2.toLowerCase().contains("w etapie")) {
-                            doc1_w_etapie = doc1_title2;
-                            doc1_w_etapie_link = doc1_link2;
-                        } else {
-                            if (doc1_title3.toLowerCase().contains("w etapie")) {
-                                doc1_w_etapie = doc1_title3;
-                                doc1_w_etapie_link = doc1_link3;
-                            } else {
-                                if (doc1_title4.toLowerCase().contains("w etapie")) {
-                                    doc1_w_etapie = doc1_title4;
-                                    doc1_w_etapie_link = doc1_link4;
-                                } else {
-                                    if (doc1_title5.toLowerCase().contains("w etapie")) {
-                                        doc1_w_etapie = doc1_title5;
-                                        doc1_w_etapie_link = doc1_link5;
-                                    } else {
-                                        if (doc1_title6.toLowerCase().contains("w etapie")) {
-                                            doc1_w_etapie = doc1_title6;
-                                            doc1_w_etapie_link = doc1_link6;
-                                        } else {
-                                            if (doc1_title7.toLowerCase().contains("w etapie")) {
-                                                doc1_w_etapie = doc1_title7;
-                                                doc1_w_etapie_link = doc1_link7;
-                                            } else {
-                                                if (doc1_title8.toLowerCase().contains("w etapie")) {
-                                                    doc1_w_etapie = doc1_title8;
-                                                    doc1_w_etapie_link = doc1_link8;
-                                                } else {
-                                                    if (doc1_title9.toLowerCase().contains("w etapie")) {
-                                                        doc1_w_etapie = doc1_title9;
-                                                        doc1_w_etapie_link = doc1_link9;
-                                                    } else {
-                                                        if (doc1_title10.toLowerCase().contains("w etapie")) {
-                                                            doc1_w_etapie = doc1_title10;
-                                                            doc1_w_etapie_link = doc1_link10;
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    if (doc1_title1.toLowerCase().contains("laureat")) {
-                        doc1_laurat = doc1_title1;
-                        doc1_laurat_link = doc1_link1;
-                    } else {
-                        if (doc1_title2.toLowerCase().contains("laureat")) {
-                            doc1_laurat = doc1_title2;
-                            doc1_laurat_link = doc1_link2;
-                        } else {
-                            if (doc1_title3.toLowerCase().contains("laureat")) {
-                                doc1_laurat = doc1_title3;
-                                doc1_laurat_link = doc1_link3;
-                            } else {
-                                if (doc1_title4.toLowerCase().contains("laureat")) {
-                                    doc1_laurat = doc1_title4;
-                                    doc1_laurat_link = doc1_link4;
-                                } else {
-                                    if (doc1_title5.toLowerCase().contains("laureat")) {
-                                        doc1_laurat = doc1_title5;
-                                        doc1_laurat_link = doc1_link5;
-                                    } else {
-                                        if (doc1_title6.toLowerCase().contains("laureat")) {
-                                            doc1_laurat = doc1_title6;
-                                            doc1_laurat_link = doc1_link6;
-                                        } else {
-                                            if (doc1_title7.toLowerCase().contains("laureat")) {
-                                                doc1_laurat = doc1_title7;
-                                                doc1_laurat_link = doc1_link7;
-                                            } else {
-                                                if (doc1_title8.toLowerCase().contains("laureat")) {
-                                                    doc1_laurat = doc1_title8;
-                                                    doc1_laurat_link = doc1_link8;
-                                                } else {
-                                                    if (doc1_title9.toLowerCase().contains("laureat")) {
-                                                        doc1_laurat = doc1_title9;
-                                                        doc1_laurat_link = doc1_link9;
-                                                    } else {
-                                                        if (doc1_title10.toLowerCase().contains("laureat")) {
-                                                            doc1_laurat = doc1_title10;
-                                                            doc1_laurat_link = doc1_link10;
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    if (doc1_title1.toLowerCase().contains("finalist")) {
-                        doc1_olimpiad = doc1_title1;
-                        doc1_olimpiad_link = doc1_link1;
-                    } else {
-                        if (doc1_title2.toLowerCase().contains("finalist")) {
-                            doc1_finalist = doc1_title2;
-                            doc1_olimpiad_link = doc1_link2;
-                        } else {
-                            if (doc1_title3.toLowerCase().contains("finalist")) {
-                                doc1_finalist = doc1_title3;
-                                doc1_olimpiad_link = doc1_link3;
-                            } else {
-                                if (doc1_title4.toLowerCase().contains("finalist")) {
-                                    doc1_finalist = doc1_title4;
-                                    doc1_olimpiad_link = doc1_link4;
-                                } else {
-                                    if (doc1_title5.toLowerCase().contains("finalist")) {
-                                        doc1_finalist = doc1_title5;
-                                        doc1_olimpiad_link = doc1_link5;
-                                    } else {
-                                        if (doc1_title6.toLowerCase().contains("finalist")) {
-                                            doc1_finalist = doc1_title6;
-                                            doc1_olimpiad_link = doc1_link6;
-                                        } else {
-                                            if (doc1_title7.toLowerCase().contains("finalist")) {
-                                                doc1_finalist = doc1_title7;
-                                                doc1_olimpiad_link = doc1_link7;
-                                            } else {
-                                                if (doc1_title8.toLowerCase().contains("finalist")) {
-                                                    doc1_finalist = doc1_title8;
-                                                    doc1_olimpiad_link = doc1_link8;
-                                                } else {
-                                                    if (doc1_title9.toLowerCase().contains("finalist")) {
-                                                        doc1_finalist = doc1_title9;
-                                                        doc1_olimpiad_link = doc1_link9;
-                                                    } else {
-                                                        if (doc1_title10.toLowerCase().contains("finalist")) {
-                                                            doc1_finalist = doc1_title10;
-                                                            doc1_olimpiad_link = doc1_link10;
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    if (doc1_title1.toLowerCase().contains("mistrz")) {
-                        doc1_mistrz = doc1_title1;
-                        doc1_mistrz_link = doc1_link1;
-                    } else {
-                        if (doc1_title2.toLowerCase().contains("mistrz")) {
-                            doc1_mistrz = doc1_title2;
-                            doc1_mistrz_link = doc1_link2;
-                        } else {
-                            if (doc1_title3.toLowerCase().contains("mistrz")) {
-                                doc1_mistrz = doc1_title3;
-                                doc1_mistrz_link = doc1_link3;
-                            } else {
-                                if (doc1_title4.toLowerCase().contains("mistrz")) {
-                                    doc1_mistrz = doc1_title4;
-                                    doc1_mistrz_link = doc1_link4;
-                                } else {
-                                    if (doc1_title5.toLowerCase().contains("mistrz")) {
-                                        doc1_mistrz = doc1_title5;
-                                        doc1_mistrz_link = doc1_link5;
-                                    } else {
-                                        if (doc1_title6.toLowerCase().contains("mistrz")) {
-                                            doc1_mistrz = doc1_title6;
-                                            doc1_mistrz_link = doc1_link6;
-                                        } else {
-                                            if (doc1_title7.toLowerCase().contains("mistrz")) {
-                                                doc1_mistrz = doc1_title7;
-                                                doc1_mistrz_link = doc1_link7;
-                                            } else {
-                                                if (doc1_title8.toLowerCase().contains("mistrz")) {
-                                                    doc1_mistrz = doc1_title8;
-                                                    doc1_mistrz_link = doc1_link8;
-                                                } else {
-                                                    if (doc1_title9.toLowerCase().contains("mistrz")) {
-                                                        doc1_mistrz = doc1_title9;
-                                                        doc1_mistrz_link = doc1_link9;
-                                                    } else {
-                                                        if (doc1_title10.toLowerCase().contains("mistrz")) {
-                                                            doc1_mistrz = doc1_title10;
-                                                            doc1_mistrz_link = doc1_link10;
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    //second page
-
-                    doc2 = Jsoup.connect(url2).userAgent("Mozilla/5.0").get();
-                    Elements doc2_titles = doc2.select("a[title]");
-                    Elements doc2_links = doc2.select("a[title]");
-
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            return null;
-        }
-
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-
-            //result_TV.setText(result);
-            achievements1_TV.setText(doc1_wyniki);
-            achievements2_TV.setText(doc1_sukces);
-            achievements3_TV.setText(doc1_w_finale);
-            achievements4_TV.setText(doc1_w_etapie);
-            achievements5_TV.setText(doc1_laurat);
-            achievements6_TV.setText(doc1_finalist);
-            achievements7_TV.setText(doc1_mistrz);
-
-            if (achievements2_TV.length() == 0) {
-                achievements2_TV.setText(achievements3_TV.toString());
-                if (achievements2_TV.length() == 0) {
-                    achievements2_TV.setText(achievements4_TV.toString());
-                    if (achievements2_TV.length() == 0) {
-                        achievements2_TV.setText(achievements5_TV.toString());
-                        if (achievements2_TV.length() == 0) {
-                            achievements2_TV.setText(achievements6_TV.toString());
-                            if (achievements2_TV.length() == 0) {
-                                achievements2_TV.setText(achievements7_TV.toString());
-                            }
-                        }
-                    }
-                }
-            }
-
-        }
-    }
-
-    public void goToAchievement1(View view) {
-        Toast.makeText(achievementsActivity.this, doc1_wyniki_link, Toast.LENGTH_SHORT).show();
-    }
-
-    public void goToAchievement2(View view) {
-        Toast.makeText(achievementsActivity.this, doc1_sukces_link, Toast.LENGTH_SHORT).show();
-    }
-
-    public void goToAchievement3(View view) {
-        Toast.makeText(achievementsActivity.this, doc1_w_finale_link, Toast.LENGTH_SHORT).show();
-    }
-
-    public void goToAchievement4(View view) {
-        Toast.makeText(achievementsActivity.this, doc1_w_etapie_link, Toast.LENGTH_SHORT).show();
-    }
-
-    public void goToAchievement5(View view) {
-        Toast.makeText(achievementsActivity.this, doc1_laurat_link, Toast.LENGTH_SHORT).show();
-    }
-
-    public void goToAchievement6(View view) {
-        Toast.makeText(achievementsActivity.this, doc1_finalist_link, Toast.LENGTH_SHORT).show();
-    }
-
-    public void goToAchievement7(View view) {
-        Toast.makeText(achievementsActivity.this, doc1_wyniki_link, Toast.LENGTH_SHORT).show();
-    }
-
-    public void goToAchievement8(View view) {
-        Toast.makeText(achievementsActivity.this, doc1_mistrz_link, Toast.LENGTH_SHORT).show();
-
-    }
-
-    public void goToAchievement9(View view) {
-
-    }
-
-    public void goToAchievement10(View view) {
-
-    }
 }
