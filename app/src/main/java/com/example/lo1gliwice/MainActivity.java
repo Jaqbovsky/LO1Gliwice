@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     //ADS
-        private AdView mAdView;
+    private AdView mAdView;
     //SIDEBAR MENU
     DrawerLayout drawerLayout;
     Toolbar toolbar;
@@ -78,10 +78,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
         //ADS
-        MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
-         mAdView.loadAd(adRequest);
+        mAdView.loadAd(adRequest);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         //BUTTONS
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setSupportActionBar(toolbar);
         getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        toggle = new ActionBarDrawerToggle( this, drawerLayout, toolbar, R.string.drawerOpen, R.string.drawerClose);
+        toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawerOpen, R.string.drawerClose);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Spinner spinner = findViewById(R.id.classSpinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.classSpinner, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            spinner.setAdapter(adapter);
+        spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
         Object test = spinner.getSelectedItem();
 
@@ -118,8 +118,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         btn_refresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                chosenClass_TV.setText("Wybrałeś klasę: " + chosenClass);
-                new doit().execute();
+
+                if (!chosenClass.isEmpty()) {
+                    chosenClass_TV.setText("Wybrałeś klasę: " + chosenClass);
+                    new doit().execute();
+                }
+
+
             }
         });
 
@@ -129,13 +134,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View v) {
                 readSettings();
 
+                if (chosenClass.isEmpty()) {
+                    chosenClass_TV.setText("Klasa nie została wybrana");
+                    Toast.makeText(MainActivity.this, "Przejź do ustawień aby wybrać swoją klasę.", Toast.LENGTH_SHORT).show();
+                } else {
+                    chosenClass_TV.setText("Wybrałeś klasę: " + chosenClass);
+                    new doit().execute();
+                }
 
-                chosenClass_TV.setText("Wybrałeś klasę: " + chosenClass);
-                new doit().execute();
+
             }
         });
 
     }
+
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         chosenClass = parent.getItemAtPosition(position).toString();
@@ -146,16 +158,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
-        switch (menuItem.getItemId()){
+        switch (menuItem.getItemId()) {
             case R.id.menu_mainPage:
                 Toast.makeText(MainActivity.this, "Strona główna", Toast.LENGTH_SHORT).show();
                 moveToMainActivity();
-            break;
+                break;
 
             case R.id.menu_classSwap:
                 Toast.makeText(MainActivity.this, "Zamiana klas", Toast.LENGTH_SHORT).show();
                 moveToclassSwapActivity();
-            break;
+                break;
 
             case R.id.menu_news:
                 Toast.makeText(MainActivity.this, "Aktualnosci", Toast.LENGTH_SHORT).show();
@@ -163,19 +175,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.menu_about_school:
-                Toast.makeText(MainActivity.this,"O szkole", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "O szkole", Toast.LENGTH_SHORT).show();
                 moveToAboutSchoolActivity();
                 break;
 
             case R.id.menu_setting:
                 Toast.makeText(MainActivity.this, "Ustawienia", Toast.LENGTH_SHORT).show();
                 moveToSettingsActivity();
-            break;
+                break;
 
             case R.id.menu_information:
                 Toast.makeText(MainActivity.this, "Informacje", Toast.LENGTH_SHORT).show();
                 moveToInfoActivity();
-            break;
+                break;
 
 
         }
@@ -189,31 +201,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         startActivity(intent);
     }
 
-    private void moveToSettingsActivity(){
-      Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-      startActivity(intent);
+    private void moveToSettingsActivity() {
+        Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+        startActivity(intent);
     }
 
-    private void moveToclassSwapActivity(){
+    private void moveToclassSwapActivity() {
         Intent intent = new Intent(MainActivity.this, classSwapActivity.class);
         startActivity(intent);
     }
 
-    private void moveToInfoActivity(){
+    private void moveToInfoActivity() {
         Intent intent = new Intent(MainActivity.this, infoActivity.class);
         startActivity(intent);
     }
 
-    private void moveToNewsActivity(){
+    private void moveToNewsActivity() {
         Intent intent = new Intent(MainActivity.this, newsActivity.class);
         startActivity(intent);
     }
 
-    private void moveToAboutSchoolActivity(){
+    private void moveToAboutSchoolActivity() {
         Intent intent = new Intent(MainActivity.this, aboutSchoolActivity.class);
         startActivity(intent);
     }
-
 
 
     @Override
@@ -229,45 +240,79 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         @Override
         protected Void doInBackground(Void... params) {
 
+            if (chosenClass.isEmpty()) {
+                chosenClass = "Wybierz";
+            }
+
             Document doc = null;
             try {
                 doc = Jsoup.connect("http://www.lo1.gliwice.pl/zastepstwa-2/").userAgent("Mozilla/5.0").get();
 
-                switch (chosenClass){
-                    case "IAp": result = doc.select("p:contains(IAp)").text(); break;
-                    case "IBp": result = doc.select("p:contains(IBp)").text(); break;
-                    case "ICp": result = doc.select("p:contains(ICp)").text(); break;
-                    case "IDp": result = doc.select("p:contains(IDp)").text(); break;
-                    case "IEp": result = doc.select("p:contains(IEp)").text(); break;
-                    case "IAg": result = doc.select("p:contains(IAg)").text(); break;
-                    case "IBg": result = doc.select("p:contains(IBg)").text(); break;
-                    case "ICg": result = doc.select("p:contains(ICg)").text(); break;
-                    case "IDg": result = doc.select("p:contains(IDg)").text(); break;
-                    case "IEg": result = doc.select("p:contains(IEg)").text(); break;
-                    case "IIa": result = doc.select("p:contains(IIa)").text(); break;
-                    case "IIb": result = doc.select("p:contains(IIb)").text(); break;
-                    case "IIc": result = doc.select("p:contains(IIc)").text(); break;
-                    case "IIIa": result = doc.select("p:contains(IIIa)").text(); break;
-                    case "IIIb": result = doc.select("p:contains(IIIb)").text(); break;
-                    case "IIIc": result = doc.select("p:contains(IIIc)").text(); break;
-                    case "TEST": result = doc.select("h1").text(); break;
-                    case "Wybierz": result = "Klasa nie wybrana";
-                    Toast.makeText(MainActivity.this, "Przejź do ustawień aby wybrać swoją klasę.", Toast.LENGTH_SHORT).show(); break;
+                switch (chosenClass) {
+                    case "IAp":
+                        result = doc.select("p:contains(IAp)").text();
+                        break;
+                    case "IBp":
+                        result = doc.select("p:contains(IBp)").text();
+                        break;
+                    case "ICp":
+                        result = doc.select("p:contains(ICp)").text();
+                        break;
+                    case "IDp":
+                        result = doc.select("p:contains(IDp)").text();
+                        break;
+                    case "IEp":
+                        result = doc.select("p:contains(IEp)").text();
+                        break;
+                    case "IAg":
+                        result = doc.select("p:contains(IAg)").text();
+                        break;
+                    case "IBg":
+                        result = doc.select("p:contains(IBg)").text();
+                        break;
+                    case "ICg":
+                        result = doc.select("p:contains(ICg)").text();
+                        break;
+                    case "IDg":
+                        result = doc.select("p:contains(IDg)").text();
+                        break;
+                    case "IEg":
+                        result = doc.select("p:contains(IEg)").text();
+                        break;
+                    case "IIa":
+                        result = doc.select("p:contains(IIa)").text();
+                        break;
+                    case "IIb":
+                        result = doc.select("p:contains(IIb)").text();
+                        break;
+                    case "IIc":
+                        result = doc.select("p:contains(IIc)").text();
+                        break;
+                    case "IIIa":
+                        result = doc.select("p:contains(IIIa)").text();
+                        break;
+                    case "IIIb":
+                        result = doc.select("p:contains(IIIb)").text();
+                        break;
+                    case "IIIc":
+                        result = doc.select("p:contains(IIIc)").text();
+                        break;
+                    case "TEST":
+                        result = doc.select("h1").text();
+                        break;
+                    case "":
+                        break;
                 }
 
                 date = doc.select("u").text();
 
-                int length = 0;
-                length = result.length();
-
-
-                if(length == 0){
+                if (result.length() == 0) {
                     result = "Brak zastępstw";
                 }
 
-                result = result.replace("1l","\n1l").replace("2l","\n2l").replace("3l","\n3l")
-                        .replace("4l","\n4l").replace("5l","\n5l").replace("6l","\n6l")
-                        .replace("7l","\n7l").replace("8l","\n8l").replace("9l","\n9l");
+                result = result.replace("1l", "\n1l").replace("2l", "\n2l").replace("3l", "\n3l")
+                        .replace("4l", "\n4l").replace("5l", "\n5l").replace("6l", "\n6l")
+                        .replace("7l", "\n7l").replace("8l", "\n8l").replace("9l", "\n9l");
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -279,15 +324,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-                date_TV.setText(date);
-                result_TV.setText(result);
+            date_TV.setText(date);
+            result_TV.setText(result);
         }
     }
 
     //READ SETTINGS
-    public void readSettings(){
+    public void readSettings() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        chosenClass = sharedPreferences.getString(PREF_YOUR_CLASS, "Wybierz");
+        chosenClass = sharedPreferences.getString(PREF_YOUR_CLASS, "");
     }
 
     //ADS

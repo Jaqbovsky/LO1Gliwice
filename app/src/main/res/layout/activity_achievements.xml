@@ -98,320 +98,601 @@
                         android:id="@+id/textView_achievements1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement1"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement2"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement3"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement4"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement5"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement6"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement7"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements8"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement8"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements9"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement9"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements10"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement10"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements11"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement11"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements12"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement12"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements13"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement13"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements14"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement14"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements15"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement15"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements16"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement16"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements17"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement17"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements18"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement18"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements19"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement19"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements20"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement20"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements21"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement21"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements22"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement22"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements23"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement23"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements24"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement24"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements25"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement25"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements26"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement26"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements27"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement27"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements28"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement28"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements29"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement29"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements30"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement30"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
+
                     <TextView
                         android:id="@+id/textView_achievements31"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement31"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements32"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement32"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements33"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement33"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements34"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement34"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements35"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement35"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements36"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement36"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements37"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement37"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements38"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement38"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements39"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement39"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView_achievements40"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
                         android:onClick="goToAchievement40"
                         android:text=""
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
                 </LinearLayout>
             </ScrollView>
 

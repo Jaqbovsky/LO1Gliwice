@@ -50,7 +50,6 @@
     </string-array>
 
     <string-array name="classSpinner">
-
         <item>IAp</item>
         <item>IBp</item>
         <item>ICp</item>

@@ -7,7 +7,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
-import android.net.wifi.p2p.WifiP2pGroup;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -23,11 +22,8 @@ import com.google.android.material.navigation.NavigationView;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
 import java.io.IOException;
-
 
 public class achievementsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     //ADS
@@ -221,7 +217,6 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
     }
 
 
-
     public class do1 extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... params) {
@@ -234,7 +229,7 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
 
                 doc1_wyniki = doc1.select("a[title]:contains(wynik)").text();
                 doc1_w_finale = doc1.select("a[title]:contains(w finale)").text();
-                doc1_w_etapie = doc1.select("a[title]:contains(w etapie)").text();
+                doc1_w_etapie = doc1.select("a[title]:contains(etapie)").text();
                 doc1_sukces = doc1.select("a[title]:contains(sukces)").text();
                 doc1_olimpiad = doc1.select("a[title]:contains(olimpiad)").text();
                 doc1_mistrz = doc1.select("a[title]:contains(mistrz)").text();
@@ -243,7 +238,7 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
 
                 doc1_wyniki_link = doc1.select("a[title]:contains(wynik)").attr("href");
                 doc1_w_finale_link = doc1.select("a[title]:contains(w finale)").attr("href");
-                doc1_w_etapie_link = doc1.select("a[title]:contains(w etapie)").attr("href");
+                doc1_w_etapie_link = doc1.select("a[title]:contains(etapie)").attr("href");
                 doc1_sukces_link = doc1.select("a[title]:contains(sukces)").attr("href");
                 doc1_olimpiad_link = doc1.select("a[title]:contains(olimpiad)").attr("href");
                 doc1_mistrz_link = doc1.select("a[title]:contains(mistrz)").attr("href");
@@ -272,7 +267,7 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
 
                 doc2_wyniki = doc2.select("a[title]:contains(wynik)").text();
                 doc2_w_finale = doc2.select("a[title]:contains(w finale)").text();
-                doc2_w_etapie = doc2.select("a[title]:contains(w etapie)").text();
+                doc2_w_etapie = doc2.select("a[title]:contains(etapie)").text();
                 doc2_sukces = doc2.select("a[title]:contains(sukces)").text();
                 doc2_olimpiad = doc2.select("a[title]:contains(olimpiad)").text();
                 doc2_mistrz = doc2.select("a[title]:contains(mistrz)").text();
@@ -281,7 +276,7 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
 
                 doc2_wyniki_link = doc2.select("a[title]:contains(wynik)").attr("href");
                 doc2_w_finale_link = doc2.select("a[title]:contains(w finale)").attr("href");
-                doc2_w_etapie_link = doc2.select("a[title]:contains(w etapie)").attr("href");
+                doc2_w_etapie_link = doc2.select("a[title]:contains(etapie)").attr("href");
                 doc2_sukces_link = doc2.select("a[title]:contains(sukces)").attr("href");
                 doc2_olimpiad_link = doc2.select("a[title]:contains(olimpiad)").attr("href");
                 doc2_mistrz_link = doc2.select("a[title]:contains(mistrz)").attr("href");
@@ -310,7 +305,7 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
 
                 doc3_wyniki = doc3.select("a[title]:contains(wynik)").text();
                 doc3_w_finale = doc3.select("a[title]:contains(w finale)").text();
-                doc3_w_etapie = doc3.select("a[title]:contains(w etapie)").text();
+                doc3_w_etapie = doc3.select("a[title]:contains(etapie)").text();
                 doc3_sukces = doc3.select("a[title]:contains(sukces)").text();
                 doc3_olimpiad = doc3.select("a[title]:contains(olimpiad)").text();
                 doc3_mistrz = doc3.select("a[title]:contains(mistrz)").text();
@@ -319,7 +314,7 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
 
                 doc3_wyniki_link = doc3.select("a[title]:contains(wynik)").attr("href");
                 doc3_w_finale_link = doc3.select("a[title]:contains(w finale)").attr("href");
-                doc3_w_etapie_link = doc3.select("a[title]:contains(w etapie)").attr("href");
+                doc3_w_etapie_link = doc3.select("a[title]:contains(etapie)").attr("href");
                 doc3_sukces_link = doc3.select("a[title]:contains(sukces)").attr("href");
                 doc3_olimpiad_link = doc3.select("a[title]:contains(olimpiad)").attr("href");
                 doc3_mistrz_link = doc3.select("a[title]:contains(mistrz)").attr("href");
@@ -331,6 +326,7 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
             }
             return null;
         }
+
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
@@ -349,7 +345,7 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
 
                 doc4_wyniki = doc4.select("a[title]:contains(wynik)").text();
                 doc4_w_finale = doc4.select("a[title]:contains(w finale)").text();
-                doc4_w_etapie = doc4.select("a[title]:contains(w etapie)").text();
+                doc4_w_etapie = doc4.select("a[title]:contains(etapie)").text();
                 doc4_sukces = doc4.select("a[title]:contains(sukces)").text();
                 doc4_olimpiad = doc4.select("a[title]:contains(olimpiad)").text();
                 doc4_mistrz = doc4.select("a[title]:contains(mistrz)").text();
@@ -358,7 +354,7 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
 
                 doc4_wyniki_link = doc4.select("a[title]:contains(wynik)").attr("href");
                 doc4_w_finale_link = doc4.select("a[title]:contains(w finale)").attr("href");
-                doc4_w_etapie_link = doc4.select("a[title]:contains(w etapie)").attr("href");
+                doc4_w_etapie_link = doc4.select("a[title]:contains(etapie)").attr("href");
                 doc4_sukces_link = doc4.select("a[title]:contains(sukces)").attr("href");
                 doc4_olimpiad_link = doc4.select("a[title]:contains(olimpiad)").attr("href");
                 doc4_mistrz_link = doc4.select("a[title]:contains(mistrz)").attr("href");
@@ -370,6 +366,7 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
             }
             return null;
         }
+
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
@@ -387,7 +384,7 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
 
                 doc5_wyniki = doc5.select("a[title]:contains(wynik)").text();
                 doc5_w_finale = doc5.select("a[title]:contains(w finale)").text();
-                doc5_w_etapie = doc5.select("a[title]:contains(w etapie)").text();
+                doc5_w_etapie = doc5.select("a[title]:contains(etapie)").text();
                 doc5_sukces = doc5.select("a[title]:contains(sukces)").text();
                 doc5_olimpiad = doc5.select("a[title]:contains(olimpiad)").text();
                 doc5_mistrz = doc5.select("a[title]:contains(mistrz)").text();
@@ -396,7 +393,7 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
 
                 doc5_wyniki_link = doc5.select("a[title]:contains(wynik)").attr("href");
                 doc5_w_finale_link = doc5.select("a[title]:contains(w finale)").attr("href");
-                doc5_w_etapie_link = doc5.select("a[title]:contains(w etapie)").attr("href");
+                doc5_w_etapie_link = doc5.select("a[title]:contains(etapie)").attr("href");
                 doc5_sukces_link = doc5.select("a[title]:contains(sukces)").attr("href");
                 doc5_olimpiad_link = doc5.select("a[title]:contains(olimpiad)").attr("href");
                 doc5_mistrz_link = doc5.select("a[title]:contains(mistrz)").attr("href");
@@ -408,6 +405,7 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
             }
             return null;
         }
+
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
@@ -450,6 +448,12 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
         if (doc1_finalist.isEmpty()) {
             achievements8_TV.setVisibility(View.GONE);
         }
+        if (doc1_w_finale.equals(doc1_olimpiad)) {
+            achievements5_TV.setVisibility(View.GONE);
+        }
+        if (doc1_w_etapie.equals(doc1_olimpiad)) {
+            achievements5_TV.setVisibility(View.GONE);
+        }
     }
 
     public void write2() {
@@ -486,6 +490,13 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
         }
         if (doc2_finalist.isEmpty()) {
             achievements16_TV.setVisibility(View.GONE);
+        }
+
+        if (doc2_w_finale.equals(doc2_olimpiad)) {
+            achievements13_TV.setVisibility(View.GONE);
+        }
+        if (doc2_w_etapie.equals(doc2_olimpiad)) {
+            achievements13_TV.setVisibility(View.GONE);
         }
     }
 
@@ -524,6 +535,12 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
         if (doc3_finalist.isEmpty()) {
             achievements24_TV.setVisibility(View.GONE);
         }
+        if (doc3_w_finale.equals(doc3_olimpiad)) {
+            achievements21_TV.setVisibility(View.GONE);
+        }
+        if (doc2_w_etapie.equals(doc3_olimpiad)) {
+            achievements21_TV.setVisibility(View.GONE);
+        }
     }
 
     public void write4() {
@@ -560,6 +577,12 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
         }
         if (doc4_finalist.isEmpty()) {
             achievements32_TV.setVisibility(View.GONE);
+        }
+        if (doc4_w_finale.equals(doc4_olimpiad)) {
+            achievements29_TV.setVisibility(View.GONE);
+        }
+        if (doc4_w_etapie.equals(doc4_olimpiad)) {
+            achievements29_TV.setVisibility(View.GONE);
         }
     }
 
@@ -598,171 +621,296 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
         if (doc5_finalist.isEmpty()) {
             achievements40_TV.setVisibility(View.GONE);
         }
+        if (doc5_w_finale.equals(doc5_olimpiad)) {
+            achievements37_TV.setVisibility(View.GONE);
+        }
+        if (doc5_w_etapie.equals(doc5_olimpiad)) {
+            achievements37_TV.setVisibility(View.GONE);
+        }
     }
 
-
     public void goToAchievement1(View view) {
-        Toast.makeText(achievementsActivity.this, doc1_wyniki_link, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc1_wyniki);
+        intent.putExtra("LINK", doc1_wyniki_link);
+        startActivity(intent);
     }
 
     public void goToAchievement2(View view) {
-        Toast.makeText(achievementsActivity.this, doc1_w_finale_link, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc1_w_finale);
+        intent.putExtra("LINK", doc1_w_finale_link);
+        startActivity(intent);
     }
 
     public void goToAchievement3(View view) {
-        Toast.makeText(achievementsActivity.this, doc1_w_etapie_link, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc1_w_etapie);
+        intent.putExtra("LINK", doc1_w_etapie_link);
+        startActivity(intent);
     }
 
     public void goToAchievement4(View view) {
-        Toast.makeText(achievementsActivity.this, doc1_sukces_link, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc1_sukces);
+        intent.putExtra("LINK", doc1_sukces_link);
+        startActivity(intent);
     }
 
     public void goToAchievement5(View view) {
-        Toast.makeText(achievementsActivity.this, doc1_olimpiad_link, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc1_olimpiad);
+        intent.putExtra("LINK", doc1_olimpiad_link);
+        startActivity(intent);
     }
 
     public void goToAchievement6(View view) {
-        Toast.makeText(achievementsActivity.this, doc1_mistrz_link, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc1_mistrz);
+        intent.putExtra("LINK", doc1_mistrz_link);
+        startActivity(intent);
     }
 
     public void goToAchievement7(View view) {
-        Toast.makeText(achievementsActivity.this, doc1_laurat_link, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc1_laurat);
+        intent.putExtra("LINK", doc1_laurat_link);
+        startActivity(intent);
     }
 
     public void goToAchievement8(View view) {
-        Toast.makeText(achievementsActivity.this, doc1_finalist_link, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc1_finalist);
+        intent.putExtra("LINK", doc1_finalist_link);
+        startActivity(intent);
     }
 
     //DRUGA STRONA
     public void goToAchievement9(View view) {
-        Toast.makeText(achievementsActivity.this, doc2_wyniki_link, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc2_wyniki);
+        intent.putExtra("LINK", doc2_wyniki_link);
+        startActivity(intent);
     }
 
     public void goToAchievement10(View view) {
-        Toast.makeText(achievementsActivity.this, doc2_w_finale_link, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc2_w_finale);
+        intent.putExtra("LINK", doc2_w_finale_link);
+        startActivity(intent);
     }
 
     public void goToAchievement11(View view) {
-        Toast.makeText(achievementsActivity.this, doc2_w_etapie, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc2_w_etapie);
+        intent.putExtra("LINK", doc2_w_etapie_link);
+        startActivity(intent);
     }
 
     public void goToAchievement12(View view) {
-        Toast.makeText(achievementsActivity.this, doc2_sukces, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc2_sukces);
+        intent.putExtra("LINK", doc1_sukces_link);
+        startActivity(intent);
     }
 
     public void goToAchievement13(View view) {
-        Toast.makeText(achievementsActivity.this, doc2_olimpiad, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc2_olimpiad);
+        intent.putExtra("LINK", doc2_olimpiad_link);
+        startActivity(intent);
     }
 
     public void goToAchievement14(View view) {
-        Toast.makeText(achievementsActivity.this, doc2_mistrz, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc2_mistrz);
+        intent.putExtra("LINK", doc2_mistrz_link);
+        startActivity(intent);
     }
 
     public void goToAchievement15(View view) {
-        Toast.makeText(achievementsActivity.this, doc2_laurat, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc2_laurat);
+        intent.putExtra("LINK", doc2_laurat_link);
+        startActivity(intent);
     }
 
     public void goToAchievement16(View view) {
-        Toast.makeText(achievementsActivity.this, doc2_finalist, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc2_finalist);
+        intent.putExtra("LINK", doc2_finalist_link);
+        startActivity(intent);
     }
 
     //TRZECIA STRONA
     public void goToAchievement17(View view) {
-        Toast.makeText(achievementsActivity.this, doc3_wyniki_link, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc3_wyniki);
+        intent.putExtra("LINK", doc3_wyniki_link);
+        startActivity(intent);
     }
 
     public void goToAchievement18(View view) {
-        Toast.makeText(achievementsActivity.this, doc3_w_finale_link, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc3_w_finale);
+        intent.putExtra("LINK", doc3_w_finale_link);
+        startActivity(intent);
     }
 
     public void goToAchievement19(View view) {
-        Toast.makeText(achievementsActivity.this, doc3_w_etapie, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc3_w_etapie);
+        intent.putExtra("LINK", doc3_w_etapie_link);
+        startActivity(intent);
     }
 
     public void goToAchievement20(View view) {
-        Toast.makeText(achievementsActivity.this, doc3_sukces, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc3_sukces);
+        intent.putExtra("LINK", doc3_sukces_link);
+        startActivity(intent);
     }
 
     public void goToAchievement21(View view) {
-        Toast.makeText(achievementsActivity.this, doc3_olimpiad, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc3_olimpiad);
+        intent.putExtra("LINK", doc3_olimpiad_link);
+        startActivity(intent);
     }
 
     public void goToAchievement22(View view) {
-        Toast.makeText(achievementsActivity.this, doc3_mistrz, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc3_mistrz);
+        intent.putExtra("LINK", doc3_mistrz_link);
+        startActivity(intent);
     }
 
     public void goToAchievement23(View view) {
-        Toast.makeText(achievementsActivity.this, doc3_laurat, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc3_laurat);
+        intent.putExtra("LINK", doc3_laurat_link);
+        startActivity(intent);
     }
 
     public void goToAchievement24(View view) {
-        Toast.makeText(achievementsActivity.this, doc3_finalist, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc3_finalist);
+        intent.putExtra("LINK", doc3_finalist_link);
+        startActivity(intent);
     }
 
     //CZWARTA STRONA
     public void goToAchievement25(View view) {
-        Toast.makeText(achievementsActivity.this, doc4_wyniki_link, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc4_wyniki);
+        intent.putExtra("LINK", doc4_wyniki_link);
+        startActivity(intent);
     }
 
     public void goToAchievement26(View view) {
-        Toast.makeText(achievementsActivity.this, doc4_w_finale_link, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc4_w_finale);
+        intent.putExtra("LINK", doc4_w_finale_link);
+        startActivity(intent);
     }
 
     public void goToAchievement27(View view) {
-        Toast.makeText(achievementsActivity.this, doc4_w_etapie, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc4_w_etapie);
+        intent.putExtra("LINK", doc4_w_etapie_link);
+        startActivity(intent);
     }
 
     public void goToAchievement28(View view) {
-        Toast.makeText(achievementsActivity.this, doc4_sukces, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc4_sukces);
+        intent.putExtra("LINK", doc4_sukces_link);
+        startActivity(intent);
     }
 
     public void goToAchievement29(View view) {
-        Toast.makeText(achievementsActivity.this, doc4_olimpiad, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc1_finalist);
+        intent.putExtra("LINK", doc1_finalist_link);
+        startActivity(intent);
     }
 
     public void goToAchievement30(View view) {
-        Toast.makeText(achievementsActivity.this, doc4_mistrz, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc4_mistrz);
+        intent.putExtra("LINK", doc4_mistrz_link);
+        startActivity(intent);
     }
 
     public void goToAchievement31(View view) {
-        Toast.makeText(achievementsActivity.this, doc4_laurat, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc4_laurat);
+        intent.putExtra("LINK", doc4_laurat_link);
+        startActivity(intent);
     }
 
     public void goToAchievement32(View view) {
-        Toast.makeText(achievementsActivity.this, doc4_finalist, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc4_finalist);
+        intent.putExtra("LINK", doc4_finalist_link);
+        startActivity(intent);
     }
 
     //PIĄTA STRONA
     public void goToAchievement33(View view) {
-        Toast.makeText(achievementsActivity.this, doc5_wyniki_link, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc5_wyniki);
+        intent.putExtra("LINK", doc5_wyniki_link);
+        startActivity(intent);
     }
 
     public void goToAchievement34(View view) {
-        Toast.makeText(achievementsActivity.this, doc5_w_finale_link, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc5_w_finale);
+        intent.putExtra("LINK", doc5_w_finale_link);
+        startActivity(intent);
     }
 
     public void goToAchievement35(View view) {
-        Toast.makeText(achievementsActivity.this, doc5_w_etapie, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc5_w_etapie);
+        intent.putExtra("LINK", doc5_w_etapie_link);
+        startActivity(intent);
     }
 
     public void goToAchievement36(View view) {
-        Toast.makeText(achievementsActivity.this, doc5_sukces, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc5_sukces);
+        intent.putExtra("LINK", doc5_sukces_link);
+        startActivity(intent);
     }
 
     public void goToAchievement37(View view) {
-        Toast.makeText(achievementsActivity.this, doc5_olimpiad, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc5_olimpiad);
+        intent.putExtra("LINK", doc5_olimpiad_link);
+        startActivity(intent);
     }
 
     public void goToAchievement38(View view) {
-        Toast.makeText(achievementsActivity.this, doc5_mistrz, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc5_mistrz);
+        intent.putExtra("LINK", doc5_mistrz_link);
+        startActivity(intent);
     }
 
     public void goToAchievement39(View view) {
-        Toast.makeText(achievementsActivity.this, doc5_laurat, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc5_laurat);
+        intent.putExtra("LINK", doc5_laurat_link);
+        startActivity(intent);
     }
 
     public void goToAchievement40(View view) {
-        Toast.makeText(achievementsActivity.this, doc5_finalist, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+        intent.putExtra("TITLE", doc5_finalist);
+        intent.putExtra("LINK", doc5_finalist_link);
+        startActivity(intent);
     }
 
 

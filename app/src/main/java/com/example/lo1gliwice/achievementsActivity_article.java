@@ -13,7 +13,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -40,14 +39,14 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 
-public class newsActivity_article extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class achievementsActivity_article extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     Button goBack;
     TextView title_TV;
     TextView article_TV;
     String article;
     WebView webView;
     FloatingActionButton fab_openInWeb;
-    int a = 0;
+    int a;
     //SIDEBAR MENU
 
     DrawerLayout drawerLayout;
@@ -68,21 +67,19 @@ public class newsActivity_article extends AppCompatActivity implements Navigatio
         setSupportActionBar(toolbar);
         getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawerOpen, R.string.drawerClose);
+        toggle = new ActionBarDrawerToggle( this, drawerLayout, toolbar, R.string.drawerOpen, R.string.drawerClose);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
         title_TV = findViewById(R.id.textView_title);
         title_TV.setText(getIntent().getStringExtra("TITLE"));
-
         fab_openInWeb = findViewById(R.id.floatingActionButton_openInWeb);
-
         goBack = findViewById(R.id.button_goBack);
         goBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveToNewsActivity();
+                moveToAchievementsActivity();
             }
         });
 
@@ -99,38 +96,37 @@ public class newsActivity_article extends AppCompatActivity implements Navigatio
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
         switch (menuItem.getItemId()) {
             case R.id.menu_mainPage:
-                Toast.makeText(newsActivity_article.this, "Strona główna", Toast.LENGTH_SHORT).show();
+                Toast.makeText(achievementsActivity_article.this, "Strona główna", Toast.LENGTH_SHORT).show();
                 moveToMainActivity();
                 break;
 
             case R.id.menu_classSwap:
-                Toast.makeText(newsActivity_article.this, "Zamiana klas", Toast.LENGTH_SHORT).show();
+                Toast.makeText(achievementsActivity_article.this, "Zamiana klas", Toast.LENGTH_SHORT).show();
                 moveToclassSwapActivity();
                 break;
 
             case R.id.menu_setting:
-                Toast.makeText(newsActivity_article.this, "Ustawienia", Toast.LENGTH_SHORT).show();
+                Toast.makeText(achievementsActivity_article.this, "Ustawienia", Toast.LENGTH_SHORT).show();
                 moveToSettingsActivity();
                 break;
 
             case R.id.menu_information:
-                Toast.makeText(newsActivity_article.this, "Informacje", Toast.LENGTH_SHORT).show();
+                Toast.makeText(achievementsActivity_article.this, "Informacje", Toast.LENGTH_SHORT).show();
                 moveToInfoActivity();
                 break;
 
             case R.id.menu_news:
-                Toast.makeText(newsActivity_article.this, "Aktualnosci", Toast.LENGTH_SHORT).show();
+                Toast.makeText(achievementsActivity_article.this, "Aktualnosci", Toast.LENGTH_SHORT).show();
                 moveToNewsActivity();
                 break;
 
             case R.id.menu_about_school:
-                Toast.makeText(newsActivity_article.this, "O szkole", Toast.LENGTH_SHORT).show();
+                Toast.makeText(achievementsActivity_article.this,"O szkole", Toast.LENGTH_SHORT).show();
                 moveToAboutSchoolActivity();
                 break;
         }
@@ -140,32 +136,36 @@ public class newsActivity_article extends AppCompatActivity implements Navigatio
 
     //CHANGE ACTIVITY
     private void moveToSettingsActivity() {
-        Intent intent = new Intent(newsActivity_article.this, SettingsActivity.class);
+        Intent intent = new Intent(achievementsActivity_article.this, SettingsActivity.class);
         startActivity(intent);
     }
 
     private void moveToMainActivity() {
-        Intent intent = new Intent(newsActivity_article.this, MainActivity.class);
+        Intent intent = new Intent(achievementsActivity_article.this, MainActivity.class);
         startActivity(intent);
     }
 
-    private void moveToclassSwapActivity() {
-        Intent intent = new Intent(newsActivity_article.this, classSwapActivity.class);
+    private void moveToclassSwapActivity(){
+        Intent intent = new Intent(achievementsActivity_article.this, classSwapActivity.class);
         startActivity(intent);
     }
 
-    private void moveToInfoActivity() {
-        Intent intent = new Intent(newsActivity_article.this, infoActivity.class);
+    private void moveToInfoActivity(){
+        Intent intent = new Intent(achievementsActivity_article.this, infoActivity.class);
+        startActivity(intent);
+    }
+    private void moveToNewsActivity(){
+        Intent intent = new Intent(achievementsActivity_article.this, newsActivity.class);
         startActivity(intent);
     }
 
-    private void moveToNewsActivity() {
-        Intent intent = new Intent(newsActivity_article.this, newsActivity.class);
+    private void moveToAboutSchoolActivity(){
+        Intent intent = new Intent(achievementsActivity_article.this, aboutSchoolActivity.class);
         startActivity(intent);
     }
 
-    private void moveToAboutSchoolActivity() {
-        Intent intent = new Intent(newsActivity_article.this, aboutSchoolActivity.class);
+    private void moveToAchievementsActivity(){
+        Intent intent = new Intent(achievementsActivity_article.this, achievementsActivity.class);
         startActivity(intent);
     }
 
@@ -211,8 +211,8 @@ public class newsActivity_article extends AppCompatActivity implements Navigatio
 
             int length;
             length = article_TV.length();
-            if (length > 0) {
-            } else {
+            if (length>0){
+            }else {
                 article = "Przepraszamy za utrudnienia, aplikacja nie wsperia tego formatu, jeżeli chcesz otworzyć artykuł kliknij TUTAJ";
                 SpannableString spannableString = new SpannableString(article);
                 ClickableSpan clickableSpan = new ClickableSpan() {
@@ -222,21 +222,14 @@ public class newsActivity_article extends AppCompatActivity implements Navigatio
                         webView.setVisibility(View.VISIBLE);
                         webView.setWebViewClient(new WebViewClient());
                         webView.loadUrl(url);
-                        fab_openInWeb.setVisibility(View.GONE);
                     }
                 };
-                spannableString.setSpan(clickableSpan, 104, 109, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                spannableString.setSpan(clickableSpan, 104,109, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 article_TV.setText(spannableString);
                 article_TV.setMovementMethod(LinkMovementMethod.getInstance());
 
             }
 
         }
-    }
-
-    public void openInWebBrowser(String url) {
-        Uri uri = Uri.parse(url);
-        Intent launchWeb = new Intent(Intent.ACTION_VIEW, uri);
-        startActivity(launchWeb);
     }
 }

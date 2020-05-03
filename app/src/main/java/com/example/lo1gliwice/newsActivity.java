@@ -97,6 +97,8 @@ public class newsActivity extends AppCompatActivity implements NavigationView.On
     int a;
 
 
+
+
     private WebView webView;
     @SuppressLint("RestrictedApi")
     @Override
@@ -140,6 +142,7 @@ public class newsActivity extends AppCompatActivity implements NavigationView.On
         title10_TV = findViewById(R.id.textView_title10);
 
         new doit().execute();
+
     }
 
     //
@@ -175,6 +178,11 @@ public class newsActivity extends AppCompatActivity implements NavigationView.On
                 Toast.makeText(newsActivity.this, "Aktualnosci", Toast.LENGTH_SHORT).show();
                 moveToNewsActivity();
                 break;
+
+            case R.id.menu_about_school:
+                Toast.makeText(newsActivity.this, "O szkole", Toast.LENGTH_SHORT).show();
+                moveToAboutSchoolActivity();
+                break;
         }
 
         return false;
@@ -204,6 +212,10 @@ public class newsActivity extends AppCompatActivity implements NavigationView.On
         Intent intent = new Intent(newsActivity.this, newsActivity.class);
         startActivity(intent);
     }
+    private void moveToAboutSchoolActivity(){
+        Intent intent = new Intent(newsActivity.this, aboutSchoolActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     public void onBackPressed() {
@@ -214,8 +226,6 @@ public class newsActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
     }
-
-
 
     //GETING DATA FROM WEBSITE
     public class doit extends AsyncTask<Void, Void, Void> {
@@ -230,8 +240,6 @@ public class newsActivity extends AppCompatActivity implements NavigationView.On
 
                Elements titles = doc.select("a[title]");
                Elements links = doc.select("a[title]");
-
-
 
                 int a = 1;
                 int b = 1;
@@ -251,10 +259,8 @@ public class newsActivity extends AppCompatActivity implements NavigationView.On
                     }
                 }
 
-
                 str = stringBuilder.toString();
                 S_link = stringBuilder_link.toString();
-
 
                 title1 = str.substring(0,str.indexOf("2.."));
                 title2 = str.substring(0,str.indexOf("3..")).substring(str.indexOf("2.."));
@@ -277,10 +283,6 @@ public class newsActivity extends AppCompatActivity implements NavigationView.On
                 link8 = S_link.substring(0,S_link.indexOf("(9)")).substring(S_link.indexOf("(8)"));
                 link9 = S_link.substring(0,S_link.indexOf("(10)")).substring(S_link.indexOf("(9)"));
                 link10 = S_link.substring(S_link.indexOf("(10)"));
-
-
-
-
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -385,5 +387,6 @@ public class newsActivity extends AppCompatActivity implements NavigationView.On
         intent.putExtra("LINK", link10);
         intent.putExtra("TITLE",title10);
         startActivity(intent);
+
     }
 }

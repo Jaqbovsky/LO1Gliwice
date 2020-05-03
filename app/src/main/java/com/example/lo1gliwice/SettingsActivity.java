@@ -168,7 +168,7 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
                 public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
                     if (key.equals(yourClass)) {
                         Preference yourClass = findPreference(key);
-                        yourClass.setSummary(sharedPreferences.getString(key, "Wybierz"));
+                        yourClass.setSummary(sharedPreferences.getString(key, ""));
 
                     }
                 }
