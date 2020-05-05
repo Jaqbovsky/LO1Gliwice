@@ -5,12 +5,6 @@
 
 package com.example.lo1gliwice;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
@@ -19,13 +13,23 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.example.lo1gliwice.news.newsActivity;
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.rewarded.RewardedAd;
 import com.google.android.material.navigation.NavigationView;
@@ -36,8 +40,7 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
 
     //ADS
     private AdView mAdView;
-
-    //SIDEBAR MENU
+    private InterstitialAd mInterstitialAd;    //SIDEBAR MENU
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     NavigationView navigationView;
@@ -78,6 +81,9 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-6373386798183476/3442811283");
+
 
        //TEXTVIEW
         github_TV = findViewById(R.id.textView_github);
@@ -102,7 +108,21 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
             ClickableSpan clickableSpan_watchAd = new ClickableSpan() {
                 @Override
                 public void onClick(@NonNull View widget) {
-                    Toast.makeText(infoActivity.this, "Aktualnie nie ma opcji wsparcia", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(infoActivity.this, "Aktualnie nie ma opcji wsparcia", Toast.LENGTH_SHORT).show();
+                    mInterstitialAd.loadAd(new AdRequest.Builder().build());
+                    if (mInterstitialAd.isLoaded()) {
+                        mInterstitialAd.show();
+                    } else {
+                        Log.d("TAG", "The interstitial wasn't loaded yet.");
+                    }
+                    mInterstitialAd.setAdListener(new AdListener() {
+                        @Override
+                        public void onAdClosed() {
+                            // Load the next interstitial.
+                            mInterstitialAd.loadAd(new AdRequest.Builder().build());
+                        }
+
+                    });
                 }
             };
 
@@ -213,6 +233,8 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
         Intent launchWeb = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(launchWeb);
     }
+
+
 /*
     public void loadAd(){
         this.rewardedAd = new RewardedAd(this, "ca-app-pub-6373386798183476/7988579463");

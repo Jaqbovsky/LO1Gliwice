@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
-    tools:context="com.example.lo1gliwice.achievementsActivity">
+    tools:context="com.example.lo1gliwice.achievements.achievementsActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

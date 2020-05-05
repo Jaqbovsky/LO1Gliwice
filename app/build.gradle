@@ -10,8 +10,8 @@ android {
         minSdkVersion 16
         multiDexEnabled true
         targetSdkVersion 29
-        versionCode 4
-        versionName "0.6"
+        versionCode 5
+        versionName "0.6.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -37,6 +37,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.preference:preference:1.1.0'
     implementation 'com.google.firebase:firebase-messaging:20.1.4'
+    implementation 'com.google.firebase:firebase-storage:19.1.1'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
@@ -46,6 +47,11 @@ dependencies {
     implementation 'com.google.android.gms:play-services-ads:19.0.1'
     implementation 'com.google.firebase:firebase-crashlytics:17.0.0-beta02'
     implementation 'com.firebase:firebase-client-android:2.5.2'
+    implementation 'com.google.firebase:firebase-auth:19.3.1'
+    implementation 'com.google.firebase:firebase-database:19.3.0'
+
+    api 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'], exclude: [])
 
 }

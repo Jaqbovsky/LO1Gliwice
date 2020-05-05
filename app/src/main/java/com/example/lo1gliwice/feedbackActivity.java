@@ -5,13 +5,6 @@
 
 package com.example.lo1gliwice;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -21,6 +14,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.example.lo1gliwice.news.newsActivity;
 import com.firebase.client.Firebase;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -79,7 +80,7 @@ public class feedbackActivity extends AppCompatActivity implements NavigationVie
 
         String UniqueID = Settings.Secure.getString(getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
 
-        firebase = new Firebase("https://lo1-gliwice-remake.firebaseio.com/  " + UniqueID);
+        firebase = new Firebase("https://lo1-gliwice-remake.firebaseio.com/feedback/" + UniqueID);
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override

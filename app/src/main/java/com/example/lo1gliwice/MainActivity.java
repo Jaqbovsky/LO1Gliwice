@@ -27,6 +27,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.lo1gliwice.account.loginActivity;
+import com.example.lo1gliwice.news.newsActivity;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -38,7 +40,6 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 
 import org.jsoup.*;
 import org.jsoup.nodes.*;
-import org.jsoup.select.Elements;
 
 import java.io.IOException;
 
@@ -335,6 +336,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         chosenClass = sharedPreferences.getString(PREF_YOUR_CLASS, "");
     }
 
-    //ADS
+    //moveToLoginActivity
+    public void goToLoginPage(View view){
+            Toast.makeText(MainActivity.this, "Logowanie", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this, loginActivity.class);
+            startActivity(intent);
+    }
 
 }
