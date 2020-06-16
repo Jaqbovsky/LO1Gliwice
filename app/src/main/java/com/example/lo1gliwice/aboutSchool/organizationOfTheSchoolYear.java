@@ -1,11 +1,10 @@
-package com.example.lo1gliwice;
+package com.example.lo1gliwice.aboutSchool;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -13,14 +12,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.example.lo1gliwice.achievements.achievementsActivity;
+import com.example.lo1gliwice.MainActivity;
+import com.example.lo1gliwice.R;
+import com.example.lo1gliwice.SettingsActivity;
+import com.example.lo1gliwice.classSwapActivity;
+import com.example.lo1gliwice.infoActivity;
 import com.example.lo1gliwice.news.newsActivity;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.navigation.NavigationView;
 
-public class aboutSchoolActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+
+import java.io.IOException;
+
+public class organizationOfTheSchoolYear extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     //ADS
     private AdView mAdView;
@@ -32,15 +41,14 @@ public class aboutSchoolActivity extends AppCompatActivity implements Navigation
     ActionBarDrawerToggle toggle;
 
     //BUTTONS
-    Button achievements;
-    Button for_candidates;
-    Button organization_of_the_school_year;
 
+    String result;
+    TextView result_TV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about_school);
+        setContentView(R.layout.activity_organization_of_the_school_year);
 
         //ADS
         MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
@@ -60,32 +68,10 @@ public class aboutSchoolActivity extends AppCompatActivity implements Navigation
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
-        achievements = findViewById(R.id.button_achievements);
-        for_candidates = findViewById(R.id.button_for_candidates);
-        organization_of_the_school_year = findViewById(R.id.button_organization_of_the_school_year);
+        result_TV = findViewById(R.id.textView_resultTable);
 
-        achievements.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(aboutSchoolActivity.this, achievementsActivity.class);
-                startActivity(intent);
-            }
-        });
 
-        for_candidates.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(aboutSchoolActivity.this, "Zakładka \"Dla kandydatów\" nie jest jeszcze gotowa", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        organization_of_the_school_year.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(aboutSchoolActivity.this, aboutSchoolActivity.class);
-                startActivity(intent);
-            }
-        });
+        new doit().execute();
 
     }
 
@@ -94,32 +80,26 @@ public class aboutSchoolActivity extends AppCompatActivity implements Navigation
 
         switch (menuItem.getItemId()){
             case R.id.menu_mainPage:
-                Toast.makeText(aboutSchoolActivity.this, "Strona główna", Toast.LENGTH_SHORT).show();
                 moveToMainActivity();
                 break;
 
             case R.id.menu_classSwap:
-                Toast.makeText(aboutSchoolActivity.this, "Zamiana klas", Toast.LENGTH_SHORT).show();
                 moveToclassSwapActivity();
                 break;
 
             case R.id.menu_news:
-                Toast.makeText(aboutSchoolActivity.this, "Aktualnosci", Toast.LENGTH_SHORT).show();
                 moveToNewsActivity();
                 break;
 
             case R.id.menu_about_school:
-                Toast.makeText(aboutSchoolActivity.this,"O szkole", Toast.LENGTH_SHORT).show();
                 moveToAboutSchoolActivity();
                 break;
 
             case R.id.menu_setting:
-                Toast.makeText(aboutSchoolActivity.this, "Ustawienia", Toast.LENGTH_SHORT).show();
                 moveToSettingsActivity();
                 break;
 
             case R.id.menu_information:
-                Toast.makeText(aboutSchoolActivity.this, "Informacje", Toast.LENGTH_SHORT).show();
                 moveToInfoActivity();
                 break;
 
@@ -131,32 +111,32 @@ public class aboutSchoolActivity extends AppCompatActivity implements Navigation
 
     //CHANGE ACTIVITY
     private void moveToMainActivity() {
-        Intent intent = new Intent(aboutSchoolActivity.this, MainActivity.class);
+        Intent intent = new Intent(organizationOfTheSchoolYear.this, MainActivity.class);
         startActivity(intent);
     }
 
     private void moveToSettingsActivity(){
-        Intent intent = new Intent(aboutSchoolActivity.this, SettingsActivity.class);
+        Intent intent = new Intent(organizationOfTheSchoolYear.this, SettingsActivity.class);
         startActivity(intent);
     }
 
     private void moveToclassSwapActivity(){
-        Intent intent = new Intent(aboutSchoolActivity.this, classSwapActivity.class);
+        Intent intent = new Intent(organizationOfTheSchoolYear.this, classSwapActivity.class);
         startActivity(intent);
     }
 
     private void moveToInfoActivity(){
-        Intent intent = new Intent(aboutSchoolActivity.this, infoActivity.class);
+        Intent intent = new Intent(organizationOfTheSchoolYear.this, infoActivity.class);
         startActivity(intent);
     }
 
     private void moveToNewsActivity(){
-        Intent intent = new Intent(aboutSchoolActivity.this, newsActivity.class);
+        Intent intent = new Intent(organizationOfTheSchoolYear.this, newsActivity.class);
         startActivity(intent);
     }
 
     private void moveToAboutSchoolActivity(){
-        Intent intent = new Intent(aboutSchoolActivity.this, aboutSchoolActivity.class);
+        Intent intent = new Intent(organizationOfTheSchoolYear.this, organizationOfTheSchoolYear.class);
         startActivity(intent);
     }
 
@@ -164,4 +144,38 @@ public class aboutSchoolActivity extends AppCompatActivity implements Navigation
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
+
+    public class doit extends AsyncTask<Void, Void, Void> {
+
+        String result;
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+
+            Document doc = null;
+            try {
+                doc = Jsoup.connect("http://www.lo1.gliwice.pl/dla-uczniow/organizacja-roku-szkolnego/").userAgent("Mozilla/5.0").get();
+
+                //result = doc.select("table").text();
+
+                for (Element row : doc.select("table tbody tr")) {
+
+                    result = result + row.text()+ "\n\n\n";
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            result_TV.setText(result);
+        }
+    }
+
 }
