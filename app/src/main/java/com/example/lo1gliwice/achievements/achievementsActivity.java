@@ -17,7 +17,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.lo1gliwice.MainActivity;
 import com.example.lo1gliwice.R;
 import com.example.lo1gliwice.SettingsActivity;
-import com.example.lo1gliwice.aboutSchoolActivity;
+import com.example.lo1gliwice.aboutSchool.aboutSchoolActivity;
+import com.example.lo1gliwice.archiveActivity;
 import com.example.lo1gliwice.classSwapActivity;
 import com.example.lo1gliwice.infoActivity;
 import com.example.lo1gliwice.news.newsActivity;
@@ -216,6 +217,9 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
                 moveToInfoActivity();
                 break;
 
+            case R.id.menu_archive:
+                moveToArchiveActivity();
+                break;
 
         }
 
@@ -948,6 +952,11 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
 
     private void moveToAboutSchoolActivity() {
         Intent intent = new Intent(achievementsActivity.this, aboutSchoolActivity.class);
+        startActivity(intent);
+    }
+
+    private void moveToArchiveActivity() {
+        Intent intent = new Intent(achievementsActivity.this, archiveActivity.class);
         startActivity(intent);
     }
 

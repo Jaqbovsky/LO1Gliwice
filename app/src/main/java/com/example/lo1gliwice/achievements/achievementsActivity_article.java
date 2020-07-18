@@ -32,7 +32,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.lo1gliwice.MainActivity;
 import com.example.lo1gliwice.R;
 import com.example.lo1gliwice.SettingsActivity;
-import com.example.lo1gliwice.aboutSchoolActivity;
+import com.example.lo1gliwice.aboutSchool.aboutSchoolActivity;
+import com.example.lo1gliwice.archiveActivity;
 import com.example.lo1gliwice.classSwapActivity;
 import com.example.lo1gliwice.infoActivity;
 import com.example.lo1gliwice.news.newsActivity;
@@ -134,6 +135,11 @@ public class achievementsActivity_article extends AppCompatActivity implements N
                 Toast.makeText(achievementsActivity_article.this,"O szkole", Toast.LENGTH_SHORT).show();
                 moveToAboutSchoolActivity();
                 break;
+
+            case R.id.menu_archive:
+                moveToArchiveActivity();
+                break;
+
         }
 
         return false;
@@ -171,6 +177,11 @@ public class achievementsActivity_article extends AppCompatActivity implements N
 
     private void moveToAchievementsActivity(){
         Intent intent = new Intent(achievementsActivity_article.this, achievementsActivity.class);
+        startActivity(intent);
+    }
+
+    private void moveToArchiveActivity() {
+        Intent intent = new Intent(achievementsActivity_article.this, archiveActivity.class);
         startActivity(intent);
     }
 

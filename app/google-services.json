@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "640473794494",
-    "firebase_url": "https://lo1-gliwice-remake.firebaseio.com",
-    "project_id": "lo1-gliwice-remake",
-    "storage_bucket": "lo1-gliwice-remake.appspot.com"
+    "project_number": "243030587522",
+    "firebase_url": "https://lo-gliwice.firebaseio.com",
+    "project_id": "lo-gliwice",
+    "storage_bucket": "lo-gliwice.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:640473794494:android:ec5ab5f5152290a3389bef",
+        "mobilesdk_app_id": "1:243030587522:android:33e7997bf03d40eac4dc9b",
         "android_client_info": {
           "package_name": "com.jakubolszewski.lo1gliwice"
         }
       },
       "oauth_client": [
         {
-          "client_id": "640473794494-f5tnee3o8l6r4nl0qg9qgf7c76fpn56p.apps.googleusercontent.com",
+          "client_id": "243030587522-qbtufk9rejdar7ufsp1vhupha59red1h.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBQkeD9D_dPWQ7Kogl44nKpnY2_oA7aVxY"
+          "current_key": "AIzaSyAClNONLAxzxkfIDn2aY-MHACKsRWF4Y8E"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "640473794494-f5tnee3o8l6r4nl0qg9qgf7c76fpn56p.apps.googleusercontent.com",
+              "client_id": "243030587522-qbtufk9rejdar7ufsp1vhupha59red1h.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

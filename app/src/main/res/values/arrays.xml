@@ -3,73 +3,67 @@
 
     <string-array name="schoolClass_entries">
         <item>Wybierz klasę</item>
-        <item>IAp</item>
-        <item>IBp</item>
-        <item>ICp</item>
-        <item>IDp</item>
-        <item>IEp</item>
-        <item>IAg</item>
-        <item>IBg</item>
-        <item>ICg</item>
-        <item>IDg</item>
-        <item>IIA</item>
-        <item>IIB</item>
-        <item>IIC</item>
-        <item>IID</item>
-        <item>IIC</item>
+        <item>IA</item>
+        <item>IBC</item>
+        <item>ID</item>
+        <item>IE</item>
+        <item>IIAp</item>
+        <item>IIBp</item>
+        <item>IICp</item>
+        <item>IIDp</item>
+        <item>IIEp</item>
+        <item>IIAg</item>
+        <item>IIBg</item>
+        <item>IICg</item>
+        <item>IIDg</item>
         <item>IIIA</item>
         <item>IIIB</item>
         <item>IIIC</item>
         <item>IIID</item>
         <item>IIIE</item>
-        <item>TEST</item>
     </string-array>
 
     <string-array name="schoolClass_values">
         <item></item>
-        <item>IAp</item>
-        <item>IBp</item>
-        <item>ICp</item>
-        <item>IDp</item>
-        <item>IEp</item>
-        <item>IAg</item>
-        <item>IBg</item>
-        <item>ICg</item>
-        <item>IDg</item>
-        <item>IIA</item>
-        <item>IIB</item>
-        <item>IIC</item>
-        <item>IID</item>
-        <item>IIE</item>
+        <item>IA</item>
+        <item>IBC</item>
+        <item>ID</item>
+        <item>IE</item>
+        <item>IIAp</item>
+        <item>IIBp</item>
+        <item>IICp</item>
+        <item>IIDp</item>
+        <item>IIEp</item>
+        <item>IIAg</item>
+        <item>IIBg</item>
+        <item>IICg</item>
+        <item>IIDg</item>
         <item>IIIA</item>
         <item>IIIB</item>
         <item>IIIC</item>
         <item>IIID</item>
         <item>IIIE</item>
-        <item>TEST</item>
     </string-array>
 
     <string-array name="classSpinner">
-        <item>IAp</item>
-        <item>IBp</item>
-        <item>ICp</item>
-        <item>IDp</item>
-        <item>IEp</item>
-        <item>IAg</item>
-        <item>IBg</item>
-        <item>ICg</item>
-        <item>IDg</item>
-        <item>IIA</item>
-        <item>IIB</item>
-        <item>IIC</item>
-        <item>IID</item>
-        <item>IIE</item>
+        <item>IA</item>
+        <item>IBC</item>
+        <item>ID</item>
+        <item>IE</item>
+        <item>IIAp</item>
+        <item>IIBp</item>
+        <item>IICp</item>
+        <item>IIDp</item>
+        <item>IIEp</item>
+        <item>IIAg</item>
+        <item>IIBg</item>
+        <item>IICg</item>
+        <item>IIDg</item>
         <item>IIIA</item>
         <item>IIIB</item>
         <item>IIIC</item>
         <item>IIID</item>
         <item>IIIE</item>
-        <item>TEST</item>
     </string-array>
     <!-- Reply Preference -->
     <string-array name="reply_entries">

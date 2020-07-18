@@ -15,6 +15,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.lo1gliwice.MainActivity;
 import com.example.lo1gliwice.R;
 import com.example.lo1gliwice.SettingsActivity;
+import com.example.lo1gliwice.archiveActivity;
 import com.example.lo1gliwice.classSwapActivity;
 import com.example.lo1gliwice.infoActivity;
 import com.example.lo1gliwice.news.newsActivity;
@@ -103,7 +104,9 @@ public class organizationOfTheSchoolYear extends AppCompatActivity implements Na
                 moveToInfoActivity();
                 break;
 
-
+            case R.id.menu_archive:
+                moveToArchiveActivity();
+                break;
         }
 
         return false;
@@ -137,6 +140,12 @@ public class organizationOfTheSchoolYear extends AppCompatActivity implements Na
 
     private void moveToAboutSchoolActivity(){
         Intent intent = new Intent(organizationOfTheSchoolYear.this, organizationOfTheSchoolYear.class);
+        startActivity(intent);
+    }
+
+
+    private void moveToArchiveActivity() {
+        Intent intent = new Intent(organizationOfTheSchoolYear.this, archiveActivity.class);
         startActivity(intent);
     }
 

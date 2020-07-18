@@ -1,4 +1,4 @@
-package com.example.lo1gliwice;
+package com.example.lo1gliwice.aboutSchool;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +13,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.lo1gliwice.MainActivity;
+import com.example.lo1gliwice.R;
+import com.example.lo1gliwice.SettingsActivity;
 import com.example.lo1gliwice.achievements.achievementsActivity;
+import com.example.lo1gliwice.archiveActivity;
+import com.example.lo1gliwice.classSwapActivity;
+import com.example.lo1gliwice.infoActivity;
 import com.example.lo1gliwice.news.newsActivity;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -82,7 +88,7 @@ public class aboutSchoolActivity extends AppCompatActivity implements Navigation
         organization_of_the_school_year.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(aboutSchoolActivity.this, aboutSchoolActivity.class);
+                Intent intent = new Intent(aboutSchoolActivity.this, organizationOfTheSchoolYear.class);
                 startActivity(intent);
             }
         });
@@ -122,7 +128,9 @@ public class aboutSchoolActivity extends AppCompatActivity implements Navigation
                 Toast.makeText(aboutSchoolActivity.this, "Informacje", Toast.LENGTH_SHORT).show();
                 moveToInfoActivity();
                 break;
-
+            case R.id.menu_archive:
+                moveToArchiveActivity();
+                break;
 
         }
 
@@ -157,6 +165,11 @@ public class aboutSchoolActivity extends AppCompatActivity implements Navigation
 
     private void moveToAboutSchoolActivity(){
         Intent intent = new Intent(aboutSchoolActivity.this, aboutSchoolActivity.class);
+        startActivity(intent);
+    }
+
+    private void moveToArchiveActivity() {
+        Intent intent = new Intent(aboutSchoolActivity.this, archiveActivity.class);
         startActivity(intent);
     }
 

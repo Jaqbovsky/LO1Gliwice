@@ -25,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.lo1gliwice.aboutSchool.aboutSchoolActivity;
 import com.example.lo1gliwice.news.newsActivity;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -186,6 +187,10 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
                 Toast.makeText(infoActivity.this,"O szkole", Toast.LENGTH_SHORT).show();
                 moveToAboutSchoolActivity();
                 break;
+
+            case R.id.menu_archive:
+                moveToArchiveActivity();
+                break;
         }
 
         return false;
@@ -223,6 +228,11 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
 
     private void moveToAboutSchoolActivity(){
         Intent intent = new Intent(infoActivity.this, aboutSchoolActivity.class);
+        startActivity(intent);
+    }
+
+    private void moveToArchiveActivity() {
+        Intent intent = new Intent(infoActivity.this, archiveActivity.class);
         startActivity(intent);
     }
 

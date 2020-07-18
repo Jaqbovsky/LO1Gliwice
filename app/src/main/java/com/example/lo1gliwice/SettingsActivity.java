@@ -22,6 +22,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 
+import com.example.lo1gliwice.aboutSchool.aboutSchoolActivity;
 import com.example.lo1gliwice.news.newsActivity;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -115,6 +116,10 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
                 Toast.makeText(SettingsActivity.this,"O szkole", Toast.LENGTH_SHORT).show();
                 moveToAboutSchoolActivity();
                 break;
+
+            case R.id.menu_archive:
+                moveToArchiveActivity();
+                break;
         }
 
         return false;
@@ -147,6 +152,11 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
 
     private void moveToAboutSchoolActivity(){
         Intent intent = new Intent(SettingsActivity.this, aboutSchoolActivity.class);
+        startActivity(intent);
+    }
+
+    private void moveToArchiveActivity() {
+        Intent intent = new Intent(SettingsActivity.this, archiveActivity.class);
         startActivity(intent);
     }
 

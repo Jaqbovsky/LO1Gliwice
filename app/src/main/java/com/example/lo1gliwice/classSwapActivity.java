@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.lo1gliwice.aboutSchool.aboutSchoolActivity;
 import com.example.lo1gliwice.news.newsActivity;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -97,6 +98,11 @@ public class classSwapActivity extends AppCompatActivity implements NavigationVi
                 Toast.makeText(classSwapActivity.this,"O szkole", Toast.LENGTH_SHORT).show();
                 moveToAboutSchoolActivity();
                 break;
+
+            case R.id.menu_archive:
+                moveToArchiveActivity();
+                break;
+
         }
 
         return false;
@@ -129,6 +135,11 @@ public class classSwapActivity extends AppCompatActivity implements NavigationVi
 
     private void moveToAboutSchoolActivity(){
         Intent intent = new Intent(classSwapActivity.this, aboutSchoolActivity.class);
+        startActivity(intent);
+    }
+
+    private void moveToArchiveActivity() {
+        Intent intent = new Intent(classSwapActivity.this, archiveActivity.class);
         startActivity(intent);
     }
 

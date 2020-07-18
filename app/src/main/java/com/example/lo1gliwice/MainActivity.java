@@ -27,7 +27,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.lo1gliwice.account.loginActivity;
+import com.example.lo1gliwice.aboutSchool.aboutSchoolActivity;
 import com.example.lo1gliwice.news.newsActivity;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -161,36 +161,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         switch (menuItem.getItemId()) {
             case R.id.menu_mainPage:
-                Toast.makeText(MainActivity.this, "Strona główna", Toast.LENGTH_SHORT).show();
                 moveToMainActivity();
                 break;
 
             case R.id.menu_classSwap:
-                Toast.makeText(MainActivity.this, "Zamiana klas", Toast.LENGTH_SHORT).show();
                 moveToclassSwapActivity();
                 break;
 
             case R.id.menu_news:
-                Toast.makeText(MainActivity.this, "Aktualnosci", Toast.LENGTH_SHORT).show();
                 moveToNewsActivity();
                 break;
 
             case R.id.menu_about_school:
-                Toast.makeText(MainActivity.this, "O szkole", Toast.LENGTH_SHORT).show();
                 moveToAboutSchoolActivity();
                 break;
 
             case R.id.menu_setting:
-                Toast.makeText(MainActivity.this, "Ustawienia", Toast.LENGTH_SHORT).show();
                 moveToSettingsActivity();
                 break;
 
             case R.id.menu_information:
-                Toast.makeText(MainActivity.this, "Informacje", Toast.LENGTH_SHORT).show();
                 moveToInfoActivity();
                 break;
 
-
+            case R.id.menu_archive:
+                moveToArchiveActivity();
         }
 
         return false;
@@ -227,6 +222,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         startActivity(intent);
     }
 
+    private void moveToArchiveActivity() {
+        Intent intent = new Intent(MainActivity.this, archiveActivity.class);
+        startActivity(intent);
+    }
+
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
@@ -250,44 +250,47 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 doc = Jsoup.connect("http://www.lo1.gliwice.pl/zastepstwa-2/").userAgent("Mozilla/5.0").get();
 
                 switch (chosenClass) {
-                    case "IAp":
-                        result = doc.select("p:contains(IAp)").text();
+                    case "IA":
+                        result = doc.select("p:contains(IA)").text();
                         break;
-                    case "IBp":
-                        result = doc.select("p:contains(IBp)").text();
+                    case "IBC":
+                        result = doc.select("p:contains(IBC)").text();
                         break;
-                    case "ICp":
-                        result = doc.select("p:contains(ICp)").text();
+                    case "ID":
+                        result = doc.select("p:contains(ID)").text();
                         break;
-                    case "IDp":
-                        result = doc.select("p:contains(IDp)").text();
+                    case "IE":
+                        result = doc.select("p:contains(IE)").text();
                         break;
-                    case "IEp":
-                        result = doc.select("p:contains(IEp)").text();
+                    case "IIAp":
+                        result = doc.select("p:contains(IIAp)").text();
                         break;
-                    case "IAg":
-                        result = doc.select("p:contains(IAg)").text();
+                    case "IIBp":
+                        result = doc.select("p:contains(IIBp)").text();
                         break;
-                    case "IBg":
-                        result = doc.select("p:contains(IBg)").text();
+                    case "IICp":
+                        result = doc.select("p:contains(IICp)").text();
                         break;
-                    case "ICg":
-                        result = doc.select("p:contains(ICg)").text();
+                    case "IIDp":
+                        result = doc.select("p:contains(IIDp)").text();
                         break;
-                    case "IDg":
-                        result = doc.select("p:contains(IDg)").text();
+                    case "IIEp":
+                        result = doc.select("p:contains(IIEp)").text();
                         break;
-                    case "IEg":
-                        result = doc.select("p:contains(IEg)").text();
+                    case "IIAg":
+                        result = doc.select("p:contains(IIAg)").text();
                         break;
-                    case "IIa":
-                        result = doc.select("p:contains(IIa)").text();
+                    case "IIBg":
+                        result = doc.select("p:contains(IIBg)").text();
                         break;
-                    case "IIb":
-                        result = doc.select("p:contains(IIb)").text();
+                    case "IICg":
+                        result = doc.select("p:contains(IICg)").text();
                         break;
-                    case "IIc":
-                        result = doc.select("p:contains(IIc)").text();
+                    case "IIDg":
+                        result = doc.select("p:contains(IIDg)").text();
+                        break;
+                    case "IIEg":
+                        result = doc.select("p:contains(IIEg)").text();
                         break;
                     case "IIIa":
                         result = doc.select("p:contains(IIIa)").text();
@@ -297,9 +300,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         break;
                     case "IIIc":
                         result = doc.select("p:contains(IIIc)").text();
-                        break;
-                    case "TEST":
-                        result = doc.select("h1").text();
                         break;
                     case "":
                         break;
@@ -334,13 +334,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void readSettings() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         chosenClass = sharedPreferences.getString(PREF_YOUR_CLASS, "");
-    }
-
-    //moveToLoginActivity
-    public void goToLoginPage(View view){
-            Toast.makeText(MainActivity.this, "Logowanie", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(MainActivity.this, loginActivity.class);
-            startActivity(intent);
     }
 
 }

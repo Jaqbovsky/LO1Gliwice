@@ -11,6 +11,7 @@ import android.provider.Settings;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.lo1gliwice.aboutSchool.aboutSchoolActivity;
 import com.example.lo1gliwice.news.newsActivity;
 import com.firebase.client.Firebase;
 import com.google.android.gms.ads.AdRequest;
@@ -44,6 +46,7 @@ public class feedbackActivity extends AppCompatActivity implements NavigationVie
     Toolbar toolbar;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
+    CheckBox error_CB, opinion_CB, idea_CB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,14 +76,44 @@ public class feedbackActivity extends AppCompatActivity implements NavigationVie
         emailData = findViewById(R.id.editText_emailData);
         messageData = findViewById(R.id.editText_messageData);
 
+        error_CB = findViewById(R.id.checkBox_error);
+        opinion_CB = findViewById(R.id.checkBox_opinion);
+        idea_CB = findViewById(R.id.checkBox_idea);
+
         send = findViewById(R.id.button_send);
         details = findViewById(R.id.button_details);
+
 
         Firebase.setAndroidContext(this);
 
         String UniqueID = Settings.Secure.getString(getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
 
-        firebase = new Firebase("https://lo1-gliwice-remake.firebaseio.com/feedback/" + UniqueID);
+        error_CB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                opinion_CB.setChecked(false);
+                idea_CB.setChecked(false);
+                firebase = new Firebase("https://lo-gliwice.firebaseio.com/error/" + UniqueID);
+            }
+        });
+
+        opinion_CB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                error_CB.setChecked(false);
+                idea_CB.setChecked(false);
+                firebase = new Firebase("https://lo-gliwice.firebaseio.com/opinion/" + UniqueID);
+            }
+        });
+
+        idea_CB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                error_CB.setChecked(false);
+                opinion_CB.setChecked(false);
+                firebase = new Firebase("https://lo-gliwice.firebaseio.com/idea/" + UniqueID);
+            }
+        });
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -170,6 +203,10 @@ public class feedbackActivity extends AppCompatActivity implements NavigationVie
                 Toast.makeText(feedbackActivity.this,"O szkole", Toast.LENGTH_SHORT).show();
                 moveToAboutSchoolActivity();
                 break;
+
+            case R.id.menu_archive:
+                moveToArchiveActivity();
+                break;
         }
 
         return false;
@@ -206,6 +243,11 @@ public class feedbackActivity extends AppCompatActivity implements NavigationVie
     }
     private void moveToAboutSchoolActivity(){
         Intent intent = new Intent(feedbackActivity.this, aboutSchoolActivity.class);
+        startActivity(intent);
+    }
+
+    private void moveToArchiveActivity() {
+        Intent intent = new Intent(feedbackActivity.this, archiveActivity.class);
         startActivity(intent);
     }
 

@@ -26,7 +26,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.lo1gliwice.MainActivity;
 import com.example.lo1gliwice.R;
 import com.example.lo1gliwice.SettingsActivity;
-import com.example.lo1gliwice.aboutSchoolActivity;
+import com.example.lo1gliwice.aboutSchool.aboutSchoolActivity;
+import com.example.lo1gliwice.archiveActivity;
 import com.example.lo1gliwice.classSwapActivity;
 import com.example.lo1gliwice.infoActivity;
 import com.google.android.gms.ads.AdRequest;
@@ -180,6 +181,10 @@ public class newsActivity extends AppCompatActivity implements NavigationView.On
                 Toast.makeText(newsActivity.this, "O szkole", Toast.LENGTH_SHORT).show();
                 moveToAboutSchoolActivity();
                 break;
+
+            case R.id.menu_archive:
+                moveToArchiveActivity();
+                break;
         }
 
         return false;
@@ -213,6 +218,12 @@ public class newsActivity extends AppCompatActivity implements NavigationView.On
         Intent intent = new Intent(newsActivity.this, aboutSchoolActivity.class);
         startActivity(intent);
     }
+
+    private void moveToArchiveActivity() {
+        Intent intent = new Intent(newsActivity.this, archiveActivity.class);
+        startActivity(intent);
+    }
+
 
     @Override
     public void onBackPressed() {
