@@ -251,7 +251,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 switch (chosenClass) {
                     case "IA":
-                        result = doc.select("p:contains(IA)").text();
+                            result = doc.select("p:contains(IA)").text();
                         break;
                     case "IBC":
                         result = doc.select("p:contains(IBC)").text();

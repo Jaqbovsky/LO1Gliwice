@@ -100,7 +100,7 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
     String doc5_wyniki, doc5_w_finale, doc5_w_etapie, doc5_sukces, doc5_olimpiad, doc5_mistrz, doc5_laurat, doc5_finalist;
     String doc5_wyniki_link, doc5_w_finale_link, doc5_w_etapie_link, doc5_sukces_link, doc5_olimpiad_link, doc5_mistrz_link, doc5_laurat_link, doc5_finalist_link;
 
-    String url1 = "http://www.lo1.gliwice.pl/category/dla-uczniow/aktualnosci-dla-uczniow/";
+    String url1 = "http://www.lo1.gliwice.pl/category/dla-uczniow/aktualnosci-dla-uczniow/page/1/";
     String url2 = "http://www.lo1.gliwice.pl/category/dla-uczniow/aktualnosci-dla-uczniow/page/2/";
     String url3 = "http://www.lo1.gliwice.pl/category/dla-uczniow/aktualnosci-dla-uczniow/page/3/";
     String url4 = "http://www.lo1.gliwice.pl/category/dla-uczniow/aktualnosci-dla-uczniow/page/4/";

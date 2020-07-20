@@ -227,15 +227,18 @@ public class archiveActivity extends AppCompatActivity implements NavigationView
 
     public void retriverData(String day){
 
-        DocumentReference docRef = db.collection(eM).document(day);
+        DocumentReference docRef = db.collection("archive of replacements").document(eM).collection(day).document("replacement");
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
+                        if (document.exists()) {
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
-                        Rdata_TV.setText(document.getString("replacement").toString());
+                        String a = document.getString("replacement").replace("1l", "\n1l").replace("2l", "\n2l").replace("3l", "\n3l")
+                                    .replace("4l", "\n4l").replace("5l", "\n5l").replace("6l", "\n6l")
+                                    .replace("7l", "\n7l").replace("8l", "\n8l").replace("9l", "\n9l");
+                        Rdata_TV.setText(a);
                     } else {
                         Log.d(TAG, "No such document");
                     }
@@ -244,6 +247,18 @@ public class archiveActivity extends AppCompatActivity implements NavigationView
                 }
             }
         });
+    }
+
+    public void trimData(String data){
+
+        List<String> trim = new ArrayList<>();
+
+        for (String a : trim){
+
+        }
+
+        Rdata_TV.setText(trim.get(0));
+
     }
 
     @Override
