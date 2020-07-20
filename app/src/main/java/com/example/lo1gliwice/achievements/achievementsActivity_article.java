@@ -44,6 +44,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class achievementsActivity_article extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     Button goBack;
@@ -53,12 +54,16 @@ public class achievementsActivity_article extends AppCompatActivity implements N
     WebView webView;
     FloatingActionButton fab_openInWeb;
     int a;
+    boolean run = false;
     //SIDEBAR MENU
 
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
+
+    ArrayList<String> title = new ArrayList<String>();
+    ArrayList<String> link = new ArrayList<String>();
 
     @SuppressLint("RestrictedApi")
     @Override
@@ -78,6 +83,10 @@ public class achievementsActivity_article extends AppCompatActivity implements N
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
+
+        title = getIntent().getStringArrayListExtra("TITLE_LIST");
+        link = getIntent().getStringArrayListExtra("LINK_LIST");
+
         title_TV = findViewById(R.id.textView_title);
         title_TV.setText(getIntent().getStringExtra("TITLE"));
         fab_openInWeb = findViewById(R.id.floatingActionButton_openInWeb);
@@ -85,7 +94,11 @@ public class achievementsActivity_article extends AppCompatActivity implements N
         goBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveToAchievementsActivity();
+                Intent intent = new Intent(achievementsActivity_article.this, achievementsActivity.class);
+                intent.putExtra("TITLE_LIST", title);
+                intent.putExtra("LINK_LIST", link);
+                intent.putExtra("RUN", run);
+                startActivity(intent);
             }
         });
 
@@ -95,6 +108,8 @@ public class achievementsActivity_article extends AppCompatActivity implements N
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         new doit().execute();
+
+
 
     }
 

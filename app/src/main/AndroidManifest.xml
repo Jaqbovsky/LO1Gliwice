@@ -16,9 +16,6 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".archiveActivity"></activity>
-        <activity android:name=".account.registerActivity" />
-        <activity android:name=".account.homeActivity" />
-        <activity android:name=".account.loginActivity" />
         <activity android:name=".achievements.achievementsActivity_article" />
         <activity android:name=".achievements.achievementsActivity" />
         <activity android:name=".aboutSchool.aboutSchoolActivity" />
