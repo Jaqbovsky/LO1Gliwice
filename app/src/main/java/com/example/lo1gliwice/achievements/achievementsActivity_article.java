@@ -20,6 +20,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.lo1gliwice.MainActivity;
@@ -69,7 +71,7 @@ public class achievementsActivity_article extends AppCompatActivity implements N
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_news_article);
+        setContentView(R.layout.activity_achievements_article);
 
         //SIDEBAR MENU
         drawerLayout = findViewById(R.id.drawer);
@@ -201,14 +203,16 @@ public class achievementsActivity_article extends AppCompatActivity implements N
     }
 
     public void openInWeb(View view) {
-
+        CardView cardView = findViewById(R.id.card_view);
         if (a == 0) {
+            cardView.setVisibility(View.GONE);
             String url = getIntent().getStringExtra("LINK");
             webView.setVisibility(View.VISIBLE);
             webView.setWebViewClient(new WebViewClient());
             webView.loadUrl(url);
             a = 1;
         }else{
+            cardView.setVisibility(View.VISIBLE);
             webView.setVisibility(View.GONE);
             a = 0;
         }

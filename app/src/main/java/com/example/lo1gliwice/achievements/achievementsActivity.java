@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.ContextThemeWrapper;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.lo1gliwice.MainActivity;
@@ -104,29 +106,7 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
                 for (int k = 0; k < title.size(); k++) {
                     String text = title.get(k);
                     String link1 = link.get(k);
-                    LinearLayout.LayoutParams params;
-                    params = new LinearLayout.LayoutParams(
-                            LinearLayout.LayoutParams.WRAP_CONTENT,
-                            LinearLayout.LayoutParams.WRAP_CONTENT
-                    );
-                    params.setMargins(0, 15, 0, 15);
-                    TextView textView = new TextView(achievementsActivity.this);
-                    textView.setText(text);
-                    textView.setTextColor(Color.parseColor("#000000"));
-                    textView.setLayoutParams(params);
-                    textView.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            //Toast.makeText(achievementsActivity.this, text,Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
-                            intent.putExtra("TITLE", text);
-                            intent.putExtra("LINK", link1);
-                            intent.putExtra("TITLE_LIST", title);
-                            intent.putExtra("LINK_LIST", link);
-                            startActivity(intent);
-                        }
-                    });
-                    linearLayout.addView(textView);
+                    print(text, link1);
                 }
                 new doIt2().execute();
             }
@@ -180,8 +160,6 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
     public class doIt extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... params) {
-            int maxValue = progressBar.getMax();
-            progressBar.setMax(100);
             Document doc = null;
             String url;
 
@@ -218,9 +196,6 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
                     link.clear();
                     link.addAll(set2);
 
-                    int a = title.size();
-
-
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -236,30 +211,7 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
             for (int k = 0; k < title.size(); k++){
                 String text = title.get(k);
                 String link1 = link.get(k);
-                LinearLayout.LayoutParams params;
-                params = new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.WRAP_CONTENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT
-                );
-                params.setMargins(0, 15, 0, 15);
-                TextView textView = new TextView(achievementsActivity.this);
-                textView.setText(text);
-                textView.setTextColor(Color.parseColor("#000000"));
-                textView.setLayoutParams(params);
-                textView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        //Toast.makeText(achievementsActivity.this, text,Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
-                        intent.putExtra("TITLE", text);
-                        intent.putExtra("LINK", link1);
-                        intent.putExtra("TITLE_LIST", title);
-                        intent.putExtra("LINK_LIST", link);
-                        startActivity(intent);
-                    }
-                });
-                linearLayout.addView(textView);
-
+                print(text, link1);
             }
             new doIt2().execute();
         }
@@ -305,9 +257,6 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
                     link2.clear();
                     link2.addAll(set4);
 
-                    int a = title.size();
-
-
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -323,30 +272,45 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
             for (int k = 0; k < title2.size(); k++){
                 String text = title2.get(k);
                 String link1 = link2.get(k);
-                LinearLayout.LayoutParams params;
-                params = new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.WRAP_CONTENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT
-                );
-                params.setMargins(0, 15, 0, 15);
-                TextView textView = new TextView(achievementsActivity.this);
-                textView.setText(text);
-                textView.setTextColor(Color.parseColor("#000000"));
-                textView.setLayoutParams(params);
-                textView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        //Toast.makeText(achievementsActivity.this, text,Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
-                        intent.putExtra("TITLE", text);
-                        intent.putExtra("LINK", link1);
-                        startActivity(intent);
-                    }
-                });
-                linearLayout.addView(textView);
-
+                print(text, link1);
             }
         }
+    }
+
+    public void print(String titleA, String linkA){
+        LinearLayout.LayoutParams paramsT;
+        paramsT = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        paramsT.setMargins(25, 20, 25, 20);
+        CardView cardView = new CardView(achievementsActivity.this);
+        TextView textView = new TextView(achievementsActivity.this);
+        textView.setLayoutParams(paramsT);
+        textView.setTextColor(Color.parseColor("#000000"));
+        textView.setTextSize(16);
+        textView.setText(titleA);
+        cardView.addView(textView);
+        LinearLayout.LayoutParams params;
+        params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        params.setMargins(25, 10, 25, 15);
+        cardView.setLayoutParams(params);
+        cardView.setRadius(15);
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(achievementsActivity.this, achievementsActivity_article.class);
+                intent.putExtra("TITLE", titleA);
+                intent.putExtra("LINK", linkA);
+                intent.putExtra("TITLE_LIST", title);
+                intent.putExtra("LINK_LIST", link);
+                startActivity(intent);
+            }
+        });
+        linearLayout.addView(cardView);
     }
 
     //CHANGE ACTIVITY
