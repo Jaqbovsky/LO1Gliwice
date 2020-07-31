@@ -88,32 +88,26 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
 
         switch (menuItem.getItemId()) {
             case R.id.menu_mainPage:
-                Toast.makeText(SettingsActivity.this, "Strona główna", Toast.LENGTH_SHORT).show();
                 moveToMainActivity();
                 break;
 
             case R.id.menu_classSwap:
-                Toast.makeText(SettingsActivity.this, "Zamiana klas", Toast.LENGTH_SHORT).show();
                 moveToclassSwapActivity();
                 break;
 
             case R.id.menu_setting:
-                Toast.makeText(SettingsActivity.this, "Ustawienia", Toast.LENGTH_SHORT).show();
                 moveToSettingsActivity();
                 break;
 
             case R.id.menu_information:
-                Toast.makeText(SettingsActivity.this, "Informacje", Toast.LENGTH_SHORT).show();
                 moveToInfoActivity();
                 break;
 
             case R.id.menu_news:
-                Toast.makeText(SettingsActivity.this, "Aktualnosci", Toast.LENGTH_SHORT).show();
                 moveToNewsActivity();
                 break;
 
             case R.id.menu_about_school:
-                Toast.makeText(SettingsActivity.this,"O szkole", Toast.LENGTH_SHORT).show();
                 moveToAboutSchoolActivity();
                 break;
 

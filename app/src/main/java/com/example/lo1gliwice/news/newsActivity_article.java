@@ -35,6 +35,8 @@ import com.example.lo1gliwice.MainActivity;
 import com.example.lo1gliwice.R;
 import com.example.lo1gliwice.SettingsActivity;
 import com.example.lo1gliwice.aboutSchool.aboutSchoolActivity;
+import com.example.lo1gliwice.achievements.achievementsActivity;
+import com.example.lo1gliwice.achievements.achievementsActivity_article;
 import com.example.lo1gliwice.archiveActivity;
 import com.example.lo1gliwice.classSwapActivity;
 import com.example.lo1gliwice.infoActivity;
@@ -45,6 +47,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class newsActivity_article extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     Button goBack;
@@ -54,12 +57,17 @@ public class newsActivity_article extends AppCompatActivity implements Navigatio
     WebView webView;
     FloatingActionButton fab_openInWeb;
     int a = 0;
+    boolean run = false;
     //SIDEBAR MENU
 
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
+
+    ArrayList<String> title = new ArrayList<String>();
+    ArrayList<String> link = new ArrayList<String>();
+
 
     @SuppressLint("RestrictedApi")
     @Override
@@ -79,6 +87,9 @@ public class newsActivity_article extends AppCompatActivity implements Navigatio
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
+        title = getIntent().getStringArrayListExtra("TITLE_LIST");
+        link = getIntent().getStringArrayListExtra("LINK_LIST");
+
         title_TV = findViewById(R.id.textView_title);
         title_TV.setText(getIntent().getStringExtra("TITLE"));
 
@@ -88,7 +99,11 @@ public class newsActivity_article extends AppCompatActivity implements Navigatio
         goBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveToNewsActivity();
+                Intent intent = new Intent(newsActivity_article.this, newsActivity.class);
+                intent.putExtra("TITLE_LIST", title);
+                intent.putExtra("LINK_LIST", link);
+                intent.putExtra("RUN", run);
+                startActivity(intent);
             }
         });
 
@@ -111,32 +126,26 @@ public class newsActivity_article extends AppCompatActivity implements Navigatio
 
         switch (menuItem.getItemId()) {
             case R.id.menu_mainPage:
-                Toast.makeText(newsActivity_article.this, "Strona główna", Toast.LENGTH_SHORT).show();
                 moveToMainActivity();
                 break;
 
             case R.id.menu_classSwap:
-                Toast.makeText(newsActivity_article.this, "Zamiana klas", Toast.LENGTH_SHORT).show();
                 moveToclassSwapActivity();
                 break;
 
             case R.id.menu_setting:
-                Toast.makeText(newsActivity_article.this, "Ustawienia", Toast.LENGTH_SHORT).show();
                 moveToSettingsActivity();
                 break;
 
             case R.id.menu_information:
-                Toast.makeText(newsActivity_article.this, "Informacje", Toast.LENGTH_SHORT).show();
                 moveToInfoActivity();
                 break;
 
             case R.id.menu_news:
-                Toast.makeText(newsActivity_article.this, "Aktualnosci", Toast.LENGTH_SHORT).show();
                 moveToNewsActivity();
                 break;
 
             case R.id.menu_about_school:
-                Toast.makeText(newsActivity_article.this, "O szkole", Toast.LENGTH_SHORT).show();
                 moveToAboutSchoolActivity();
                 break;
 

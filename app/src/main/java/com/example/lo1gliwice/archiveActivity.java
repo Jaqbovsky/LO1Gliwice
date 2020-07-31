@@ -117,7 +117,6 @@ public class archiveActivity extends AppCompatActivity implements NavigationView
 
         if (spinner.getId() == R.id.month_spinner){
             myMonth = parent.getItemAtPosition(position).toString();
-            Toast.makeText(archiveActivity.this, myMonth , Toast.LENGTH_SHORT).show();
             a = true;
 
             if (myMonth.equals(month.get(0))){
@@ -266,35 +265,28 @@ public class archiveActivity extends AppCompatActivity implements NavigationView
 
         switch (menuItem.getItemId()) {
             case R.id.menu_mainPage:
-                Toast.makeText(archiveActivity.this, "Strona główna", Toast.LENGTH_SHORT).show();
                 moveToMainActivity();
                 break;
 
             case R.id.menu_classSwap:
-                Toast.makeText(archiveActivity.this, "Zamiana klas", Toast.LENGTH_SHORT).show();
                 moveToclassSwapActivity();
                 break;
 
             case R.id.menu_news:
-                Toast.makeText(archiveActivity.this, "Aktualnosci", Toast.LENGTH_SHORT).show();
                 moveToNewsActivity();
                 break;
 
             case R.id.menu_about_school:
-                Toast.makeText(archiveActivity.this, "O szkole", Toast.LENGTH_SHORT).show();
                 moveToAboutSchoolActivity();
                 break;
 
             case R.id.menu_setting:
-                Toast.makeText(archiveActivity.this, "Ustawienia", Toast.LENGTH_SHORT).show();
                 moveToSettingsActivity();
                 break;
 
             case R.id.menu_information:
-                Toast.makeText(archiveActivity.this, "Informacje", Toast.LENGTH_SHORT).show();
                 moveToInfoActivity();
                 break;
-
 
         }
 

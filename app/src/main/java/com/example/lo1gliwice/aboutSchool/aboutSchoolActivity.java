@@ -100,32 +100,26 @@ public class aboutSchoolActivity extends AppCompatActivity implements Navigation
 
         switch (menuItem.getItemId()){
             case R.id.menu_mainPage:
-                Toast.makeText(aboutSchoolActivity.this, "Strona główna", Toast.LENGTH_SHORT).show();
                 moveToMainActivity();
                 break;
 
             case R.id.menu_classSwap:
-                Toast.makeText(aboutSchoolActivity.this, "Zamiana klas", Toast.LENGTH_SHORT).show();
                 moveToclassSwapActivity();
                 break;
 
             case R.id.menu_news:
-                Toast.makeText(aboutSchoolActivity.this, "Aktualnosci", Toast.LENGTH_SHORT).show();
                 moveToNewsActivity();
                 break;
 
             case R.id.menu_about_school:
-                Toast.makeText(aboutSchoolActivity.this,"O szkole", Toast.LENGTH_SHORT).show();
                 moveToAboutSchoolActivity();
                 break;
 
             case R.id.menu_setting:
-                Toast.makeText(aboutSchoolActivity.this, "Ustawienia", Toast.LENGTH_SHORT).show();
                 moveToSettingsActivity();
                 break;
 
             case R.id.menu_information:
-                Toast.makeText(aboutSchoolActivity.this, "Informacje", Toast.LENGTH_SHORT).show();
                 moveToInfoActivity();
                 break;
             case R.id.menu_archive:

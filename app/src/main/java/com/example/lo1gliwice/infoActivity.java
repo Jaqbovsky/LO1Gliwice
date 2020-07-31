@@ -7,15 +7,14 @@ package com.example.lo1gliwice;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.method.LinkMovementMethod;
-import android.text.style.ClickableSpan;
-import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.GridLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,17 +22,20 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.lo1gliwice.aboutSchool.aboutSchoolActivity;
 import com.example.lo1gliwice.news.newsActivity;
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.rewarded.RewardedAd;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class infoActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -85,67 +87,58 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
         mInterstitialAd = new InterstitialAd(this);
         mInterstitialAd.setAdUnitId("ca-app-pub-6373386798183476/3442811283");
 
+        List<String> updateList = new ArrayList<>();
+        updateList.add("Poprawiono wygląd");
+        updateList.add("Zoptymalizowano\nosiągnięcia uczniów");
+        updateList.add("Zmieniono działanie\naktualności");
+        updateList.add("Dodano zakładke\n\"Organizacja roku szkolnego\"");
 
-       //TEXTVIEW
-        github_TV = findViewById(R.id.textView_github);
+        int l = updateList.size();
+        GridLayout gridLayout = findViewById(R.id.grid);
+        gridLayout.setRowCount(1);
+        gridLayout.setColumnCount(l);
 
-            //ANNOTATION GIT REPOSITORY
-            SpannableString spannableString_git =  new SpannableString(gitHub);
-            ClickableSpan clickableSpan_git = new ClickableSpan() {
-                @Override
-                public void onClick(@NonNull View widget) {
-                    openGIT("https://github.com/Jaqbovsky/LO1Gliwice");
-                }
-            };
+        for (int i = 0; i < updateList.size(); i++ ){
 
-            spannableString_git.setSpan(clickableSpan_git,29,35, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            github_TV.setText(spannableString_git);
-            github_TV.setMovementMethod(LinkMovementMethod.getInstance());
+            LinearLayout.LayoutParams paramsC;
+            paramsC = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            paramsC.setMargins(20,20,20,20);
 
-        watchAd_TV = findViewById(R.id.textView_watchAd);
+            CardView cardView = new CardView(infoActivity.this);
+            cardView.setRadius(15);
+            cardView.setCardElevation(15);
+            cardView.setLayoutParams(paramsC);
 
-            //ANNOTATION WATCH AD
-            SpannableString spannableString_watchAd = new SpannableString(watchAd);
-            ClickableSpan clickableSpan_watchAd = new ClickableSpan() {
-                @Override
-                public void onClick(@NonNull View widget) {
-                    //Toast.makeText(infoActivity.this, "Aktualnie nie ma opcji wsparcia", Toast.LENGTH_SHORT).show();
-                    mInterstitialAd.loadAd(new AdRequest.Builder().build());
-                    if (mInterstitialAd.isLoaded()) {
-                        mInterstitialAd.show();
-                    } else {
-                        Log.d("TAG", "The interstitial wasn't loaded yet.");
-                    }
-                    mInterstitialAd.setAdListener(new AdListener() {
-                        @Override
-                        public void onAdClosed() {
-                            // Load the next interstitial.
-                            mInterstitialAd.loadAd(new AdRequest.Builder().build());
-                        }
+            LinearLayout.LayoutParams params;
+            params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            LinearLayout linearLayout = new LinearLayout(infoActivity.this);
+            linearLayout.setOrientation(LinearLayout.VERTICAL);
+            linearLayout.setLayoutParams(params);
+            linearLayout.setGravity(Gravity.CENTER);
 
-                    });
-                }
-            };
+            LinearLayout.LayoutParams paramsT;
+            paramsT = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            paramsT.setMargins(50, 50, 50, 50);
+            TextView textView = new TextView(infoActivity.this);
+            textView.setText(updateList.get(i));
+            textView.setTextColor(Color.parseColor("#000000"));
+            textView.setTextSize(16);
+            textView.setLayoutParams(paramsT);
+            textView.setGravity(Gravity.CENTER);
 
-            spannableString_watchAd.setSpan(clickableSpan_watchAd, 23,28, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            watchAd_TV.setText(spannableString_watchAd);
-            watchAd_TV.setMovementMethod(LinkMovementMethod.getInstance());
-
-        feedback_TV = findViewById(R.id.textView_feedback);
-
-        //ANNOTATION feedback
-        SpannableString spannableString_feedback = new SpannableString(feedback);
-        ClickableSpan clickableSpan_feedback = new ClickableSpan() {
-            @Override
-            public void onClick(@NonNull View widget) {
-                moveToFeedbackActivity();
-            }
-        };
-
-        spannableString_feedback.setSpan(clickableSpan_feedback,55,60, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        feedback_TV.setText(spannableString_feedback);
-        feedback_TV.setMovementMethod(LinkMovementMethod.getInstance());
-
+            linearLayout.addView(textView);
+            cardView.addView(linearLayout);
+            gridLayout.addView(cardView);
+        }
 
     }
 
@@ -159,32 +152,26 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
 
         switch (menuItem.getItemId()) {
             case R.id.menu_mainPage:
-                Toast.makeText(infoActivity.this, "Strona główna", Toast.LENGTH_SHORT).show();
                 moveToMainActivity();
                 break;
 
             case R.id.menu_classSwap:
-                Toast.makeText(infoActivity.this, "Zamiana klas", Toast.LENGTH_SHORT).show();
                 moveToclassSwapActivity();
                 break;
 
             case R.id.menu_setting:
-                Toast.makeText(infoActivity.this, "Ustawienia", Toast.LENGTH_SHORT).show();
                 moveToSettingsActivity();
                 break;
 
             case R.id.menu_information:
-                Toast.makeText(infoActivity.this, "Informacje", Toast.LENGTH_SHORT).show();
                 moveToInfoActivity();
                 break;
 
             case R.id.menu_news:
-            Toast.makeText(infoActivity.this, "Aktualnosci", Toast.LENGTH_SHORT).show();
             moveToNewsActivity();
             break;
 
             case R.id.menu_about_school:
-                Toast.makeText(infoActivity.this,"O szkole", Toast.LENGTH_SHORT).show();
                 moveToAboutSchoolActivity();
                 break;
 
@@ -244,51 +231,15 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
         startActivity(launchWeb);
     }
 
-
-/*
-    public void loadAd(){
-        this.rewardedAd = new RewardedAd(this, "ca-app-pub-6373386798183476/7988579463");
-        //test//this.rewardedAd = new RewardedAd(this, "ca-app-pub-3940256099942544/5224354917");
-        RewardedAdLoadCallback loadCallback = new RewardedAdLoadCallback(){
-            @Override
-            public void onRewardedAdFailedToLoad(int i) {
-                super.onRewardedAdFailedToLoad(i);
-                Log.i(TAG, "onRewardedAdFailedToLoad");
-            }
-
-            @Override
-            public void onRewardedAdLoaded() {
-                super.onRewardedAdLoaded();
-                Log.i(TAG, "onRewardedAdLoaded");
-            }
-        };
-        this.rewardedAd.loadAd(new AdRequest.Builder().build(), loadCallback);
+    public void moveToFeedback(View view) {
+        Intent intent = new Intent(infoActivity.this, feedbackActivity.class);
+        startActivity(intent);
     }
-    public void showAd(){
-        if (this.rewardedAd.isLoaded()){
-            RewardedAdCallback rewardedAdCallback = new RewardedAdCallback() {
-                @Override
-                public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
-                    Log.i(TAG, "OnUserEarnedReward");
-                }
 
-                @Override
-                public void onRewardedAdOpened() {
-                    super.onRewardedAdOpened();
-                    Log.i(TAG, "onRewardedAdOpened");
-                }
-
-                @Override
-                public void onRewardedAdClosed() {
-                    super.onRewardedAdClosed();
-                    Log.i(TAG,"onRewardedAdClosed");
-                }
-            };
-            this.rewardedAd.show(this, rewardedAdCallback);
-        }else{
-            Log.i(TAG,"Ad not loaded");
-        }
+    public void openEmail(View view) {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("plain/text");
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[] { "j.olszewski05@gmail.com" });
+        startActivity(Intent.createChooser(intent, ""));
     }
-    */
-
 }

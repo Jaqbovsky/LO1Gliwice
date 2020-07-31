@@ -8,9 +8,9 @@
                 android:topRightRadius="20dp"
                 android:bottomRightRadius="20dp"
                 android:radius="10dp" />
-            <gradient
-                android:startColor="@color/colorPrimary"
-                android:endColor="@color/colorPrimaryDark"/>
-        </shape>
+<gradient
+android:startColor="@color/colorPrimary"
+android:endColor="@color/colorPrimaryDark"/>
+    </shape>
     </item>
-</selector>
+    </selector>

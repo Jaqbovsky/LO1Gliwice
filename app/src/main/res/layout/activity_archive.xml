@@ -80,7 +80,7 @@
                 android:layout_marginLeft="55dp"
                 android:layout_marginRight="55dp"
                 android:layout_marginTop="25dp"
-                android:background="#2A5E5E5E"
+                android:background="@drawable/spinner_style"
                 android:popupBackground="#999999"/>
 
             <Spinner
@@ -90,7 +90,7 @@
                 android:layout_marginLeft="55dp"
                 android:layout_marginRight="55dp"
                 android:layout_marginTop="25dp"
-                android:background="#2A5E5E5E"
+                android:background="@drawable/spinner_style"
                 android:popupBackground="#999999"/>
 
             <TextView
