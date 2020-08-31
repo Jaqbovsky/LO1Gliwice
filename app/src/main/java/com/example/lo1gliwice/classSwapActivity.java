@@ -13,8 +13,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lo1gliwice.aboutSchool.aboutSchoolActivity;
@@ -23,6 +27,12 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.navigation.NavigationView;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+
+import java.io.IOException;
 
 public class classSwapActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -34,6 +44,7 @@ public class classSwapActivity extends AppCompatActivity implements NavigationVi
     Toolbar toolbar;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
+    TextView result_TV;
 
     @SuppressLint("RestrictedApi")
     @Override
@@ -58,6 +69,51 @@ public class classSwapActivity extends AppCompatActivity implements NavigationVi
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+
+        result_TV = findViewById(R.id.textView_result);
+
+        Button classSwap = findViewById(R.id.button_classSwap);
+        classSwap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                new doit().execute();
+
+            }
+        });
+    }
+
+    public class doit extends AsyncTask<Void, Void, Void> {
+
+        String result;
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+
+            Document doc = null;
+            try {
+                doc = Jsoup.connect("http://www.lo1.gliwice.pl/zastepstwa-2/").userAgent("Mozilla/5.0").get();
+
+                //result = doc.select("table").text();
+
+                for (Element row : doc.select("table tbody tr")) {
+
+                    result = result + row.text()+ "\n\n\n";
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            result_TV.setText(result);
+        }
     }
 
     //

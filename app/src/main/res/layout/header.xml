@@ -17,8 +17,7 @@
         android:src="@drawable/logo_zso10"
         android:layout_marginStart="35dp"
         android:contentDescription="@string/todo"
-        android:clickable="true"
-        android:onClick="goToLoginPage"/>
+        android:clickable="true" />
 
     <TextView
         android:layout_width="257dp"
