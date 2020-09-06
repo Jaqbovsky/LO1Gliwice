@@ -40,8 +40,11 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 
 import org.jsoup.*;
 import org.jsoup.nodes.*;
+import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemSelectedListener {
     private FirebaseAnalytics mFirebaseAnalytics;
@@ -61,8 +64,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     //INT'S
     int resultLength;
-    //BOOLEANS
 
+    //BOOLEANS
+    boolean aBoolean = false;
     //TEXTVIEW'S
     TextView chosenClass_TV;
     TextView date_TV;
@@ -107,9 +111,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         //SPINNER
+        List<String> classList = new ArrayList<>();
+        classList.add("IA");
+        classList.add("IBC");
+        classList.add("IE");
+        classList.add("ID");
+        classList.add("IIAp");
+        classList.add("IIBp");
+        classList.add("IICp");
+        classList.add("IIDp");
+        classList.add("IIAg");
+        classList.add("IIBg");
+        classList.add("IICg");
+        classList.add("IIDg");
+        classList.add("IIEg");
+        classList.add("IIIA");
+        classList.add("IIIB");
+        classList.add("IIIC");
+        classList.add("IIID");
+        classList.add("IIIE");
 
         Spinner spinner = findViewById(R.id.classSpinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.classSpinner, android.R.layout.simple_spinner_item);
+        ArrayAdapter<String> adapter =  new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, classList);
+        //ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.classSpinner, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
@@ -119,13 +143,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         btn_refresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if (!chosenClass.isEmpty()) {
                     chosenClass_TV.setText("Wybrałeś klasę: " + chosenClass);
-                    new doit().execute();
+                    if (chosenClass.equals("Klasa nie została wybrana")){
+
+                    } else {
+                        new doit().execute();
+                    }
                 }
-
-
             }
         });
 
@@ -134,7 +159,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View v) {
                 readSettings();
-
                 if (chosenClass.isEmpty()) {
                     chosenClass_TV.setText("Klasa nie została wybrana");
                     Toast.makeText(MainActivity.this, "Przejź do ustawień aby wybrać swoją klasę.", Toast.LENGTH_SHORT).show();
@@ -142,8 +166,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     chosenClass_TV.setText("Wybrałeś klasę: " + chosenClass);
                     new doit().execute();
                 }
-
-
             }
         });
 
@@ -154,6 +176,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         chosenClass = parent.getItemAtPosition(position).toString();
         chosenClass_TV.setText("Wybrałeś klasę: " + chosenClass);
         new doit().execute();
+
     }
 
     @Override
@@ -227,106 +250,60 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         startActivity(intent);
     }
 
-
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
     }
 
     //GETING DATA FROM WEBSITE
-    public class doit extends AsyncTask<Void, Void, Void> {
+    public class doit extends AsyncTask<Void, Void, String> {
 
-        String result;
+        String result = "";
         String date;
 
-        @Override
-        protected Void doInBackground(Void... params) {
 
+        @Override
+        protected String doInBackground(Void... params) {
+            aBoolean = true;
             if (chosenClass.isEmpty()) {
                 chosenClass = "Wybierz";
             }
 
-            Document doc = null;
+            Document doc;
             try {
                 doc = Jsoup.connect("http://www.lo1.gliwice.pl/zastepstwa-2/").userAgent("Mozilla/5.0").get();
+                Elements elements = doc.select("div#post-3833").select("p");
+                List<String> list = new ArrayList<>();
+                List<String> list2 = new ArrayList<>();
+                for (Element element : elements) {
+                    list.add(element.text());
+                }
+                System.out.println(list);
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i).contains(chosenClass)) {
+                        list2.add(list.get(i));
+                    }
+                }
+                if (list2.size() == 0){
+                    list2.add("Brak zastępstw");
 
-                switch (chosenClass) {
-                    case "IA":
-                            result = doc.select("p:contains(IA)").text();
-                        break;
-                    case "IBC":
-                        result = doc.select("p:contains(IBC)").text();
-                        break;
-                    case "ID":
-                        result = doc.select("p:contains(ID)").text();
-                        break;
-                    case "IE":
-                        result = doc.select("p:contains(IE)").text();
-                        break;
-                    case "IIAp":
-                        result = doc.select("p:contains(IIAp)").text();
-                        break;
-                    case "IIBp":
-                        result = doc.select("p:contains(IIBp)").text();
-                        break;
-                    case "IICp":
-                        result = doc.select("p:contains(IICp)").text();
-                        break;
-                    case "IIDp":
-                        result = doc.select("p:contains(IIDp)").text();
-                        break;
-                    case "IIEp":
-                        result = doc.select("p:contains(IIEp)").text();
-                        break;
-                    case "IIAg":
-                        result = doc.select("p:contains(IIAg)").text();
-                        break;
-                    case "IIBg":
-                        result = doc.select("p:contains(IIBg)").text();
-                        break;
-                    case "IICg":
-                        result = doc.select("p:contains(IICg)").text();
-                        break;
-                    case "IIDg":
-                        result = doc.select("p:contains(IIDg)").text();
-                        break;
-                    case "IIEg":
-                        result = doc.select("p:contains(IIEg)").text();
-                        break;
-                    case "IIIa":
-                        result = doc.select("p:contains(IIIa)").text();
-                        break;
-                    case "IIIb":
-                        result = doc.select("p:contains(IIIb)").text();
-                        break;
-                    case "IIIc":
-                        result = doc.select("p:contains(IIIc)").text();
-                        break;
-                    case "":
-                        break;
+                }
+                for (int i = 0; i < list2.size(); i++){
+                    result += list2.get(i);
                 }
 
                 date = doc.select("u").text();
-
-                if (result.length() == 0) {
-                    result = "Brak zastępstw";
-                }
-
-                result = result.replace("1l", "\n1l").replace("2l", "\n2l").replace("3l", "\n3l")
-                        .replace("4l", "\n4l").replace("5l", "\n5l").replace("6l", "\n6l")
-                        .replace("7l", "\n7l").replace("8l", "\n8l").replace("9l", "\n9l");
+                result_TV.setText(result);
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-            return null;
+        return result;
         }
 
         @Override
-        protected void onPostExecute(Void aVoid) {
+        protected void onPostExecute(String aVoid) {
             super.onPostExecute(aVoid);
             date_TV.setText(date);
-            result_TV.setText(result);
         }
     }
 
@@ -335,5 +312,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         chosenClass = sharedPreferences.getString(PREF_YOUR_CLASS, "");
     }
+
 
 }

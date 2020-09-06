@@ -18,7 +18,10 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.preference.CheckBoxPreference;
+import androidx.preference.EditTextPreference;
 import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 
@@ -34,7 +37,7 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
     private static final String CHANNEL_ID = "CHANNEL_ID";
     //ADS
     private AdView mAdView;
-
+    private CheckBoxPreference Check;
     //SIDEBAR MENU
     DrawerLayout drawerLayout;
     Toolbar toolbar;
@@ -59,6 +62,7 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         sp.getBoolean("notification", true);
         sp.getString("yourClass", "Wybierz");
+        sp.getString("surname", "Wpisz nazwisko");
 
         //SIDEBAR MENU
         drawerLayout = findViewById(R.id.drawer);
@@ -67,9 +71,9 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
         setSupportActionBar(toolbar);
         getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawerOpen, R.string.drawerClose);
+
         drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
+        //toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
         //ADS
@@ -79,8 +83,6 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
         mAdView.loadAd(adRequest);
 
         //NOTIFICATIONS
-
-
     }
 
     @Override
@@ -124,17 +126,14 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
         Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
         startActivity(intent);
     }
-
     private void moveToMainActivity() {
         Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
         startActivity(intent);
     }
-
     private void moveToclassSwapActivity(){
         Intent intent = new Intent(SettingsActivity.this, classSwapActivity.class);
         startActivity(intent);
     }
-
     private void moveToInfoActivity(){
         Intent intent = new Intent(SettingsActivity.this, infoActivity.class);
         startActivity(intent);
@@ -143,12 +142,10 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
         Intent intent = new Intent(SettingsActivity.this, newsActivity.class);
         startActivity(intent);
     }
-
     private void moveToAboutSchoolActivity(){
         Intent intent = new Intent(SettingsActivity.this, aboutSchoolActivity.class);
         startActivity(intent);
     }
-
     private void moveToArchiveActivity() {
         Intent intent = new Intent(SettingsActivity.this, archiveActivity.class);
         startActivity(intent);
@@ -158,6 +155,13 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
     public static class SettingsFragment extends PreferenceFragmentCompat {
 
         public static final String yourClass = "yourClass";
+        public static final String amITeacher = "amITeacher";
+        public static final String surname = "surname";
+        public static final String categorySurname = "surnameCategory";
+        public static final String categoryClass = "classCategory";
+        private CheckBoxPreference Check;
+        private PreferenceCategory pCS, pCC;
+        private EditTextPreference Surname;
 
         private SharedPreferences.OnSharedPreferenceChangeListener preferenceChangeListener;
 
@@ -165,13 +169,27 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey);
 
+            Check = (CheckBoxPreference)findPreference(amITeacher);
+            pCS = (PreferenceCategory)findPreference(categorySurname);
+            pCC = (PreferenceCategory)findPreference(categoryClass);
+            Check.setOnPreferenceChangeListener(new CheckBoxPreference.OnPreferenceChangeListener() {
+                public boolean onPreferenceChange(final Preference preference, final Object newValue) {
+                    pCS.setEnabled((Boolean) newValue);
+                    pCC.setEnabled(!(Boolean) newValue);
+                    return true;
+                }
+            });
+            Surname = (EditTextPreference)findPreference(surname);
+
             preferenceChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
                 @Override
                 public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
                     if (key.equals(yourClass)) {
                         Preference yourClass = findPreference(key);
                         yourClass.setSummary(sharedPreferences.getString(key, ""));
-
+                    }
+                    if (key.equals(surname)){
+                        Surname.setText(sharedPreferences.getString("","Wpisz nazw"));
                     }
                 }
             };

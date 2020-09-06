@@ -1,14 +1,36 @@
-<PreferenceScreen
+<PreferenceScreen xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ListPreference
-        app:defaultValue="@string/yourClass_empty"
-        app:entries="@array/schoolClass_entries"
-        app:entryValues="@array/schoolClass_values"
-        app:key="yourClass"
-        app:title="@string/settings_schoolClass"
-        app:useSimpleSummaryProvider="true"  />
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="amITeacher"
+        android:title="Jestem nauczycielem"
+        tools:visibility="gone" />
+    <PreferenceCategory
+        android:title="Klasa"
+        android:key="classCategory">
+        <ListPreference
+            app:defaultValue="@string/yourClass_empty"
+            app:entries="@array/schoolClass_entries"
+            app:entryValues="@array/schoolClass_values"
+            app:key="yourClass"
+            app:title="@string/settings_schoolClass"
+            app:useSimpleSummaryProvider="true"  />
+    </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="surnameCategory"
+        android:title="Nazwisko"
+        tools:visibility="gone">
+
+        <EditTextPreference
+            android:defaultValue=""
+            android:key="surname"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Wpisz nazwisko" />
+    </PreferenceCategory>
 
 
 

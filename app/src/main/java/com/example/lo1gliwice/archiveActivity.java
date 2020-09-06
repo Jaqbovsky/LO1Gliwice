@@ -109,6 +109,7 @@ public class archiveActivity extends AppCompatActivity implements NavigationView
 
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
+        Rdata_TV.clearComposingText();
         myMonth = parent.getItemAtPosition(position).toString();
 
         Spinner spinner = (Spinner) parent;
@@ -184,9 +185,7 @@ public class archiveActivity extends AppCompatActivity implements NavigationView
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinnerD.setAdapter(adapter);
             spinnerD.setOnItemSelectedListener(this);
-
             a = false;
-
         }
 
     }
@@ -245,18 +244,6 @@ public class archiveActivity extends AppCompatActivity implements NavigationView
                 }
             }
         });
-    }
-
-    public void trimData(String data){
-
-        List<String> trim = new ArrayList<>();
-
-        for (String a : trim){
-
-        }
-
-        Rdata_TV.setText(trim.get(0));
-
     }
 
     @Override

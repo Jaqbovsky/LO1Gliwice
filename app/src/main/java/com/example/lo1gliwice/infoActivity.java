@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,6 +37,8 @@ import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.google.android.gms.ads.InterstitialAd;
+
 
 public class infoActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -85,9 +88,11 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
         mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-6373386798183476/3442811283");
+        mInterstitialAd.setAdUnitId(getString(R.string.fullScrean_ad_unit_id));
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         List<String> updateList = new ArrayList<>();
+        updateList.add("Naprawiono błędy");
         updateList.add("Poprawiono wygląd");
         updateList.add("Zoptymalizowano\nosiągnięcia uczniów");
         updateList.add("Zmieniono działanie\naktualności");
@@ -241,5 +246,21 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
         intent.setType("plain/text");
         intent.putExtra(Intent.EXTRA_EMAIL, new String[] { "j.olszewski05@gmail.com" });
         startActivity(Intent.createChooser(intent, ""));
+    }
+
+    public void supportMe(View view) {
+        Uri uri = Uri.parse("https://paypal.me/jolszewski05");
+        Intent launchWeb = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(launchWeb);
+    }
+
+    public void watchAd(View view) throws InterruptedException {
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+        Thread.sleep(1000);
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
     }
 }
