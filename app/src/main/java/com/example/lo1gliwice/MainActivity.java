@@ -274,15 +274,63 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Elements elements = doc.select("div#post-3833").select("p");
                 List<String> list = new ArrayList<>();
                 List<String> list2 = new ArrayList<>();
-                for (Element element : elements) {
-                    list.add(element.text());
+                //for (Element element : elements) {
+                //    list.add(element.text());
+                //}
+                String[] arr = {"6l – IE j. polski p. Jania", "6l – IIE j. polski p. Jania", "6l – IIACp j. polski p. Jania"};
+                for (int i = 0; i < arr.length; i ++){
+                    list.add(arr[i]);
                 }
                 System.out.println(list);
                 for (int i = 0; i < list.size(); i++) {
                     if (list.get(i).contains(chosenClass)) {
-                        list2.add(list.get(i));
+
+                        if (chosenClass.equals("IA") || chosenClass.equals("IBC")
+                            || chosenClass.equals("ID") || chosenClass.equals("IE")){
+
+                            if (!list.get(i).contains("II") && !list.get(i).contains("III")){
+                                list2.add(list.get(i));
+                            }
+                            if (list.get(i).contains("IABC") || list.get(i).contains("IDE")){
+                                list2.add(list.get(i));
+                            }
+                        }
+
+                        if (chosenClass.equals("IIAp") || chosenClass.equals("IIBp") || chosenClass.equals("IICp")
+                            || chosenClass.equals("IIDp") || chosenClass.equals("IIEp")){
+
+                                list2.add(list.get(i));
+
+                            if (chosenClass.equals("IIAp") || chosenClass.equals("IICp")){System.out.println("iamworking");
+                                for (int j = 0; j < list.size(); j++){
+                                    if (list.get(j).contains("IIACp")){
+                                        list2.add(list.get(j));
+                                    }
+                                }
+                            }
+                        }
+
+                        if (chosenClass.equals("IIAg") || chosenClass.equals("IIBg") || chosenClass.equals("IICg")
+                                || chosenClass.equals("IIDg") || chosenClass.equals("IIEg")){
+
+                            if (!list.get(i).contains("II") && !list.get(i).contains("III")){
+                                list2.add(list.get(i));
+                            }
+                            if (chosenClass.equals("IIAg") || chosenClass.equals("IIBg")){
+                                for (int j = 0; j < list.size(); j++){
+                                    if (list.get(j).contains("IIA0Cg")){
+                                        list2.add(list.get(j));
+                                    }
+                                }
+                            }
+                        }
+
+
+
+
                     }
                 }
+                System.out.println(list2);
                 if (list2.size() == 0){
                     list2.add("Brak zastępstw");
 
@@ -292,7 +340,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
 
                 date = doc.select("u").text();
-                result_TV.setText(result);
+
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -303,6 +351,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         @Override
         protected void onPostExecute(String aVoid) {
             super.onPostExecute(aVoid);
+            result_TV.setText(result);
             date_TV.setText(date);
         }
     }
