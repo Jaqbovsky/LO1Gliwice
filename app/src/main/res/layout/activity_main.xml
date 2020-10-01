@@ -121,6 +121,7 @@
                 android:layout_marginRight="25dp"
                 android:layout_marginBottom="16dp"
                 android:text="@string/textview_result"
+                android:textSize="15sp"
                 app:layout_constraintBottom_toTopOf="@+id/button_goBack"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.51"

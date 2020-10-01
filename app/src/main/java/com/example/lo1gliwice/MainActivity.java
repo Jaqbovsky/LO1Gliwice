@@ -44,7 +44,9 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemSelectedListener {
     private FirebaseAnalytics mFirebaseAnalytics;
@@ -120,6 +122,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         classList.add("IIBp");
         classList.add("IICp");
         classList.add("IIDp");
+        classList.add("IIEp");
         classList.add("IIAg");
         classList.add("IIBg");
         classList.add("IICg");
@@ -132,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         classList.add("IIIE");
 
         Spinner spinner = findViewById(R.id.classSpinner);
-        ArrayAdapter<String> adapter =  new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, classList);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, classList);
         //ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.classSpinner, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -145,7 +148,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View v) {
                 if (!chosenClass.isEmpty()) {
                     chosenClass_TV.setText("Wybrałeś klasę: " + chosenClass);
-                    if (chosenClass.equals("Klasa nie została wybrana")){
+                    if (chosenClass.equals("Klasa nie została wybrana")) {
 
                     } else {
                         new doit().execute();
@@ -271,72 +274,79 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Document doc;
             try {
                 doc = Jsoup.connect("http://www.lo1.gliwice.pl/zastepstwa-2/").userAgent("Mozilla/5.0").get();
+               // doc = Jsoup.connect("http://onet.pl").userAgent("Mozilla/5.0").get();
                 Elements elements = doc.select("div#post-3833").select("p");
                 List<String> list = new ArrayList<>();
                 List<String> list2 = new ArrayList<>();
-                //for (Element element : elements) {
-                //    list.add(element.text());
-                //}
-                String[] arr = {"6l – IE j. polski p. Jania", "6l – IIE j. polski p. Jania", "6l – IIACp j. polski p. Jania"};
-                for (int i = 0; i < arr.length; i ++){
-                    list.add(arr[i]);
+                for (Element element : elements) {
+                    list.add(element.text());
                 }
+                /*
+                String[] arr = {"6l – IIACp j. polski p. Jania", "6l – IIEp j. polski p. Jania","6l – IIEp j. polski p. Jania", "6l – IIIA j. polski p. Jania"};
+                for (int i = 0; i < arr.length; i++) {
+                    list.add(arr[i]);
+                }*/
                 System.out.println(list);
                 for (int i = 0; i < list.size(); i++) {
                     if (list.get(i).contains(chosenClass)) {
-
                         if (chosenClass.equals("IA") || chosenClass.equals("IBC")
-                            || chosenClass.equals("ID") || chosenClass.equals("IE")){
+                                || chosenClass.equals("ID") || chosenClass.equals("IE")) {
 
-                            if (!list.get(i).contains("II") && !list.get(i).contains("III")){
+                            if (!list.get(i).contains("II") && !list.get(i).contains("III") && !list.get(i).contains("IIACp") && !list.get(i).contains("IIACg") ) {
                                 list2.add(list.get(i));
                             }
-                            if (list.get(i).contains("IABC") || list.get(i).contains("IDE")){
+
+                            if (list.get(i).contains("IABC") || list.get(i).contains("IDE")) {
                                 list2.add(list.get(i));
                             }
                         }
 
-                        if (chosenClass.equals("IIAp") || chosenClass.equals("IIBp") || chosenClass.equals("IICp")
-                            || chosenClass.equals("IIDp") || chosenClass.equals("IIEp")){
+                        if (chosenClass.equals("IIAp") || chosenClass.equals("IIBp")
+                                || chosenClass.equals("IICp") || chosenClass.contains("IIDp")
+                                || chosenClass.equals("IIEp")) {
 
-                                list2.add(list.get(i));
+                                if (list.get(i).contains(chosenClass)){
+                                    list2.add(list.get(i));
+                                }
 
-                            if (chosenClass.equals("IIAp") || chosenClass.equals("IICp")){System.out.println("iamworking");
-                                for (int j = 0; j < list.size(); j++){
-                                    if (list.get(j).contains("IIACp")){
+                            if (chosenClass.equals("IIAp") || chosenClass.equals("IIBp")) {
+                                for (int j = 0; j < list.size(); j++) {
+                                    if (list.get(j).contains("IIAp")) {
                                         list2.add(list.get(j));
                                     }
                                 }
                             }
                         }
+
 
                         if (chosenClass.equals("IIAg") || chosenClass.equals("IIBg") || chosenClass.equals("IICg")
-                                || chosenClass.equals("IIDg") || chosenClass.equals("IIEg")){
+                                || chosenClass.equals("IIDg") || chosenClass.equals("IIEg")) {
 
-                            if (!list.get(i).contains("II") && !list.get(i).contains("III")){
+                            if (list.get(i).contains(chosenClass)){
                                 list2.add(list.get(i));
                             }
-                            if (chosenClass.equals("IIAg") || chosenClass.equals("IIBg")){
-                                for (int j = 0; j < list.size(); j++){
-                                    if (list.get(j).contains("IIA0Cg")){
+                            if (chosenClass.equals("IIAg") || chosenClass.equals("IIBg")) {
+                                for (int j = 0; j < list.size(); j++) {
+                                    if (list.get(j).contains("IIACg")) {
                                         list2.add(list.get(j));
                                     }
                                 }
                             }
                         }
-
-
 
 
                     }
                 }
                 System.out.println(list2);
-                if (list2.size() == 0){
+                Set<String> set = new HashSet<>(list2);
+                list2.clear();
+                list2.addAll(set);
+                if (list2.size() == 0) {
                     list2.add("Brak zastępstw");
 
                 }
-                for (int i = 0; i < list2.size(); i++){
-                    result += list2.get(i);
+                for (int i = 0; i < list2.size(); i++) {
+                    result += list2.get(i) + "\n";
                 }
 
                 date = doc.select("u").text();
@@ -345,7 +355,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        return result;
+            return result;
         }
 
         @Override

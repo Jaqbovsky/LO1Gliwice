@@ -5,7 +5,7 @@
 
     <string name="menu_settings">Ustaweinia</string>
     <string name="menu_mainPage">Strona główna</string>
-    <string name="menu_clasroomChange">Zamiena klas</string>
+    <string name="menu_clasroomChange">Zamiana klas</string>
     <string name="menu_information">Informacje</string>
 
     <string name="drawerOpen">drawerOpen</string>
@@ -19,7 +19,7 @@
     <string name="button_refresh">Ośwież zastępstwa</string>
 
     <string name="button_yourClass">Moja klasa</string>
-    <string name="textview_result" />
+    <string name="textview_result"/>
     <string name="textview_date" />
     <string name="textview_chosenClass" />
 
