@@ -1,5 +1,6 @@
 package com.example.lo1gliwice.achievements;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -30,6 +31,7 @@ import com.example.lo1gliwice.archiveActivity;
 import com.example.lo1gliwice.classSwapActivity;
 import com.example.lo1gliwice.infoActivity;
 import com.example.lo1gliwice.news.newsActivity;
+import com.example.lo1gliwice.planActivity;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -68,6 +70,7 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
     ArrayList<String> contain = new ArrayList<String>();
     ProgressBar progressBar;
 
+    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -145,6 +148,9 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
                 moveToArchiveActivity();
                 break;
 
+            case R.id.menu_plan:
+                moveToPlan();
+                break;
         }
 
         return false;
@@ -340,6 +346,11 @@ public class achievementsActivity extends AppCompatActivity implements Navigatio
 
     private void moveToArchiveActivity() {
         Intent intent = new Intent(achievementsActivity.this, archiveActivity.class);
+        startActivity(intent);
+    }
+
+    private void moveToPlan() {
+        Intent intent = new Intent(achievementsActivity.this, planActivity.class);
         startActivity(intent);
     }
 

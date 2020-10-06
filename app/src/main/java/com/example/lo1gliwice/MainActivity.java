@@ -212,6 +212,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.menu_archive:
                 moveToArchiveActivity();
+                break;
+
+            case R.id.menu_plan:
+                moveToPlan();
+                break;
         }
 
         return false;
@@ -250,6 +255,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void moveToArchiveActivity() {
         Intent intent = new Intent(MainActivity.this, archiveActivity.class);
+        startActivity(intent);
+    }
+
+    private void moveToPlan() {
+        Intent intent = new Intent(MainActivity.this, planActivity.class);
         startActivity(intent);
     }
 
@@ -372,5 +382,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         chosenClass = sharedPreferences.getString(PREF_YOUR_CLASS, "");
     }
 
+    public void
 
 }

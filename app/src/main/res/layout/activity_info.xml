@@ -253,7 +253,7 @@
                     android:columnOrderPreserved="false"
                     android:orientation="horizontal"
                     android:rowCount="1">
-
+<!--
                     <androidx.cardview.widget.CardView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -282,7 +282,7 @@
                                 android:textSize="18sp" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
-
+-->
                     <androidx.cardview.widget.CardView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -320,7 +320,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:gravity="center"
-                    android:text="Aktualna wersja: 1.03"
+                    android:text="Aktualna wersja: 1.1"
                     android:textColor="@android:color/black"
                     android:textSize="20sp" />
 

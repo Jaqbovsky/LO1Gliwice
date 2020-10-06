@@ -1,5 +1,6 @@
 package com.example.lo1gliwice.aboutSchool;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import com.example.lo1gliwice.archiveActivity;
 import com.example.lo1gliwice.classSwapActivity;
 import com.example.lo1gliwice.infoActivity;
 import com.example.lo1gliwice.news.newsActivity;
+import com.example.lo1gliwice.planActivity;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -46,6 +48,7 @@ public class organizationOfTheSchoolYear extends AppCompatActivity implements Na
     String result;
     TextView result_TV;
 
+    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,7 +82,7 @@ public class organizationOfTheSchoolYear extends AppCompatActivity implements Na
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
-        switch (menuItem.getItemId()){
+        switch (menuItem.getItemId()) {
             case R.id.menu_mainPage:
                 moveToMainActivity();
                 break;
@@ -106,6 +109,10 @@ public class organizationOfTheSchoolYear extends AppCompatActivity implements Na
 
             case R.id.menu_archive:
                 moveToArchiveActivity();
+                break;
+
+            case R.id.menu_plan:
+                moveToPlan();
                 break;
         }
 
@@ -143,9 +150,13 @@ public class organizationOfTheSchoolYear extends AppCompatActivity implements Na
         startActivity(intent);
     }
 
-
     private void moveToArchiveActivity() {
         Intent intent = new Intent(organizationOfTheSchoolYear.this, archiveActivity.class);
+        startActivity(intent);
+    }
+
+    private void moveToPlan() {
+        Intent intent = new Intent(organizationOfTheSchoolYear.this, planActivity.class);
         startActivity(intent);
     }
 

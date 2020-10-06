@@ -18,7 +18,6 @@
         android:layout_marginStart="35dp"
         android:contentDescription="@string/todo"
         android:clickable="true" />
-
     <TextView
         android:layout_width="257dp"
         android:layout_height="wrap_content"

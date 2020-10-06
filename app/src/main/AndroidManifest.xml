@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".archiveActivity"></activity>
+        <activity android:name=".planActivity"></activity>
+        <activity android:name=".archiveActivity" />
         <activity android:name=".achievements.achievementsActivity_article" />
         <activity android:name=".achievements.achievementsActivity" />
         <activity android:name=".aboutSchool.aboutSchoolActivity" />

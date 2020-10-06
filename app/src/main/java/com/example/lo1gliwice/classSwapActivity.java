@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lo1gliwice.aboutSchool.aboutSchoolActivity;
+import com.example.lo1gliwice.achievements.achievementsActivity_article;
 import com.example.lo1gliwice.news.newsActivity;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -133,6 +134,14 @@ public class classSwapActivity extends AppCompatActivity implements NavigationVi
                 moveToclassSwapActivity();
                 break;
 
+            case R.id.menu_news:
+                moveToNewsActivity();
+                break;
+
+            case R.id.menu_about_school:
+                moveToAboutSchoolActivity();
+                break;
+
             case R.id.menu_setting:
                 moveToSettingsActivity();
                 break;
@@ -141,18 +150,13 @@ public class classSwapActivity extends AppCompatActivity implements NavigationVi
                 moveToInfoActivity();
                 break;
 
-            case R.id.menu_news:
-                moveToNewsActivity();
-            break;
-
-            case R.id.menu_about_school:
-                moveToAboutSchoolActivity();
-                break;
-
             case R.id.menu_archive:
                 moveToArchiveActivity();
                 break;
 
+            case R.id.menu_plan:
+                moveToPlan();
+                break;
         }
 
         return false;
@@ -190,6 +194,11 @@ public class classSwapActivity extends AppCompatActivity implements NavigationVi
 
     private void moveToArchiveActivity() {
         Intent intent = new Intent(classSwapActivity.this, archiveActivity.class);
+        startActivity(intent);
+    }
+
+    private void moveToPlan() {
+        Intent intent = new Intent(classSwapActivity.this, planActivity.class);
         startActivity(intent);
     }
 

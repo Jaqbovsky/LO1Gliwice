@@ -21,6 +21,7 @@ import com.example.lo1gliwice.archiveActivity;
 import com.example.lo1gliwice.classSwapActivity;
 import com.example.lo1gliwice.infoActivity;
 import com.example.lo1gliwice.news.newsActivity;
+import com.example.lo1gliwice.planActivity;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -126,6 +127,10 @@ public class aboutSchoolActivity extends AppCompatActivity implements Navigation
                 moveToArchiveActivity();
                 break;
 
+            case R.id.menu_plan:
+                moveToPlan();
+                break;
+
         }
 
         return false;
@@ -164,6 +169,11 @@ public class aboutSchoolActivity extends AppCompatActivity implements Navigation
 
     private void moveToArchiveActivity() {
         Intent intent = new Intent(aboutSchoolActivity.this, archiveActivity.class);
+        startActivity(intent);
+    }
+
+    private void moveToPlan() {
+        Intent intent = new Intent(aboutSchoolActivity.this, planActivity.class);
         startActivity(intent);
     }
 

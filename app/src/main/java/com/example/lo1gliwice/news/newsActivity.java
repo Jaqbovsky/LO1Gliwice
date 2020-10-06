@@ -38,6 +38,7 @@ import com.example.lo1gliwice.achievements.achievementsActivity_article;
 import com.example.lo1gliwice.archiveActivity;
 import com.example.lo1gliwice.classSwapActivity;
 import com.example.lo1gliwice.infoActivity;
+import com.example.lo1gliwice.planActivity;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -120,14 +121,6 @@ public class newsActivity extends AppCompatActivity implements NavigationView.On
                 moveToclassSwapActivity();
                 break;
 
-            case R.id.menu_setting:
-                moveToSettingsActivity();
-                break;
-
-            case R.id.menu_information:
-                moveToInfoActivity();
-                break;
-
             case R.id.menu_news:
                 moveToNewsActivity();
                 break;
@@ -136,8 +129,20 @@ public class newsActivity extends AppCompatActivity implements NavigationView.On
                 moveToAboutSchoolActivity();
                 break;
 
+            case R.id.menu_setting:
+                moveToSettingsActivity();
+                break;
+
+            case R.id.menu_information:
+                moveToInfoActivity();
+                break;
+
             case R.id.menu_archive:
                 moveToArchiveActivity();
+                break;
+
+            case R.id.menu_plan:
+                moveToPlan();
                 break;
         }
 
@@ -177,6 +182,11 @@ public class newsActivity extends AppCompatActivity implements NavigationView.On
 
     private void moveToArchiveActivity() {
         Intent intent = new Intent(newsActivity.this, archiveActivity.class);
+        startActivity(intent);
+    }
+
+    private void moveToPlan() {
+        Intent intent = new Intent(newsActivity.this, planActivity.class);
         startActivity(intent);
     }
 

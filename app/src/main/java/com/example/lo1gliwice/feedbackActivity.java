@@ -5,6 +5,7 @@
 
 package com.example.lo1gliwice;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -23,6 +24,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.lo1gliwice.aboutSchool.aboutSchoolActivity;
+import com.example.lo1gliwice.achievements.achievementsActivity_article;
 import com.example.lo1gliwice.news.newsActivity;
 import com.firebase.client.Firebase;
 import com.google.android.gms.ads.AdRequest;
@@ -48,6 +50,7 @@ public class feedbackActivity extends AppCompatActivity implements NavigationVie
     ActionBarDrawerToggle toggle;
     CheckBox error_CB, opinion_CB, idea_CB;
 
+    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -182,14 +185,6 @@ public class feedbackActivity extends AppCompatActivity implements NavigationVie
                 moveToclassSwapActivity();
                 break;
 
-            case R.id.menu_setting:
-                moveToSettingsActivity();
-                break;
-
-            case R.id.menu_information:
-                moveToInfoActivity();
-                break;
-
             case R.id.menu_news:
                 moveToNewsActivity();
                 break;
@@ -198,8 +193,20 @@ public class feedbackActivity extends AppCompatActivity implements NavigationVie
                 moveToAboutSchoolActivity();
                 break;
 
+            case R.id.menu_setting:
+                moveToSettingsActivity();
+                break;
+
+            case R.id.menu_information:
+                moveToInfoActivity();
+                break;
+
             case R.id.menu_archive:
                 moveToArchiveActivity();
+                break;
+
+            case R.id.menu_plan:
+                moveToPlan();
                 break;
         }
 
@@ -245,6 +252,10 @@ public class feedbackActivity extends AppCompatActivity implements NavigationVie
         startActivity(intent);
     }
 
+    private void moveToPlan() {
+        Intent intent = new Intent(feedbackActivity.this, planActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {

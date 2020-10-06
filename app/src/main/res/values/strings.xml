@@ -3,7 +3,7 @@
     <string name="app_name">1LO Gliwice</string>
     <string name="header_name">I Liceum Ogólnokształcące Dwujęzyczne im. E. Dembowskiego</string>
 
-    <string name="menu_settings">Ustaweinia</string>
+    <string name="menu_settings">Ustawienia</string>
     <string name="menu_mainPage">Strona główna</string>
     <string name="menu_clasroomChange">Zamiana klas</string>
     <string name="menu_information">Informacje</string>
@@ -19,7 +19,7 @@
     <string name="button_refresh">Ośwież zastępstwa</string>
 
     <string name="button_yourClass">Moja klasa</string>
-    <string name="textview_result"/>
+    <string name="textview_result" />
     <string name="textview_date" />
     <string name="textview_chosenClass" />
 
@@ -46,6 +46,7 @@
     <string name="button_achievements">Osiągnięcia</string>
     <string name="button_for_candidates">Dla kandydatów</string>
     <string name="button_organization_of_the_school_year">Organizacja roku szkolnego</string>
+    <string name="menu_plan">Plan lekcji</string>
 
 
 </resources>

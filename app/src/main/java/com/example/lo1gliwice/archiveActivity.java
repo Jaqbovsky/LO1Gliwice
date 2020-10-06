@@ -5,6 +5,8 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lo1gliwice.aboutSchool.aboutSchoolActivity;
+import com.example.lo1gliwice.achievements.achievementsActivity_article;
 import com.example.lo1gliwice.news.newsActivity;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -54,6 +57,7 @@ public class archiveActivity extends AppCompatActivity implements NavigationView
     FirebaseFirestore db;
     private static String TAG = "archiveActivity";
 
+    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,6 +108,8 @@ public class archiveActivity extends AppCompatActivity implements NavigationView
         adapterM.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerM.setAdapter(adapterM);
         spinnerM.setOnItemSelectedListener(this);
+
+
 
     }
 
@@ -274,6 +280,13 @@ public class archiveActivity extends AppCompatActivity implements NavigationView
                 moveToInfoActivity();
                 break;
 
+            case R.id.menu_archive:
+                moveToArchiveActivity();
+                break;
+
+            case R.id.menu_plan:
+                moveToPlan();
+                break;
         }
 
         return false;
@@ -307,6 +320,16 @@ public class archiveActivity extends AppCompatActivity implements NavigationView
 
     private void moveToAboutSchoolActivity() {
         Intent intent = new Intent(archiveActivity.this, aboutSchoolActivity.class);
+        startActivity(intent);
+    }
+
+    private void moveToArchiveActivity() {
+        Intent intent = new Intent(archiveActivity.this, archiveActivity.class);
+        startActivity(intent);
+    }
+
+    private void moveToPlan() {
+        Intent intent = new Intent(archiveActivity.this, planActivity.class);
         startActivity(intent);
     }
 

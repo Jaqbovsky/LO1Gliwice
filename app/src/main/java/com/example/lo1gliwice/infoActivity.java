@@ -27,6 +27,7 @@ import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.lo1gliwice.aboutSchool.aboutSchoolActivity;
+import com.example.lo1gliwice.achievements.achievementsActivity_article;
 import com.example.lo1gliwice.news.newsActivity;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -92,6 +93,7 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         List<String> updateList = new ArrayList<>();
+        updateList.add("Dodano plan lekcji");
         updateList.add("Naprawiono błędy");
         updateList.add("Poprawiono wygląd");
         updateList.add("Zoptymalizowano\nosiągnięcia uczniów");
@@ -164,6 +166,14 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
                 moveToclassSwapActivity();
                 break;
 
+            case R.id.menu_news:
+                moveToNewsActivity();
+                break;
+
+            case R.id.menu_about_school:
+                moveToAboutSchoolActivity();
+                break;
+
             case R.id.menu_setting:
                 moveToSettingsActivity();
                 break;
@@ -172,16 +182,12 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
                 moveToInfoActivity();
                 break;
 
-            case R.id.menu_news:
-            moveToNewsActivity();
-            break;
-
-            case R.id.menu_about_school:
-                moveToAboutSchoolActivity();
-                break;
-
             case R.id.menu_archive:
                 moveToArchiveActivity();
+                break;
+
+            case R.id.menu_plan:
+                moveToPlan();
                 break;
         }
 
@@ -228,6 +234,11 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
         startActivity(intent);
     }
 
+    private void moveToPlan() {
+        Intent intent = new Intent(infoActivity.this, planActivity.class);
+        startActivity(intent);
+    }
+
 
     //OPENNING WEBBROSER
     public void openGIT(String url){
@@ -247,13 +258,13 @@ public class infoActivity extends AppCompatActivity implements NavigationView.On
         intent.putExtra(Intent.EXTRA_EMAIL, new String[] { "j.olszewski05@gmail.com" });
         startActivity(Intent.createChooser(intent, ""));
     }
-
+/*
     public void supportMe(View view) {
         Uri uri = Uri.parse("https://paypal.me/jolszewski05");
         Intent launchWeb = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(launchWeb);
     }
-
+*/
     public void watchAd(View view) throws InterruptedException {
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
         Thread.sleep(1000);

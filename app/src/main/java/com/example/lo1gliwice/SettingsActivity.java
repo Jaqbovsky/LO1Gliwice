@@ -26,6 +26,7 @@ import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 
 import com.example.lo1gliwice.aboutSchool.aboutSchoolActivity;
+import com.example.lo1gliwice.achievements.achievementsActivity_article;
 import com.example.lo1gliwice.news.newsActivity;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -97,14 +98,6 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
                 moveToclassSwapActivity();
                 break;
 
-            case R.id.menu_setting:
-                moveToSettingsActivity();
-                break;
-
-            case R.id.menu_information:
-                moveToInfoActivity();
-                break;
-
             case R.id.menu_news:
                 moveToNewsActivity();
                 break;
@@ -113,8 +106,20 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
                 moveToAboutSchoolActivity();
                 break;
 
+            case R.id.menu_setting:
+                moveToSettingsActivity();
+                break;
+
+            case R.id.menu_information:
+                moveToInfoActivity();
+                break;
+
             case R.id.menu_archive:
                 moveToArchiveActivity();
+                break;
+
+            case R.id.menu_plan:
+                moveToPlan();
                 break;
         }
 
@@ -148,6 +153,10 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
     }
     private void moveToArchiveActivity() {
         Intent intent = new Intent(SettingsActivity.this, archiveActivity.class);
+        startActivity(intent);
+    }
+    private void moveToPlan() {
+        Intent intent = new Intent(SettingsActivity.this, planActivity.class);
         startActivity(intent);
     }
 
